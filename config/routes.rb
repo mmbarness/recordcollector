@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 namespace :api, defaults: { format: :json } do
-    resources :users 
+    resources :user
     resource :session, only: [:create, :destroy]
-    post '/search', to: 'users#search'
   end
-  root to: 'root#root'
+  root to: 'static_pages#root'
 end
