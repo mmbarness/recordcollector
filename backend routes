@@ -1,0 +1,132 @@
+api_todos GET    /api/todos(.:format)        api/todos#index {:format=>:json}
+          POST   /api/todos(.:format)        api/todos#create {:format=>:json}
+api_todo  GET    /api/todos/:id(.:format)    api/todos#show {:format=>:json}
+          PATCH  /api/todos/:id(.:format)    api/todos#update {:format=>:json}
+          PUT    /api/todos/:id(.:format)    api/todos#update {:format=>:json}
+          DELETE /api/todos/:id(.:format)    api/todos#destroy {:format=>:json}
+root      GET    /                           static_pages#root
+
+                   Prefix Verb   URI Pattern                                                                              Controller#Action
+      cat_rental_requests GET    /cat_rental_requests(.:format)              cat_rental_requests#index
+                          POST   /cat_rental_requests(.:format)              cat_rental_requests#create
+   new_cat_rental_request GET    /cat_rental_requests/new(.:format)          cat_rental_requests#new
+  edit_cat_rental_request GET    /cat_rental_requests/:id/edit(.:format)     cat_rental_requests#edit
+       cat_rental_request GET    /cat_rental_requests/:id(.:format)          cat_rental_requests#show
+                          PATCH  /cat_rental_requests/:id(.:format)          cat_rental_requests#update
+                          PUT    /cat_rental_requests/:id(.:format)          cat_rental_requests#update
+                          DELETE /cat_rental_requests/:id(.:format)          cat_rental_requests#destroy
+                     cats GET    /cats(.:format)                             cats#index
+                          POST   /cats(.:format)                             cats#create
+                  new_cat GET    /cats/new(.:format)                         cats#new
+                 edit_cat GET    /cats/:id/edit(.:format)                    cats#edit
+                      cat GET    /cats/:id(.:format)                         cats#show
+                          PATCH  /cats/:id(.:format)                         cats#update
+                          PUT    /cats/:id(.:format)                         cats#update
+                          DELETE /cats/:id(.:format)                         cats#destroy
+
+     Prefix Verb   URI Pattern               Controller#Action
+      users GET    /users(.:format)          users#index
+            POST   /users(.:format)          users#create
+   new_user GET    /users/new(.:format)      users#new
+  edit_user GET    /users/:id/edit(.:format) users#edit
+       user GET    /users/:id(.:format)      users#show
+            PATCH  /users/:id(.:format)      users#update
+            PUT    /users/:id(.:format)      users#update
+            DELETE /users/:id(.:format)      users#destroy
+      poems GET    /poems(.:format)          poems#index
+            POST   /poems(.:format)          poems#create
+   new_poem GET    /poems/new(.:format)      poems#new
+  edit_poem GET    /poems/:id/edit(.:format) poems#edit
+       poem GET    /poems/:id(.:format)      poems#show
+            PATCH  /poems/:id(.:format)      poems#update
+            PUT    /poems/:id(.:format)      poems#update
+            DELETE /poems/:id(.:format)      poems#destroy
+new_session GET    /session/new(.:format)    sessions#new
+    session DELETE /session(.:format)        sessions#destroy
+            POST   /session(.:format)        sessions#create
+
+##Users 
+|api_users      | POST  |/api/users(.:format)         | /api/users#create {:format=>:json} | user sign-up post request |                  
+|api_new_user   | GET   |/api/users/new(.:format)     | /api/users#new {:format=>:json} | user sign-up page | 
+|api_edit_user  | GET   |/api/users/:id/edit(.:format)| /api/users#edit {:format=>:json} | edit account info http request? | 
+|api_user       | GET   |/api/users/:id(.:format)     | /api/users#show {:format=>:json} | user homepage | 
+|               | PATCH |/api/users/:id(.:format)     | /api/users#update {:format=>:json} | edit account page | 
+|               | DELETE|/api/users/:id(.:format)     | /api/users#destroy {:format=>:json} | account deletion | 
+##Session(login)
+|new_session    | GET   |/api/session/new(.:format)   | sessions#new | -- |
+|    session    | DELETE|/api/session(.:format)       | sessions#destroy | -- |
+|               | POST  |/api/session(.:format)       | sessions#create | -- |
+##Tags 
+|api_tags       | POST  |/api/tags(.:format)          | /api/tags#create {:format=>:json} | add a new tag | 
+|api_tag        | GET   |/api/tags/:id(.:format)      | /api/tags#show {:format=>:json} | tag page w/ links to artists |
+##Labels
+|api_labels     | POST   |/api/labels(.:format)        |  /api/labels#create {:format=>:json} | add a label |  
+|api_new_label  | GET    |/api/labels/new(.:format)    |  /api/labels#new {:format=>:json} | new label form page | 
+|api_label      | GET    |/api/labels/:id(.:format)    |  /api/labels#show {:format=>:json} | label show page | 
+                | DELETE |/api/labels/:id(.:format)    |  /api/labels#destroy {:format=>:json} | delete label | 
+##Artists  
+|api_artists    | POST   |/api/artists(.:format)         | /api/artists#create {:format=>:json} | new artist http request | 
+|api_new_artist | GET    |/api/artists/new(.:format)     | /api/artists#new {:format=>:json} | new artist signup page | 
+|api_edit_artist| GET    |/api/artists/:id/edit(.:format)| /api/artists#edit {:format=>:json} | edit artist page |
+|api_artist     | GET    |/api/artists/:id(.:format)     | /api/artists#show {:format=>:json} | artist show page | 
+|               | PATCH  |/api/artists/:id(.:format)     | /api/artists#update {:format=>:json} | edit artist http request |
+|               | DELETE |/api/artists/:id(.:format)     | /api/artists#destroy {:format=>:json} | delete artist | 
+##Albums  
+|api_albums     | GET    |/api/artists/:id/albums(.:format)          | /api/artists/:id/albums#index {:format=>:json} | artist discography | 
+|               | POST   |/api/artists/:id/albums(.:format)          | /api/artists/:id/albums#create {:format=>:json} | new album http request | 
+|api_new_album  | GET    |/api/artists/:id/albums/new(.:format)      | /api/artists/:id/albums#new {:format=>:json} | album show page | 
+|api_edit_album | GET    |/api/artists/:id/albums/:id/edit(.:format) | /api/artists/:id/albums#edit {:format=>:json} | album edit page | 
+|api_album      | GET    |/api/artists/:id/albums/:id(.:format)|/api/artists/:id/albums#show {:format=>:json} | album show page - where the magic happens | 
+|               |  PATCH | /api/artists/:id/albums/:id(.:format)     |  /api/artists/:id/albums#update {:format=>:json} | edit album http request | 
+|               |  DELETE| /api/artists/:id/albums/:id(.:format)     |  /api/artists/:id/albums#destroy {:format=>:json} | delete album | 
+
+##Tracks 
+|api_tracks     | POST   |/api/artists/:id/albums/:id/tracks(.:format)  |  /api/artists/:id/albums/:id/tracks#create {:format=>:json} | new track http req |
+|api_track      | DELETE |/api/artists/:id/albums/:id/tracks/:id(.:format) |   /api/artists/:id/albums/:id/tracks#destroy {:format=>:json} | -- |
+
+##Root 
+|root  |    GET  |  /  |                   |      static_pages#root| --|
+
+
+###Session(login)
+|new_session    | GET   |/api/session/new(.:format)   | sessions#new | -- |
+|    session    | DELETE|/api/session(.:format)       | sessions#destroy | -- |
+|      -        | POST  |/api/session(.:format)       | sessions#create | -- |
+### Tags 
+|api_tags       | POST  |/api/tags(.:format)          | /api/tags#create {:format=>:json} | add a new tag | 
+|api_tag        | GET   |/api/tags/:id(.:format)      | /api/tags#show {:format=>:json} | tag page w/ links to artists |
+### Labels
+|api_labels     | POST   |/api/labels(.:format)        |  /api/labels#create {:format=>:json} | add a label |  
+|api_new_label  | GET    |/api/labels/new(.:format)    |  /api/labels#new {:format=>:json} | new label form page | 
+|api_label      | GET    |/api/labels/:id(.:format)    |  /api/labels#show {:format=>:json} | label show page | 
+| -             | DELETE |/api/labels/:id(.:format)    |  /api/labels#destroy {:format=>:json} | delete label | 
+### Artists  
+|    Prefix     |  Verb | URI Pattern                 | Controller #action| Notes |
+| ----          | ---   | -----                       |  ---         | --- |
+|api_artists    | POST   |/api/artists(.:format)         | /api/artists#create {:format=>:json} | new artist http request | 
+|api_new_artist | GET    |/api/artists/new(.:format)     | /api/artists#new {:format=>:json} | new artist signup page | 
+|api_edit_artist| GET    |/api/artists/:id/edit(.:format)| /api/artists#edit {:format=>:json} | edit artist page |
+|api_artist     | GET    |/api/artists/:id(.:format)     | /api/artists#show {:format=>:json} | artist show page | 
+|     -         | PATCH  |/api/artists/:id(.:format)     | /api/artists#update {:format=>:json} | edit artist http request |
+|     -         | DELETE |/api/artists/:id(.:format)     | /api/artists#destroy {:format=>:json} | delete artist | 
+### Albums  
+|    Prefix     |  Verb | URI Pattern                 | Controller #action| Notes |
+| ----          | ---   | -----                       |  ---         | --- |
+|api_albums     | GET    |/api/artists/:id/albums(.:format)          | /api/artists/:id/albums#index {:format=>:json} | artist discography | 
+|      -        | POST   |/api/artists/:id/albums(.:format)          | /api/artists/:id/albums#create {:format=>:json} | new album http request | 
+|api_new_album  | GET    |/api/artists/:id/albums/new(.:format)      | /api/artists/:id/albums#new {:format=>:json} | album show page | 
+|api_edit_album | GET    |/api/artists/:id/albums/:id/edit(.:format) | /api/artists/:id/albums#edit {:format=>:json} | album edit page | 
+|api_album      | GET    |/api/artists/:id/albums/:id(.:format)|/api/artists/:id/albums#show {:format=>:json} | album show page - where the magic happens|  
+|       -        |  PATCH | /api/artists/:id/albums/:id(.:format)     |  /api/artists/:id/albums#update {:format=>:json} | edit album http request | 
+|       -        |  DELETE| /api/artists/:id/albums/:id(.:format)     |  /api/artists/:id/albums#destroy {:format=>:json} | delete album | 
+
+### Tracks 
+|    Prefix     |  Verb | URI Pattern                 | Controller #action| Notes |
+| ----          | ---   | -----                       |  ---         | --- |
+|api_tracks     | POST   |/api/artists/:id/albums/:id/tracks(.:format)  |  /api/artists/:id/albums/:id/tracks#create {:format=>:json} | new track http req |
+|api_track      | DELETE |/api/artists/:id/albums/:id/tracks/:id(.:format) |   /api/artists/:id/albums/:id/tracks#destroy {:format=>:json} | -- |
+
+### Root 
+|    Prefix     |  Verb | URI Pattern                 | Controller #action| Notes |
+| ----          | ---   | -----                       |  ---         | --- |
+|root  |    GET  |  /  |       --           |      static_pages#root| --|
