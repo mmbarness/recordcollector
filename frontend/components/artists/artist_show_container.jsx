@@ -3,13 +3,14 @@ import ArtistShow  from './artist_show'
 import {fetchArtist, fetchArtists} from '../../actions/artist_actions';
 import {selectArtist} from '../../reducers/selectors'
 
-const mapStateToProps = (state,{ match }) => {
-    const artistId = parseInt(match.params.artistId);
-    const artist = selectArtist(state.entities, artistId);
-    debugger
+const mapStateToProps = (state,ownProps) => {
+    // const artistId = match.params.artistId;
+    // const artist = state.entities.artists[artistId]
+    const id = ownProps.match.params.artistId
+    const artistSlice = state.entities.artists[id]
+    // debugger;
     return {
-        artist: artist,
-        artistId: artistId
+        "artist": artistSlice
     }
 }
 

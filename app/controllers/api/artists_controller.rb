@@ -1,7 +1,8 @@
 class Api::ArtistsController < ApplicationController
     def show
-        debugger;
-        @artist = Artist.find_by(id: params[:id]);
+        artistId = params[:id].to_i
+        @artist = Artist.find_by(id: artistId);
+        # debugger;
         render "api/artists/show"
     end
 

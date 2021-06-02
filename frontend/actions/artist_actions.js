@@ -9,7 +9,6 @@ export const receiveAllArtists = artists => ({
 })
 
 export const receiveArtist = artist => {
-    debugger; 
     return ({
     type: RECEIVE_ARTIST,
     artist
