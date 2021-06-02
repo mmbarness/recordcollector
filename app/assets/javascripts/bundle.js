@@ -448,7 +448,6 @@ var SessionForm = function (_React$Component) {
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit, className: 'login-form-box' },
-          'hi',
           _react2.default.createElement('br', null),
           'Please ',
           this.props.formType,

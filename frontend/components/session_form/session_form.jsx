@@ -47,7 +47,6 @@ class SessionForm extends React.Component {
   conditionalDisplay(){
     if (this.props.formType === 'signup') {
       return (
-      
       <label>Email:
         <input type="text"
               value={this.state.email}
@@ -71,7 +70,6 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          hi
           <br/>
           Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
