@@ -86,6 +86,63 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/artist_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/artist_actions.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.fetchArtist = exports.fetchArtists = exports.receiveArtist = exports.receiveAllArtists = exports.RECEIVE_ARTIST = exports.RECEIVE_ALL_ARTISTS = undefined;
+
+var _artist_api_util = __webpack_require__(/*! ../util/artist_api_util */ "./frontend/util/artist_api_util.js");
+
+var APIUtil = _interopRequireWildcard(_artist_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_ALL_ARTISTS = exports.RECEIVE_ALL_ARTISTS = "RECEIVE_ALL_ARTISTS";
+var RECEIVE_ARTIST = exports.RECEIVE_ARTIST = "RECEIVE_ARTIST";
+
+var receiveAllArtists = exports.receiveAllArtists = function receiveAllArtists(artists) {
+    return {
+        type: RECEIVE_ALL_ARTISTS,
+        artists: artists
+    };
+};
+
+var receiveArtist = exports.receiveArtist = function receiveArtist(artist) {
+    debugger;
+    return {
+        type: RECEIVE_ARTIST,
+        artist: artist
+    };
+};
+
+var fetchArtists = exports.fetchArtists = function fetchArtists() {
+    return function (dispatch) {
+        return APIUtil.fetchArtists().then(function (artists) {
+            return dispatch(receiveAllArtists(artists));
+        });
+    };
+};
+
+var fetchArtist = exports.fetchArtist = function fetchArtist(artistId) {
+    return function (dispatch) {
+        return APIUtil.fetchArtist(artistId).then(function (artist) {
+            return dispatch(receiveArtist(artist));
+        });
+    };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -194,7 +251,15 @@ var _login_form_container = __webpack_require__(/*! ./session_form/login_form_co
 
 var _login_form_container2 = _interopRequireDefault(_login_form_container);
 
+var _artist_show_container = __webpack_require__(/*! ./artists/artist_show_container */ "./frontend/components/artists/artist_show_container.jsx");
+
+var _artist_show_container2 = _interopRequireDefault(_artist_show_container);
+
 var _route_util = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+
+var _artist_index_container = __webpack_require__(/*! ./artists/artist_index_container */ "./frontend/components/artists/artist_index_container.jsx");
+
+var _artist_index_container2 = _interopRequireDefault(_artist_index_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -219,6 +284,8 @@ var App = function App() {
     _react2.default.createElement(
       _reactRouterDom.Switch,
       null,
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/artists/', component: _artist_index_container2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/artists/:artistId', component: _artist_show_container2.default }),
       _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/login', component: _login_form_container2.default }),
       _react2.default.createElement(_route_util.AuthRoute, { exact: true, path: '/signup', component: _signup_form_container2.default })
     )
@@ -226,6 +293,303 @@ var App = function App() {
 };
 
 exports.default = App;
+
+/***/ }),
+
+/***/ "./frontend/components/artists/artist_index.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/artists/artist_index.jsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ArtistIndex = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _artists_index_item = __webpack_require__(/*! ./artists_index_item */ "./frontend/components/artists/artists_index_item.jsx");
+
+var _artists_index_item2 = _interopRequireDefault(_artists_index_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArtistIndex = exports.ArtistIndex = function (_React$Component) {
+    _inherits(ArtistIndex, _React$Component);
+
+    function ArtistIndex(props) {
+        _classCallCheck(this, ArtistIndex);
+
+        return _possibleConstructorReturn(this, (ArtistIndex.__proto__ || Object.getPrototypeOf(ArtistIndex)).call(this, props));
+    }
+
+    _createClass(ArtistIndex, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.fetchArtists();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var artistIndexItems = this.props.artists.map(function (artist) {
+                return _react2.default.createElement(_artists_index_item2.default, { artist: artist, fetchArtist: _this2.props.fetchArtist });
+            });
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Artists'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    artistIndexItems
+                )
+            );
+        }
+    }]);
+
+    return ArtistIndex;
+}(_react2.default.Component);
+
+exports.default = ArtistIndex;
+
+/***/ }),
+
+/***/ "./frontend/components/artists/artist_index_container.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/artists/artist_index_container.jsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mapDispatchToProps = exports.mapStateToProps = undefined;
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _artist_index = __webpack_require__(/*! ./artist_index */ "./frontend/components/artists/artist_index.jsx");
+
+var _artist_index2 = _interopRequireDefault(_artist_index);
+
+var _artist_actions = __webpack_require__(/*! ../../actions/artist_actions */ "./frontend/actions/artist_actions.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = exports.mapStateToProps = function mapStateToProps(state) {
+  return { artists: Object.values(state.entities.artists) };
+};
+
+var mapDispatchToProps = exports.mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchArtists: function fetchArtists() {
+      return dispatch((0, _artist_actions.fetchArtists)());
+    },
+    fetchArtist: function fetchArtist(reportId) {
+      return dispatch((0, _artist_actions.fetchArtist)(reportId));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_artist_index2.default);
+
+/***/ }),
+
+/***/ "./frontend/components/artists/artist_show.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/artists/artist_show.jsx ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ArtistShow = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArtistShow = exports.ArtistShow = function (_React$Component) {
+    _inherits(ArtistShow, _React$Component);
+
+    function ArtistShow(props) {
+        _classCallCheck(this, ArtistShow);
+
+        return _possibleConstructorReturn(this, (ArtistShow.__proto__ || Object.getPrototypeOf(ArtistShow)).call(this, props));
+    }
+
+    _createClass(ArtistShow, [{
+        key: 'return',
+        value: function _return() {
+            _react2.default.createElement(
+                'div',
+                null,
+                'fuck u'
+            );
+        }
+    }]);
+
+    return ArtistShow;
+}(_react2.default.Component);
+
+exports.default = ArtistShow;
+
+/***/ }),
+
+/***/ "./frontend/components/artists/artist_show_container.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/artists/artist_show_container.jsx ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _artist_show = __webpack_require__(/*! ./artist_show */ "./frontend/components/artists/artist_show.jsx");
+
+var _artist_show2 = _interopRequireDefault(_artist_show);
+
+var _artist_actions = __webpack_require__(/*! ../../actions/artist_actions */ "./frontend/actions/artist_actions.js");
+
+var _selectors = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state, _ref) {
+    var match = _ref.match;
+
+    var artistId = parseInt(match.params.artistId);
+    var artist = (0, _selectors.selectArtist)(state.entities, artistId);
+    debugger;
+    return {
+        artist: artist,
+        artistId: artistId
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        fetchArtist: function fetchArtist(artistId) {
+            return dispatch((0, _artist_actions.fetchArtist)(artistId));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_artist_show2.default);
+
+/***/ }),
+
+/***/ "./frontend/components/artists/artists_index_item.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/artists/artists_index_item.jsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ArtistIndexItem = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ArtistIndexItem = exports.ArtistIndexItem = function (_React$Component) {
+    _inherits(ArtistIndexItem, _React$Component);
+
+    function ArtistIndexItem() {
+        _classCallCheck(this, ArtistIndexItem);
+
+        return _possibleConstructorReturn(this, (ArtistIndexItem.__proto__ || Object.getPrototypeOf(ArtistIndexItem)).apply(this, arguments));
+    }
+
+    _createClass(ArtistIndexItem, [{
+        key: "render",
+        value: function render() {
+            // {name: "Michael Jackson", id: 87, location: "Hesseltown"}
+            var showLink = "/artists/" + this.props.artist.id;
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: showLink },
+                    this.props.artist.name
+                )
+            );
+        }
+    }]);
+
+    return ArtistIndexItem;
+}(_react2.default.Component);
+
+exports.default = ArtistIndexItem;
 
 /***/ }),
 
@@ -373,7 +737,7 @@ var SessionForm = function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
-    _this.showEmailforSignup = _this.showEmailforSignup.bind(_this);
+    _this.conditionalDisplay = _this.conditionalDisplay.bind(_this);
     return _this;
   }
 
@@ -413,8 +777,8 @@ var SessionForm = function (_React$Component) {
     // }
 
   }, {
-    key: 'showEmailforSignup',
-    value: function showEmailforSignup() {
+    key: 'conditionalDisplay',
+    value: function conditionalDisplay() {
       if (this.props.formType === 'signup') {
         return _react2.default.createElement(
           'label',
@@ -425,6 +789,13 @@ var SessionForm = function (_React$Component) {
             onChange: this.update('email'),
             className: 'login-input'
           })
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('br', null),
+          'username: demo password: demodemo'
         );
       }
     }
@@ -437,7 +808,6 @@ var SessionForm = function (_React$Component) {
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit, className: 'login-form-box' },
-          'hi',
           _react2.default.createElement('br', null),
           'Please ',
           this.props.formType,
@@ -446,7 +816,7 @@ var SessionForm = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'login-form' },
-            this.showEmailforSignup(),
+            this.conditionalDisplay(),
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'label',
@@ -704,6 +1074,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/artists_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/artists_reducer.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _artist_actions = __webpack_require__(/*! ../actions/artist_actions */ "./frontend/actions/artist_actions.js");
+
+var artistsReducer = function artistsReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    Object.freeze(state);
+    var nextState = Object.assign({}, state.artists);
+    switch (action.type) {
+        case _artist_actions.RECEIVE_ALL_ARTISTS:
+            // debugger;
+            return Object.assign({}, state, action.artists);
+        case _artist_actions.RECEIVE_ARTIST:
+            nextState[action.artist.id] = action.artist;
+            return nextState;
+        default:
+            return state;
+    }
+};
+
+exports.default = artistsReducer;
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities.js":
 /*!***************************************!*\
   !*** ./frontend/reducers/entities.js ***!
@@ -725,10 +1133,15 @@ var _users_reducer = __webpack_require__(/*! ./users_reducer */ "./frontend/redu
 
 var _users_reducer2 = _interopRequireDefault(_users_reducer);
 
+var _artists_reducer = __webpack_require__(/*! ./artists_reducer */ "./frontend/reducers/artists_reducer.js");
+
+var _artists_reducer2 = _interopRequireDefault(_artists_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var entities = exports.entities = (0, _redux.combineReducers)({
-    users: _users_reducer2.default
+    users: _users_reducer2.default,
+    artists: _artists_reducer2.default
 });
 
 exports.default = entities;
@@ -765,6 +1178,27 @@ exports.default = (0, _redux.combineReducers)({
   entities: _entities2.default,
   session: _session2.default
 });
+
+/***/ }),
+
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var selectArtist = exports.selectArtist = function selectArtist(_ref, artistId) {
+    var artists = _ref.artists;
+
+    return artists[artistId];
+};
 
 /***/ }),
 
@@ -875,6 +1309,35 @@ var configureStore = exports.configureStore = function configureStore() {
 };
 
 exports.default = configureStore;
+
+/***/ }),
+
+/***/ "./frontend/util/artist_api_util.js":
+/*!******************************************!*\
+  !*** ./frontend/util/artist_api_util.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var fetchArtists = exports.fetchArtists = function fetchArtists() {
+    return $.ajax({
+        url: "/api/artists/",
+        method: "GET"
+    });
+};
+
+var fetchArtist = exports.fetchArtist = function fetchArtist(artistId) {
+    return $.ajax({
+        url: "api/artists/" + artistId,
+        method: 'GET'
+    });
+};
 
 /***/ }),
 

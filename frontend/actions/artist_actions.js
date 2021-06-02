@@ -8,10 +8,13 @@ export const receiveAllArtists = artists => ({
     artists 
 })
 
-export const receiveArtist = artist => ({
+export const receiveArtist = artist => {
+    debugger; 
+    return ({
     type: RECEIVE_ARTIST,
-    artist 
-})
+    artist
+    }) 
+}
 
 export const fetchArtists = () => dispatch => APIUtil.fetchArtists()
     .then(artists => dispatch(receiveAllArtists(artists)));

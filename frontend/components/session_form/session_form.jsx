@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showEmailforSignup = this.showEmailforSignup.bind(this);
+    this.conditionalDisplay = this.conditionalDisplay.bind(this);
   }
 
   componentDidMount(){
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
   //   );
   // }
 
-  showEmailforSignup(){
+  conditionalDisplay(){
     if (this.props.formType === 'signup') {
       return (
       
@@ -51,7 +51,16 @@ class SessionForm extends React.Component {
               onChange={this.update('email')}
               className="login-input"
               />
-      </label> )
+      </label> 
+      )
+    } else {
+      return (
+        <div>
+          <br />
+          username: demo
+          password: demodemo
+        </div>
+      )
     }
   }
 
@@ -59,12 +68,11 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          hi
           <br/>
           Please {this.props.formType} or {this.props.navLink}
           {/* {this.renderErrors()} */}
           <div className="login-form">
-            {this.showEmailforSignup()}
+            {this.conditionalDisplay()}
             <br/>
             <label>Username:
               <input type="text"

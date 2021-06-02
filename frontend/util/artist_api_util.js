@@ -1,13 +1,14 @@
-export const fetchArtists = () => (
+export const fetchArtists = () => {
+    return(
     $.ajax({
-        url: "/api/artist",
+        url: "/api/artists/",
         method: "GET"
-    })
-)
+    }))
+}
 
-export const fetchArtist = artistId => (
-    $.ajax({
-        url: `api/artist/${artistId}`,
+export const fetchArtist = artistId => {
+    return ($.ajax({
+        url: `api/artists/${artistId}`,
         method: 'GET'
-    })
-)
+    }))
+}
