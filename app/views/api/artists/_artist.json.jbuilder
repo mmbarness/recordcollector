@@ -1,0 +1,1 @@
+json.extract! @artist, :name, :id, :location
