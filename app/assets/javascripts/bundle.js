@@ -460,41 +460,48 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (ArtistShow.__proto__ || Object.getPrototypeOf(ArtistShow)).call(this, props));
 
         _this.artistId = parseInt(_this.props.match.params.artistId);
-        _this.state = { artist: {
-                name: "null",
-                location: "null"
-            } };
+        _this.state = {
+            artist: { name: "null", location: "null" },
+            albums: ['album1', 'album2', 'album3']
+        };
         _this.showInfo = _this.showInfo.bind(_this);
         return _this;
     }
-
-    // async getArtist (id) {
-    //     const artist = await this.props.fetchArtist(id)
-    //     return artist 
-    // }
 
     _createClass(ArtistShow, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
             var _this2 = this;
 
-            this.props.fetchArtist(this.artistId).then(function (artist) {
-                return _this2.setState({ artist: { name: artist.name, location: artist.locaiton } });
+            this.props.fetchArtist(this.artistId).then(function (response) {
+                var artist = response.artist.artist;
+                _this2.setState({ artist: { name: artist.name, location: artist.location } });
             });
         }
     }, {
-        key: 'showInfo',
-        value: function showInfo() {}
+        key: 'albumGrid',
+        value: function albumGrid() {}
     }, {
-        key: 'render',
-        value: function render() {
+        key: 'showInfo',
+        value: function showInfo() {
             return _react2.default.createElement(
                 'div',
                 null,
                 'Name: ',
                 this.state.artist.name,
                 'Location: ',
-                this.state.artist.location
+                this.state.artist.location,
+                'Albums:'
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            window.state = this.state;
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.showInfo()
             );
         }
     }]);
