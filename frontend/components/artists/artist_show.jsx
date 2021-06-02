@@ -9,6 +9,7 @@ export class ArtistShow extends React.Component {
             name: "", 
             location: ""
         }}
+        this.showInfo = this.showInfo.bind(this);
     } 
 
     // async getArtist (id) {
@@ -22,10 +23,24 @@ export class ArtistShow extends React.Component {
         debugger;
     }
 
+    showInfo() {
+        debugger;
+        if (this.props.artist){  
+            return(
+                <div>
+                    Name: {this.props.artist.name}
+                    Location: {this.props.artist.location}
+                </div>
+            )
+        }
+    }
+
     render() {
         return(
             <div>
-                idk
+                {/* {this.showInfo()} */}
+                Name: {this.props.artist.name}
+                Location: {this.props.artist.location}
                 {window.state = Object.values(this.state.artist)}
             </div>
         )

@@ -464,6 +464,7 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
                 name: "",
                 location: ""
             } };
+        _this.showInfo = _this.showInfo.bind(_this);
         return _this;
     }
 
@@ -480,12 +481,30 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
             debugger;
         }
     }, {
+        key: 'showInfo',
+        value: function showInfo() {
+            debugger;
+            if (this.props.artist) {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    'Name: ',
+                    this.props.artist.name,
+                    'Location: ',
+                    this.props.artist.location
+                );
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
                 null,
-                'idk',
+                'Name: ',
+                this.props.artist.name,
+                'Location: ',
+                this.props.artist.location,
                 window.state = Object.values(this.state.artist)
             );
         }
