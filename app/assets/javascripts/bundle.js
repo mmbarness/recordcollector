@@ -461,8 +461,8 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
 
         _this.artistId = parseInt(_this.props.match.params.artistId);
         _this.state = { artist: {
-                name: "",
-                location: ""
+                name: "null",
+                location: "null"
             } };
         _this.showInfo = _this.showInfo.bind(_this);
         return _this;
@@ -476,25 +476,15 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
     _createClass(ArtistShow, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var artist = this.props.fetchArtist(this.artistId);
-            this.setState({ artist: artist });
-            debugger;
+            var _this2 = this;
+
+            this.props.fetchArtist(this.artistId).then(function (artist) {
+                return _this2.setState({ artist: { name: artist.name, location: artist.locaiton } });
+            });
         }
     }, {
         key: 'showInfo',
-        value: function showInfo() {
-            debugger;
-            if (this.props.artist) {
-                return _react2.default.createElement(
-                    'div',
-                    null,
-                    'Name: ',
-                    this.props.artist.name,
-                    'Location: ',
-                    this.props.artist.location
-                );
-            }
-        }
+        value: function showInfo() {}
     }, {
         key: 'render',
         value: function render() {
@@ -502,10 +492,9 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
                 'div',
                 null,
                 'Name: ',
-                this.props.artist.name,
+                this.state.artist.name,
                 'Location: ',
-                this.props.artist.location,
-                window.state = Object.values(this.state.artist)
+                this.state.artist.location
             );
         }
     }]);

@@ -6,8 +6,8 @@ export class ArtistShow extends React.Component {
         super(props)
         this.artistId = parseInt(this.props.match.params.artistId)
         this.state = {artist: {
-            name: "", 
-            location: ""
+            name: "null", 
+            location: "null"
         }}
         this.showInfo = this.showInfo.bind(this);
     } 
@@ -18,30 +18,19 @@ export class ArtistShow extends React.Component {
     // }
 
     componentDidMount(){
-        let artist = this.props.fetchArtist(this.artistId);
-        this.setState({artist: artist});
-        debugger;
+        this.props.fetchArtist(this.artistId)
+            .then((artist) => this.setState({artist: {name: artist.name, location: artist.locaiton}}));
     }
 
     showInfo() {
-        debugger;
-        if (this.props.artist){  
-            return(
-                <div>
-                    Name: {this.props.artist.name}
-                    Location: {this.props.artist.location}
-                </div>
-            )
-        }
+
     }
 
     render() {
         return(
             <div>
-                {/* {this.showInfo()} */}
-                Name: {this.props.artist.name}
-                Location: {this.props.artist.location}
-                {window.state = Object.values(this.state.artist)}
+                Name: {this.state.artist.name}
+                Location: {this.state.artist.location}
             </div>
         )
     }
