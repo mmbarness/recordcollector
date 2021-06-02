@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showEmailforSignup = this.showEmailforSignup.bind(this);
+    this.conditionalDisplay = this.conditionalDisplay.bind(this);
   }
 
   componentDidMount(){
@@ -29,19 +29,20 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    // debugger;
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
-  showEmailforSignup(){
+  conditionalDisplay(){
     if (this.props.formType === 'signup') {
       return (
       
@@ -51,7 +52,16 @@ class SessionForm extends React.Component {
               onChange={this.update('email')}
               className="login-input"
               />
-      </label> )
+      </label> 
+      )
+    } else {
+      return (
+        <div>
+          <br />
+          username: demo
+          password: demodemo
+        </div>
+      )
     }
   }
 
@@ -62,9 +72,9 @@ class SessionForm extends React.Component {
           hi
           <br/>
           Please {this.props.formType} or {this.props.navLink}
-          {/* {this.renderErrors()} */}
+          {this.renderErrors()}
           <div className="login-form">
-            {this.showEmailforSignup()}
+            {this.conditionalDisplay()}
             <br/>
             <label>Username:
               <input type="text"
@@ -72,7 +82,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('username')}
                 className="login-input"
               />
-            </label>           
+            </label>
             <br/>
             <label>Password:
               <input type="password"
