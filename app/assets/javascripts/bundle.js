@@ -306,6 +306,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
 
   return {
+    errors: errors.session,
     formType: 'login',
     navLink: _react2.default.createElement(
       _reactRouterDom.Link,
@@ -401,17 +402,19 @@ var SessionForm = function (_React$Component) {
     key: 'renderErrors',
     value: function renderErrors() {
       // debugger;
-      return _react2.default.createElement(
-        'ul',
-        null,
-        this.props.errors.map(function (error, i) {
-          return _react2.default.createElement(
-            'li',
-            { key: 'error-' + i },
-            error
-          );
-        })
-      );
+      if (this.props.errors !== undefined) {
+        return _react2.default.createElement(
+          'ul',
+          null,
+          this.props.errors.map(function (error, i) {
+            return _react2.default.createElement(
+              'li',
+              { key: 'error-' + i },
+              error
+            );
+          })
+        );
+      }
     }
   }, {
     key: 'conditionalDisplay',
