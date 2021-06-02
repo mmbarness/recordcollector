@@ -99,7 +99,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logout = exports.login = exports.signup = exports.receiveErrors = exports.logoutCurrentUser = exports.receiveCurrentUser = exports.RECEIVE_SESSION_ERRORS = exports.LOGOUT_CURRENT_USER = exports.RECEIVE_CURRENT_USER = undefined;
+exports.logout = exports.login = exports.signup = exports.logoutCurrentUser = exports.receiveCurrentUser = exports.RECEIVE_SESSION_ERRORS = exports.LOGOUT_CURRENT_USER = exports.RECEIVE_CURRENT_USER = undefined;
 
 var _session_api_util = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
@@ -124,20 +124,18 @@ var logoutCurrentUser = exports.logoutCurrentUser = function logoutCurrentUser()
   };
 };
 
-var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
-  return {
-    type: RECEIVE_SESSION_ERRORS,
-    errors: errors
-  };
-};
+// export const receiveErrors = errors => ({
+//   type: RECEIVE_SESSION_ERRORS,
+//   errors
+// });
 
 var signup = exports.signup = function signup(user) {
   return function (dispatch) {
     return APIUtil.signup(user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
-    });
+    }
+    // , err => (dispatch(receiveErrors(err.responseJSON))
+    );
   };
 };
 
@@ -145,9 +143,10 @@ var login = exports.login = function login(user) {
   return function (dispatch) {
     return APIUtil.login(user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
-    });
+    }
+    // , err => (
+    // dispatch(receiveErrors(err.responseJSON))
+    );
   };
 };
 
@@ -309,7 +308,6 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
 
   return {
-    errors: errors.session,
     formType: 'login',
     navLink: _react2.default.createElement(
       _reactRouterDom.Link,
@@ -370,14 +368,22 @@ var SessionForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SessionForm.__proto__ || Object.getPrototypeOf(SessionForm)).call(this, props));
 
     _this.state = {
+      email: '',
       username: '',
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.showEmailforSignup = _this.showEmailforSignup.bind(_this);
     return _this;
   }
 
   _createClass(SessionForm, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+      window.csrf = csrf;
+    }
+  }, {
     key: 'update',
     value: function update(field) {
       var _this2 = this;
@@ -393,20 +399,34 @@ var SessionForm = function (_React$Component) {
       var user = Object.assign({}, this.state);
       this.props.processForm(user);
     }
+
+    // renderErrors() {
+    //   return(
+    //     <ul>
+    //       {this.props.errors.map((error, i) => (
+    //         <li key={`error-${i}`}>
+    //           {error}
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   );
+    // }
+
   }, {
-    key: 'renderErrors',
-    value: function renderErrors() {
-      return _react2.default.createElement(
-        'ul',
-        null,
-        this.props.errors.map(function (error, i) {
-          return _react2.default.createElement(
-            'li',
-            { key: 'error-' + i },
-            error
-          );
-        })
-      );
+    key: 'showEmailforSignup',
+    value: function showEmailforSignup() {
+      if (this.props.formType === 'signup') {
+        return _react2.default.createElement(
+          'label',
+          null,
+          'Email:',
+          _react2.default.createElement('input', { type: 'text',
+            value: this.state.email,
+            onChange: this.update('email'),
+            className: 'login-input'
+          })
+        );
+      }
     }
   }, {
     key: 'render',
@@ -417,16 +437,16 @@ var SessionForm = function (_React$Component) {
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit, className: 'login-form-box' },
-          'Welcome to BenchBnB!',
+          'hi',
           _react2.default.createElement('br', null),
           'Please ',
           this.props.formType,
           ' or ',
           this.props.navLink,
-          this.renderErrors(),
           _react2.default.createElement(
             'div',
             { className: 'login-form' },
+            this.showEmailforSignup(),
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'label',
@@ -494,11 +514,8 @@ var _session_form2 = _interopRequireDefault(_session_form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var errors = _ref.errors;
-
+var mapStateToProps = function mapStateToProps() {
   return {
-    errors: errors.session,
     formType: 'signup',
     navLink: _react2.default.createElement(
       _reactRouterDom.Link,

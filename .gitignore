@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+.byebug_history
+fs.code-workspace
+
 /config/master.key
 
 # User-specific files (MonoDevelop/Xamarin Studio)

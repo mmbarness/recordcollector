@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-
   helper_method :current_user, :logged_in?
-
+  protect_from_forgery unless: -> { request.format.json? }  
   private
 
   def current_user
