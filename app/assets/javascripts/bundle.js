@@ -373,6 +373,7 @@ var SessionForm = function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.conditionalDisplay = _this.conditionalDisplay.bind(_this);
+    _this.demo = _this.demo.bind(_this);
     return _this;
   }
 
@@ -417,6 +418,20 @@ var SessionForm = function (_React$Component) {
       }
     }
   }, {
+    key: 'demo',
+    value: function demo(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      var user = {
+        username: "demo",
+        password: "demodemo"
+      };
+      this.props.processForm(user).then(function () {
+        return _this3.props.history.push('/');
+      });
+    }
+  }, {
     key: 'conditionalDisplay',
     value: function conditionalDisplay() {
       if (this.props.formType === 'signup') {
@@ -429,13 +444,6 @@ var SessionForm = function (_React$Component) {
             onChange: this.update('email'),
             className: 'login-input'
           })
-        );
-      } else {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement('br', null),
-          'username: demo password: demodemo'
         );
       }
     }
@@ -481,7 +489,12 @@ var SessionForm = function (_React$Component) {
               })
             ),
             _react2.default.createElement('br', null),
-            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: this.props.formType })
+            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: this.props.formType }),
+            _react2.default.createElement(
+              'button',
+              { onClick: this.demo },
+              'demo'
+            )
           )
         )
       );

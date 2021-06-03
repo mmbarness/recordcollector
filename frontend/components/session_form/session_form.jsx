@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.conditionalDisplay = this.conditionalDisplay.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   componentDidMount(){
@@ -44,6 +45,15 @@ class SessionForm extends React.Component {
     }
   }
 
+  demo(e){
+      e.preventDefault()
+      const user = {
+        username: "demo", 
+        password: "demodemo"
+      }
+      this.props.processForm(user).then(() => this.props.history.push('/'))
+  }
+
   conditionalDisplay(){
     if (this.props.formType === 'signup') {
       return (
@@ -55,15 +65,7 @@ class SessionForm extends React.Component {
               />
       </label> 
       )
-    } else {
-      return (
-        <div>
-          <br />
-          username: demo
-          password: demodemo
-        </div>
-      )
-    }
+    } 
   }
 
   render() {
@@ -93,6 +95,7 @@ class SessionForm extends React.Component {
             </label>
             <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <button onClick={this.demo}>demo</button>
           </div>
         </form>
       </div>
