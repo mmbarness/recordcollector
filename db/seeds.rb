@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require 'faker'
+
+Artist.destroy_all
+
+artists = []
+
+99.times {
+  artists << Artist.create!(
+    name: Faker::Music.unique.band,
+    location: Faker::Address.city
+  )
+}

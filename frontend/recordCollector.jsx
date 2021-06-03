@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 //Components
 import Root from './components/root';
 import configureStore from './store/store';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
