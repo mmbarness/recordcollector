@@ -86,6 +86,63 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/album_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/album_actions.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.fetchAlbum = exports.fetchAlbums = exports.receiveAlbum = exports.receiveArtistAlbums = exports.RECEIVE_ALBUM = exports.RECEIVE_ARTIST_ALBUMS = undefined;
+
+var _album_api_util = __webpack_require__(/*! ../util/album_api_util */ "./frontend/util/album_api_util.js");
+
+var APIUtil = _interopRequireWildcard(_album_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_ARTIST_ALBUMS = exports.RECEIVE_ARTIST_ALBUMS = "RECEIVE_ARTIST_ALBUMS";
+var RECEIVE_ALBUM = exports.RECEIVE_ALBUM = "RECEIVE_ALBUM";
+
+var receiveArtistAlbums = exports.receiveArtistAlbums = function receiveArtistAlbums(albums) {
+    // debugger;
+    return {
+        type: RECEIVE_ARTIST_ALBUMS,
+        albums: albums
+    };
+};
+
+var receiveAlbum = exports.receiveAlbum = function receiveAlbum(album) {
+    return {
+        type: RECEIVE_ALBUM,
+        album: album
+    };
+};
+
+var fetchAlbums = exports.fetchAlbums = function fetchAlbums(artistId) {
+    return function (dispatch) {
+        return APIUtil.fetchAlbums(artistId).then(function (albums) {
+            return dispatch(receiveArtistAlbums(albums));
+        });
+    };
+};
+
+var fetchAlbum = exports.fetchAlbum = function fetchAlbum(artistId, albumId) {
+    return function (dispatch) {
+        return APIUtil.fetchAlbum(albumId, artistId).then(function (album) {
+            return dispatch(receiveAlbum(album));
+        });
+    };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/artist_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/artist_actions.js ***!
@@ -266,13 +323,13 @@ var App = function App() {
     null,
     _react2.default.createElement(
       'header',
-      null,
+      { className: 'top-bar' },
       _react2.default.createElement(
         _reactRouterDom.Link,
         { to: '/', className: 'header-link' },
         _react2.default.createElement(
           'h1',
-          null,
+          { id: 'rc-button' },
           'Record Collector'
         )
       ),
@@ -463,6 +520,7 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
             albums: ['album1', 'album2', 'album3']
         };
         _this.showInfo = _this.showInfo.bind(_this);
+        _this.albumGrid = _this.albumGrid.bind(_this);
         return _this;
     }
 
@@ -475,21 +533,50 @@ var ArtistShow = exports.ArtistShow = function (_React$Component) {
                 var artist = response.artist.artist;
                 _this2.setState({ artist: { name: artist.name, location: artist.location } });
             });
+            this.props.fetchAlbums(this.artistId).then(function (response) {
+                var albums = response.albums;
+                _this2.setState({ albums: albums });
+            });
         }
     }, {
         key: 'albumGrid',
-        value: function albumGrid() {}
+        value: function albumGrid() {
+            var albums = Object.values(this.state.albums);
+            return albums.map(function (album) {
+                var albumId = album.id;
+                return _react2.default.createElement(
+                    'li',
+                    { className: 'album-entry', key: albumId },
+                    album.title
+                );
+            });
+        }
     }, {
         key: 'showInfo',
         value: function showInfo() {
+            debugger;
             return _react2.default.createElement(
                 'div',
-                null,
-                'Name: ',
-                this.state.artist.name,
-                'Location: ',
-                this.state.artist.location,
-                'Albums:'
+                { className: 'artist-show-container' },
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'album-grid' },
+                    this.albumGrid()
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'artist-show-info' },
+                    _react2.default.createElement(
+                        'h2',
+                        { id: 'artist-show-info-name' },
+                        this.state.artist.name
+                    ),
+                    _react2.default.createElement(
+                        'h2',
+                        { id: 'artist-show-info-location' },
+                        this.state.artist.location
+                    )
+                )
             );
         }
     }, {
@@ -535,6 +622,8 @@ var _artist_actions = __webpack_require__(/*! ../../actions/artist_actions */ ".
 
 var _selectors = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 
+var _album_actions = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
@@ -552,6 +641,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         fetchArtist: function fetchArtist(artistId) {
             return dispatch((0, _artist_actions.fetchArtist)(artistId));
+        },
+        fetchAlbums: function fetchAlbums(artistId) {
+            return dispatch((0, _album_actions.fetchAlbums)(artistId));
         }
     };
 };
@@ -801,7 +893,6 @@ var SessionForm = function (_React$Component) {
   }, {
     key: 'renderErrors',
     value: function renderErrors() {
-      // debugger;
       if (this.props.errors !== undefined) {
         return _react2.default.createElement(
           'ul',
@@ -838,7 +929,7 @@ var SessionForm = function (_React$Component) {
           'label',
           null,
           'Email:',
-          _react2.default.createElement('input', { type: 'text',
+          _react2.default.createElement('input', { type: 'email',
             value: this.state.email,
             onChange: this.update('email'),
             className: 'login-input'
@@ -989,7 +1080,22 @@ var Splash = function Splash(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
+
+  var onScroll = function onScroll() {
+    var topbar = document.getElementsByClassName("top-bar");
+    var sticky = topbar.offsetTop;
+    debugger;
+    if (topbar !== undefined) {
+      if (window.pageYOffset >= sticky) {
+        topbar.classList.add("sticky");
+      } else {
+        topbar.classList.remove("sticky");
+      }
+    }
+  };
+
   var sessionLinks = function sessionLinks() {
+    // onScroll();
     return _react2.default.createElement(
       'nav',
       { className: 'login-signup' },
@@ -1006,7 +1112,9 @@ var Splash = function Splash(_ref) {
       )
     );
   };
+
   var splashGreeting = function splashGreeting() {
+    // onScroll();
     return _react2.default.createElement(
       'hgroup',
       { className: 'header-group' },
@@ -1024,7 +1132,6 @@ var Splash = function Splash(_ref) {
       )
     );
   };
-
   return currentUser ? splashGreeting() : sessionLinks();
 };
 
@@ -1134,6 +1241,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/albums_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/albums_reducer.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _album_actions = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.js");
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var albumsReducer = function albumsReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    Object.freeze(state);
+    var nextState = Object.assign({}, state.albums);
+    switch (action.type) {
+        case _album_actions.RECEIVE_ARTIST_ALBUMS:
+            var artist_id = Object.values(action.albums)[0].artist_id;
+            var albums = _defineProperty({}, artist_id, action.albums);
+            // debugger;
+            return Object.assign({}, state, albums);
+        case _album_actions.RECEIVE_ALBUM:
+            nextState[action.album.id] = action.album;
+            return nextState;
+        default:
+            return state;
+    }
+};
+
+exports.default = albumsReducer;
+
+/***/ }),
+
 /***/ "./frontend/reducers/artists_reducer.js":
 /*!**********************************************!*\
   !*** ./frontend/reducers/artists_reducer.js ***!
@@ -1197,11 +1346,16 @@ var _artists_reducer = __webpack_require__(/*! ./artists_reducer */ "./frontend/
 
 var _artists_reducer2 = _interopRequireDefault(_artists_reducer);
 
+var _albums_reducer = __webpack_require__(/*! ./albums_reducer */ "./frontend/reducers/albums_reducer.js");
+
+var _albums_reducer2 = _interopRequireDefault(_albums_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var entities = exports.entities = (0, _redux.combineReducers)({
     users: _users_reducer2.default,
-    artists: _artists_reducer2.default
+    artists: _artists_reducer2.default,
+    albums: _albums_reducer2.default
 });
 
 exports.default = entities;
@@ -1440,6 +1594,35 @@ var configureStore = function configureStore() {
 };
 
 exports.default = configureStore;
+
+/***/ }),
+
+/***/ "./frontend/util/album_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/album_api_util.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var fetchAlbums = exports.fetchAlbums = function fetchAlbums(artistId) {
+    return $.ajax({
+        url: "/api/artists/" + artistId + "/albums/",
+        method: "GET"
+    });
+};
+
+var fetchAlbum = exports.fetchAlbum = function fetchAlbum(artistId, albumId) {
+    return $.ajax({
+        url: "api/" + artistId + "/albums/" + albumId,
+        method: 'GET'
+    });
+};
 
 /***/ }),
 

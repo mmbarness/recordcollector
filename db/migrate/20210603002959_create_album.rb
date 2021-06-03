@@ -5,6 +5,7 @@ class CreateAlbum < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :credits
       t.integer :artist_id
+      t.timestamps
     end
     add_index :albums, :artist_id
   end

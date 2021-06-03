@@ -10,12 +10,24 @@
 require 'faker'
 
 Artist.destroy_all
+Album.destroy_all
 
 artists = []
+albums = []
 
 99.times {
+  band = Faker::Music.unique.band
   artists << Artist.create!(
-    name: Faker::Music.unique.band,
+    name: band,
     location: Faker::Address.city
   )
+  album_band = Artist.find_by name: band
+  5.times{
+    albums << Album.create!(
+      title: Faker::Music.album,
+      description: Faker::Lorem.sentence(word_count: 4),
+      credits: Faker::Lorem.sentence(word_count: 4),
+      artist_id: album_band.id
+    )
+  }
 }

@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+/* .top-bar {
+    position: sticky;
+    top: 0;
+    display: flex; 
+    flex-wrap: nowrap;
+    justify-content: space-between; 
+    /* overflow: hidden; 
+    
+}*/
+
+/* 
+.sticky {
+    position: fixed;
+    width: 100% 
+} */
