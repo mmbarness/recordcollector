@@ -1,0 +1,27 @@
+.top-bar {
+    position: sticky;
+    top: 0;
+    display: flex; 
+    flex-wrap: nowrap;
+    justify-content: space-between; 
+    /* overflow: hidden; */
+    background-color: #333;
+}
+
+.header-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-link{
+    align-self: center;
+}
+
+.header-button {
+    margin-left: 1vw;
+}
+
+.header-name {
+    align-self: center;
+}

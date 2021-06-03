@@ -31,7 +31,6 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    // debugger;
     if (this.props.errors !== undefined) {
       return(
         <ul>
@@ -58,7 +57,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'signup') {
       return (
       <label>Email:
-        <input type="text"
+        <input type="email"
               value={this.state.email}
               onChange={this.update('email')}
               className="login-input"

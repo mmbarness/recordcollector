@@ -10,6 +10,7 @@ export class ArtistShow extends React.Component {
             albums: ['album1', 'album2', 'album3'] 
         }
         this.showInfo = this.showInfo.bind(this);
+        this.albumGrid = this.albumGrid.bind(this);
     } 
 
     componentDidMount(){
@@ -18,17 +19,31 @@ export class ArtistShow extends React.Component {
                 const artist = response.artist.artist;
                 this.setState({artist: {name: artist.name, location: artist.location}})
             })
+        this.props.fetchAlbums(this.artistId)
+            .then((response => {
+                const albums = response.albums; 
+                this.setState({albums})
+            }))
     }
 
     albumGrid(){
-        
+        const albums = Object.values(this.state.albums)
+        return (albums.map(album => {
+            const albumId = album.id
+            return(<li className="album-entry" key={albumId}>
+                {album.title}
+            </li>)
+        }))
     }
 
     showInfo() {
-        return (<div>
-            Name: {this.state.artist.name}
-            Location: {this.state.artist.location}    
-            Albums:      
+        debugger; 
+        return (<div className="artist-show-container">
+            <ul className="album-grid">{this.albumGrid()}</ul>
+            <div className="artist-show-info">
+                <h2 id="artist-show-info-name">{this.state.artist.name}</h2>
+                <h2 id="artist-show-info-location">{this.state.artist.location}</h2>    
+            </div>
         </div>)
     }
 

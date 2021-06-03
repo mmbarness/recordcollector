@@ -17,9 +17,9 @@ import ArtistIndexContainer from './artists/artist_index_container'
 
 const App = () => (
   <div>
-    <header>
+    <header className="top-bar">
       <Link to="/" className="header-link">
-        <h1>Record Collector</h1>
+        <h1 id="rc-button">Record Collector</h1>
       </Link>
       <SplashContainer />
     </header>
