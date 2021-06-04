@@ -14,6 +14,7 @@ artists = []
 albums = []
 
 99.times {
+  require 'faker'
   band = Faker::Music.unique.band
   artists << Artist.create!(
     name: band,
