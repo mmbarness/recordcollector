@@ -7,12 +7,13 @@ import "regenerator-runtime/runtime";
 export class Home extends React.Component {
     constructor(props){
         super(props)
-        this.getTenArtists = this.getTenArtists.bind(this);
-        this.getTenArtistsAlbums = this.getTenArtistsAlbums.bind(this);
         this.state = {
             albums: "" ,
             albums: ""
         }
+        this.getTenArtists = this.getTenArtists.bind(this);
+        this.getTenArtistsAlbums = this.getTenArtistsAlbums.bind(this);
+        this.renderTenAlbums = this.renderTenAlbums.bind(this);
     }
 
     componentDidMount(){
@@ -46,9 +47,18 @@ export class Home extends React.Component {
         return fetchResponse
     }
 
+    buildAlbumElement(album){
+        
+    }
+
     async renderTenAlbums() {
         const albums = await this.state.albums
-        // console.log(albums.forEach)
+        window.albums = albums
+        const albArr = [] 
+        for (const [key, value] of Object.entries(albums)) {
+            albArr.push(this.buildAlbumElement(value[0]))
+        }
+        window.albArr = albArr;
     }
 
     render(){

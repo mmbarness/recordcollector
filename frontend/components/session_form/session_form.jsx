@@ -18,6 +18,10 @@ class SessionForm extends React.Component {
       window.csrf = csrf
   }
 
+  componentWillUnmount(){
+    this.props.removeErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -68,6 +72,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    window.props = this.props 
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">

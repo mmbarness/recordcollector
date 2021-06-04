@@ -259,7 +259,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logout = exports.login = exports.signup = exports.receiveErrors = exports.logoutCurrentUser = exports.receiveCurrentUser = exports.RECEIVE_SESSION_ERRORS = exports.LOGOUT_CURRENT_USER = exports.RECEIVE_CURRENT_USER = void 0;
+exports.logout = exports.login = exports.signup = exports.removeErrors = exports.receiveErrors = exports.logoutCurrentUser = exports.receiveCurrentUser = exports.REMOVE_ERRORS = exports.RECEIVE_SESSION_ERRORS = exports.LOGOUT_CURRENT_USER = exports.RECEIVE_CURRENT_USER = void 0;
 
 var APIUtil = _interopRequireWildcard(__webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js"));
 
@@ -273,6 +273,8 @@ var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 exports.LOGOUT_CURRENT_USER = LOGOUT_CURRENT_USER;
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 exports.RECEIVE_SESSION_ERRORS = RECEIVE_SESSION_ERRORS;
+var REMOVE_ERRORS = "REMOVE_ERRORS";
+exports.REMOVE_ERRORS = REMOVE_ERRORS;
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
@@ -299,6 +301,14 @@ var receiveErrors = function receiveErrors(errors) {
 };
 
 exports.receiveErrors = receiveErrors;
+
+var removeErrors = function removeErrors() {
+  return {
+    type: REMOVE_ERRORS
+  };
+};
+
+exports.removeErrors = removeErrors;
 
 var signup = function signup(user) {
   return function (dispatch) {
@@ -336,6 +346,79 @@ exports.logout = logout;
 
 /***/ }),
 
+/***/ "./frontend/components/NotFoundPage.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/components/NotFoundPage.jsx ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var NotFoundPage = /*#__PURE__*/function (_React$Component) {
+  _inherits(NotFoundPage, _React$Component);
+
+  var _super = _createSuper(NotFoundPage);
+
+  function NotFoundPage() {
+    _classCallCheck(this, NotFoundPage);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(NotFoundPage, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("p", {
+        style: {
+          textAlign: "center"
+        }
+      }, /*#__PURE__*/_react["default"].createElement("div", null, "fuck u")));
+    }
+  }]);
+
+  return NotFoundPage;
+}(_react["default"].Component);
+
+var _default = NotFoundPage;
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -365,6 +448,8 @@ var _login_form_container = _interopRequireDefault(__webpack_require__(/*! ./ses
 
 var _home_container = _interopRequireDefault(__webpack_require__(/*! ./home/home_container */ "./frontend/components/home/home_container.jsx"));
 
+var _NotFoundPage = _interopRequireDefault(__webpack_require__(/*! ./NotFoundPage */ "./frontend/components/NotFoundPage.jsx"));
+
 var _artist_show_container = _interopRequireDefault(__webpack_require__(/*! ./artists/artist_show_container */ "./frontend/components/artists/artist_show_container.jsx"));
 
 var _route_util = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
@@ -389,7 +474,11 @@ var App = function App() {
     alt: "rc logo"
   }), /*#__PURE__*/_react["default"].createElement("h1", {
     id: "rc-button"
-  })), /*#__PURE__*/_react["default"].createElement(_top_bar_container["default"], null)), /*#__PURE__*/_react["default"].createElement(_home_container["default"], null), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
+  })), /*#__PURE__*/_react["default"].createElement(_top_bar_container["default"], null)), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/",
+    component: _home_container["default"]
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/artists/",
     component: _artist_index_container["default"]
@@ -404,6 +493,11 @@ var App = function App() {
     exact: true,
     path: "/signup",
     component: _signup_form_container["default"]
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
+    path: "/404",
+    component: _NotFoundPage["default"]
+  }), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Redirect, {
+    to: "/404"
   })));
 };
 
@@ -844,6 +938,18 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -881,11 +987,12 @@ var Home = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Home);
 
     _this = _super.call(this, props);
-    _this.getTenArtists = _this.getTenArtists.bind(_assertThisInitialized(_this));
-    _this.getTenArtistsAlbums = _this.getTenArtistsAlbums.bind(_assertThisInitialized(_this));
     _this.state = _defineProperty({
       albums: ""
     }, "albums", "");
+    _this.getTenArtists = _this.getTenArtists.bind(_assertThisInitialized(_this));
+    _this.getTenArtistsAlbums = _this.getTenArtistsAlbums.bind(_assertThisInitialized(_this));
+    _this.renderTenAlbums = _this.renderTenAlbums.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -959,10 +1066,14 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return getTenArtistsAlbums;
     }()
   }, {
+    key: "buildAlbumElement",
+    value: function buildAlbumElement(album) {}
+  }, {
     key: "renderTenAlbums",
     value: function () {
       var _renderTenAlbums = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var albums;
+        var albums, albArr, _i, _Object$entries, _Object$entries$_i, key, value;
+
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -972,8 +1083,17 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
               case 2:
                 albums = _context2.sent;
+                window.albums = albums;
+                albArr = [];
 
-              case 3:
+                for (_i = 0, _Object$entries = Object.entries(albums); _i < _Object$entries.length; _i++) {
+                  _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), key = _Object$entries$_i[0], value = _Object$entries$_i[1];
+                  albArr.push(this.buildAlbumElement(value[0]));
+                }
+
+                window.albArr = albArr;
+
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -1139,6 +1259,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch((0, _session_actions.login)(user));
+    },
+    removeErrors: function removeErrors() {
+      return dispatch((0, _session_actions.removeErrors)());
     }
   };
 };
@@ -1221,6 +1344,11 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       window.csrf = csrf;
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeErrors();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1276,6 +1404,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      window.props = this.props;
       return /*#__PURE__*/_react["default"].createElement("div", {
         className: "login-form-container"
       }, /*#__PURE__*/_react["default"].createElement("form", {
@@ -1353,6 +1482,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(user) {
       return dispatch((0, _session_actions.signup)(user));
+    },
+    removeErrors: function removeErrors() {
+      return dispatch((0, _session_actions.removeErrors)());
     }
   };
 };
@@ -1825,6 +1957,9 @@ var _default = function _default() {
       return action.errors;
 
     case _session_actions.RECEIVE_CURRENT_USER:
+      return [];
+
+    case _session_actions.REMOVE_ERRORS:
       return [];
 
     default:

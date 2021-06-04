@@ -2,7 +2,6 @@ class Api::AlbumsController < ApplicationController
     def show
         @album = Album.find(params[:id])
         @artist = @album.artist 
-        # debugger;
         render "api/albums/show"
     end
 
@@ -19,7 +18,6 @@ class Api::AlbumsController < ApplicationController
             artist = Artist.find_by(id: id)
             @response[:artists][id] = []
             @response[:artists][id] = artist.as_json
-            # @response[:albums][id] = artist.albums.as_json
             @response[:albums][id]= artist.albums[0...numAlbums].as_json;
         end
         render "api/albums/homepage"
