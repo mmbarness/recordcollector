@@ -930,23 +930,13 @@ var _album_actions = __webpack_require__(/*! ../../actions/album_actions */ "./f
 
 __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
+var _hpAlbumItem = _interopRequireDefault(__webpack_require__(/*! ./hpAlbumItem */ "./frontend/components/home/hpAlbumItem.jsx"));
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -1038,18 +1028,13 @@ var Home = /*#__PURE__*/function (_React$Component) {
                   _this3.setState({
                     albums: fetchAlbums.response.albums,
                     artists: fetchAlbums.response.artists
-                  }, function () {
-                    _this3.renderTenAlbums();
                   });
-
-                  return fetchAlbums;
                 });
 
               case 3:
                 fetchResponse = _context.sent;
-                return _context.abrupt("return", fetchResponse);
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -1065,13 +1050,24 @@ var Home = /*#__PURE__*/function (_React$Component) {
     }()
   }, {
     key: "buildAlbumElement",
-    value: function buildAlbumElement(album) {}
+    value: function buildAlbumElement(album) {
+      var albArtist = this.state.artists[album.artist_id];
+      debugger;
+      return /*#__PURE__*/_react["default"].createElement("ul", {
+        className: "hp-album"
+      }, /*#__PURE__*/_react["default"].createElement("li", {
+        className: "hp-album-title"
+      }, album.title), /*#__PURE__*/_react["default"].createElement("li", {
+        className: "hp-album-description"
+      }, album.description), /*#__PURE__*/_react["default"].createElement("li", {
+        className: "hp-album-artist"
+      }, albArtist.name));
+    }
   }, {
     key: "renderTenAlbums",
     value: function () {
       var _renderTenAlbums = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var albums, albArr, _i, _Object$entries, _Object$entries$_i, key, value;
-
+        var albums;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -1081,17 +1077,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
               case 2:
                 albums = _context2.sent;
-                window.albums = albums;
-                albArr = [];
 
-                for (_i = 0, _Object$entries = Object.entries(albums); _i < _Object$entries.length; _i++) {
-                  _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), key = _Object$entries$_i[0], value = _Object$entries$_i[1];
-                  albArr.push(this.buildAlbumElement(value[0]));
-                }
-
-                window.albArr = albArr;
-
-              case 7:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -1108,9 +1095,30 @@ var Home = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       window.state = this.state;
-      window.fetchHPAlbums = this.props.fetchHPAlbums;
-      return /*#__PURE__*/_react["default"].createElement("div", null, "home");
+      var albumArr = [];
+      var albumItems;
+
+      if (this.state.albums !== "") {
+        var albums = this.state.albums;
+
+        for (var i = 0; i < Object.values(this.state.albums).length; i++) {
+          albumArr.push(Object.values(this.state.albums)[i][0]);
+        }
+
+        albumItems = albumArr.map(function (album) {
+          return /*#__PURE__*/_react["default"].createElement(_hpAlbumItem["default"], {
+            album: album,
+            artist: _this4.state.artists[album["artist_id"]]
+          });
+        });
+      }
+
+      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("ul", {
+        className: "hp-album-grid"
+      }, albumItems));
     }
   }]);
 
@@ -1174,6 +1182,62 @@ exports.mapDispatchToProps = mapDispatchToProps;
 
 var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_home["default"]);
 
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./frontend/components/home/hpAlbumItem.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/home/hpAlbumItem.jsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = exports.HPAlbumItem = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _reduxLogger = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var HPAlbumItem = function HPAlbumItem(props) {
+  var albArtist = props.artist;
+  var album = props.album;
+  var albumUrl = "/artists/".concat(albArtist.id, "/albums/").concat(album.id);
+  var artistUrl = "/artists/".concat(albArtist.id);
+
+  var albumLink = /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
+    to: albumUrl,
+    className: "hp-album-title"
+  }, album.title);
+
+  var artistLink = /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
+    to: artistUrl,
+    className: "hp-album-artist"
+  }, albArtist.name);
+
+  return /*#__PURE__*/_react["default"].createElement("ul", {
+    className: "hp-album"
+  }, /*#__PURE__*/_react["default"].createElement("li", {
+    className: "hp-album-title"
+  }, "album: ", albumLink), /*#__PURE__*/_react["default"].createElement("li", {
+    className: "hp-album-description"
+  }, "description: ", album.description), /*#__PURE__*/_react["default"].createElement("li", {
+    className: "hp-album-artist"
+  }, "artist: ", artistLink), /*#__PURE__*/_react["default"].createElement("br", null));
+};
+
+exports.HPAlbumItem = HPAlbumItem;
+var _default = HPAlbumItem;
 exports["default"] = _default;
 
 /***/ }),

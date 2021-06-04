@@ -19,8 +19,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ArtistIndexContainer from './artists/artist_index_container'
 const logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8SdddYY0T3LYB9KaK4BWxgj1SvtPi6cE5TuaSYMJ6eWxqfFoeMJ2qFGP9RpzZOccmMIVRZPfoSnlxxxBWIpgAYlSIo7Ghzb1MCLR3xOF4s4wG7sXkqMVhPaEKeds3vtaJQrkyFzhpCjpgbHFreOUkcnGfvQCz-AZP7KBONHxl-sLtlIDOmSPPWBYrN26vGwmC6KJyPOE44PKDvR1Hu3qgYRHLJuB8Vk_q_gZ2Id7e4W6NtW2tSGLhXym_oOepEfbSI0UCKsksq4jnPNCJjKBdZSC6YBnEuLxBxH8TO4NK1kAp8jlzRiyawnCwdkLpQ3IXSn72QFadKToiaBcpWwg/p.png?fv_content=true&size_mode=5'
 
-
-
 const App = () => (
   <div>
     <header className="top-bar">

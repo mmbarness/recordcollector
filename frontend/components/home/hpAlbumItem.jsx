@@ -1,0 +1,28 @@
+import React from 'react'
+import {logger} from 'redux-logger';
+import {Link} from 'react-router-dom'
+
+export const HPAlbumItem = (props) => {
+    let albArtist = props.artist
+    let album = props.album   
+    const albumUrl = `/artists/${albArtist.id}/albums/${album.id}`;
+    const artistUrl = `/artists/${albArtist.id}`;
+    const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link>  
+    const artistLink = <Link to={artistUrl} className="hp-album-artist">{albArtist.name}</Link>
+    return (
+        <ul className="hp-album">
+            <li className="hp-album-title">
+                album: {albumLink}
+            </li>
+            <li className="hp-album-description">
+                description: {album.description}
+            </li>
+            <li className="hp-album-artist">
+                artist: {artistLink}
+            </li>
+            <br />
+        </ul>
+    )
+}
+
+export default HPAlbumItem

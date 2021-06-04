@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import _, { map } from 'underscore';
 import { fetchAlbums } from '../../actions/album_actions';
 import "regenerator-runtime/runtime";
+import HPAlbumItem from './hpAlbumItem';
 
 export class Home extends React.Component {
     constructor(props){
@@ -39,34 +40,45 @@ export class Home extends React.Component {
         const fetchResponse = await this.props.fetchHPAlbums(tenArtists, 1)
             .then(fetchAlbums => {
                 this.setState({
-                    albums: fetchAlbums.response.albums,
-                    artists: fetchAlbums.response.artists}, 
-                    ()=>{this.renderTenAlbums()})
-                return fetchAlbums
-            })
-        return fetchResponse
+                    albums: fetchAlbums.response.albums, 
+                    artists: fetchAlbums.response.artists}) 
+                })
+            
     }
 
     buildAlbumElement(album){
-        
+        let albArtist = this.state.artists[album.artist_id]
+        debugger;
+        return(
+        <ul className="hp-album">
+            <li className="hp-album-title">{album.title}</li>
+            <li className="hp-album-description">{album.description}</li>
+            <li className="hp-album-artist">{albArtist.name}</li>
+        </ul>
+        )
     }
 
     async renderTenAlbums() {
         const albums = await this.state.albums
-        window.albums = albums
-        const albArr = [] 
-        for (const [key, value] of Object.entries(albums)) {
-            albArr.push(this.buildAlbumElement(value[0]))
-        }
-        window.albArr = albArr;
     }
+
 
     render(){
         window.state = this.state
-        window.fetchHPAlbums = this.props.fetchHPAlbums
+        let albumArr = []
+        let albumItems 
+        if (this.state.albums !== ""){
+            const albums = this.state.albums 
+            for (let i = 0; i < Object.values(this.state.albums).length; i++) {
+                albumArr.push((Object.values(this.state.albums)[i][0]))
+            }
+            albumItems = albumArr.map(album => <HPAlbumItem album ={album} artist={this.state.artists[album["artist_id"]]}/>)
+        }
         return(
             <div>
-                home
+                <ul className ="hp-album-grid">
+                    {albumItems}
+                </ul>
             </div>
         )
     }
