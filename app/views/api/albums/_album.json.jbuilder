@@ -1,4 +1,3 @@
-# debugger; 
 if @album
     json.extract! @album, :title, :id, :description, :credits
     json.extract! @artist, :name, :id, :location

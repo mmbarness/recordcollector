@@ -117,7 +117,6 @@ var RECEIVE_HP_ALBUMS = "RECEIVE_HP_ALBUMS";
 exports.RECEIVE_HP_ALBUMS = RECEIVE_HP_ALBUMS;
 
 var receiveArtistAlbums = function receiveArtistAlbums(albums) {
-  // debugger;
   return {
     type: RECEIVE_ARTIST_ALBUMS,
     albums: albums
@@ -746,7 +745,6 @@ var ArtistShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "showInfo",
     value: function showInfo() {
-      // debugger; 
       return /*#__PURE__*/_react["default"].createElement("div", {
         className: "artist-show-container"
       }, /*#__PURE__*/_react["default"].createElement("ul", {
@@ -1523,7 +1521,6 @@ var TopBar = function TopBar(_ref) {
   var onScroll = function onScroll() {
     var topbar = document.getElementsByClassName("top-bar");
     var sticky = topbar.offsetTop;
-    debugger;
 
     if (topbar !== undefined) {
       if (window.pageYOffset >= sticky) {
@@ -1696,8 +1693,7 @@ var albumsReducer = function albumsReducer() {
     case _album_actions.RECEIVE_ARTIST_ALBUMS:
       var artist_id = Object.values(action.albums)[0].artist_id;
 
-      var albums = _defineProperty({}, artist_id, action.albums); // debugger;
-
+      var albums = _defineProperty({}, artist_id, action.albums);
 
       return Object.assign({}, state, albums);
 
@@ -1744,7 +1740,6 @@ var artistsReducer = function artistsReducer() {
 
   switch (action.type) {
     case _artist_actions.RECEIVE_ALL_ARTISTS:
-      // debugger;
       return Object.assign({}, state, action.artists);
 
     case _artist_actions.RECEIVE_ARTIST:
@@ -2036,7 +2031,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return (0, _redux.createStore)(_root["default"], preloadedState, (0, _redux.applyMiddleware)(_reduxThunk["default"], _reduxLogger["default"]));
+  return (0, _redux.createStore)(_root["default"], preloadedState, (0, _redux.applyMiddleware)(_reduxThunk["default"]));
 };
 
 var _default = configureStore;
@@ -2122,19 +2117,7 @@ var fetchArtist = function fetchArtist(artistId) {
     url: "api/artists/".concat(artistId),
     method: 'GET'
   });
-}; // export const fetchArtist = artistId => {
-//     // debugger;
-//     return  new Promise((resolve, reject) => 
-//         ($.ajax({
-//             url: `api/artists/${artistId}`,
-//             method: 'GET',
-//             success: data => resolve(data),
-//             error: error => reject(error)
-//         }
-//         ))
-//     )
-// }
-
+};
 
 exports.fetchArtist = fetchArtist;
 

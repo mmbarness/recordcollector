@@ -8,7 +8,6 @@ const TopBar = ({ currentUser, logout }) => {
   const onScroll = () => {
     let topbar = document.getElementsByClassName("top-bar")
     let sticky = topbar.offsetTop;
-    debugger;
     if (topbar !== undefined){
       if (window.pageYOffset >= sticky) {
         topbar.classList.add("sticky")

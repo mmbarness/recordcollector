@@ -37,7 +37,6 @@ export class ArtistShow extends React.Component {
     }
 
     showInfo() {
-        // debugger; 
         return (<div className="artist-show-container">
             <ul className="album-grid">{this.albumGrid()}</ul>
             <div className="artist-show-info">

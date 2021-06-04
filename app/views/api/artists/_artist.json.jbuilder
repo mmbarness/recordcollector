@@ -1,4 +1,3 @@
-# debugger; 
 if @artist 
     json.extract! @artist, :name, :id, :location
 else

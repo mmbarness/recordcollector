@@ -5,7 +5,6 @@ export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_HP_ALBUMS = "RECEIVE_HP_ALBUMS";
 
 export const receiveArtistAlbums = (albums) => {
-    // debugger;
     return({
     type: RECEIVE_ARTIST_ALBUMS,
     albums
