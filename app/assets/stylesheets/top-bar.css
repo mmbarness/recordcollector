@@ -16,6 +16,18 @@
     justify-content: space-between;
 }
 
+@font-face {
+    font-family: 'Banto';
+    src:url('/Banto/EOT/Banto1.8Trial-Regular.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.logo-text{
+    font-family: Banto;
+}
+
+
 
 .header-link{
     align-self: center;

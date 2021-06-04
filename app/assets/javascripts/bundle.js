@@ -373,12 +373,14 @@ var _artist_index_container = _interopRequireDefault(__webpack_require__(/*! ./a
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var logo = 'https://previews.dropbox.com/p/thumb/ABJ-iP0Aw_H3fwtrQl5l5WJIemd9Ii41pLLnzZh8724ro0Ip3pKI2clOEOglzZzFgH993jXeRZCRQcEeL1hMxl5bYGzR0wndsJtNgOj7ejTLRaDI1DpFVmFVMREI7aUOUqD8KcG86020EJmjNWsSnawPaN0o8JwLqeSbUzBC-7vhzpkGAV038z0vI53G_wWwDISG6BaBJAgTXHSFSYI8fkO4xw7ZbugkXwx4_vk29X0HYNTPjYI1FDXEXivTwQNAJXpNq--cG83D-pS4cqatbO6aN1wa75thR_MwNPx_w2h6J-njF5NBm8JsVLJFV4x2EFDS6jjheEeH9aAjVb5szIIyJOavtww2vPRBKm-YNgL_fg/p.png?fv_content=true&size_mode=5';
+var logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8SdddYY0T3LYB9KaK4BWxgj1SvtPi6cE5TuaSYMJ6eWxqfFoeMJ2qFGP9RpzZOccmMIVRZPfoSnlxxxBWIpgAYlSIo7Ghzb1MCLR3xOF4s4wG7sXkqMVhPaEKeds3vtaJQrkyFzhpCjpgbHFreOUkcnGfvQCz-AZP7KBONHxl-sLtlIDOmSPPWBYrN26vGwmC6KJyPOE44PKDvR1Hu3qgYRHLJuB8Vk_q_gZ2Id7e4W6NtW2tSGLhXym_oOepEfbSI0UCKsksq4jnPNCJjKBdZSC6YBnEuLxBxH8TO4NK1kAp8jlzRiyawnCwdkLpQ3IXSn72QFadKToiaBcpWwg/p.png?fv_content=true&size_mode=5';
 
 var App = function App() {
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("header", {
     className: "top-bar"
-  }, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "logo-text"
+  }, "Record Collector"), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
     to: "/",
     className: "header-link"
   }, /*#__PURE__*/_react["default"].createElement("img", {

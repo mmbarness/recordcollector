@@ -29,3 +29,10 @@
     position: fixed;
     width: 100% 
 } */
+
+@font-face {
+    font-family: 'Banto';
+    src:url('../fonts/Banto/EOT/Banto1.8Trial-Regular.eot');
+    font-weight: normal;
+    font-style: normal;
+}
