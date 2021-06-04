@@ -407,7 +407,7 @@ var NotFoundPage = /*#__PURE__*/function (_React$Component) {
         style: {
           textAlign: "center"
         }
-      }, /*#__PURE__*/_react["default"].createElement("div", null, "fuck u")));
+      }, /*#__PURE__*/_react["default"].createElement("div", null, "uh o!!!!")));
     }
   }]);
 

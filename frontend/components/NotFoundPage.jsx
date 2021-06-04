@@ -5,7 +5,7 @@ class NotFoundPage extends React.Component{
     render(){
         return <div>
             <p style={{textAlign:"center"}}>
-                <div>fuck u</div>
+                <div>uh o!!!!</div>
               {/* <Link to="/">Go to Home </Link> */}
             </p>
           </div>;
