@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require 'faker'
-
 Artist.destroy_all
 Album.destroy_all
 
