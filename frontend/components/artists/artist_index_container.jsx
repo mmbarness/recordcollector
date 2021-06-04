@@ -9,7 +9,7 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => ({
   fetchArtists: () => dispatch(fetchArtists()),
-  fetchArtist: reportId => dispatch(fetchArtist(reportId))
+  fetchArtist: artistId => dispatch(fetchArtist(artistId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistIndex)

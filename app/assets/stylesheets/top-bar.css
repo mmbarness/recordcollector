@@ -5,7 +5,9 @@
     flex-wrap: nowrap;
     justify-content: space-between; 
     /* overflow: hidden; */
-    background-color: #333;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%
 }
 
 .header-group{
@@ -13,6 +15,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
 
 .header-link{
     align-self: center;
@@ -24,4 +27,9 @@
 
 .header-name {
     align-self: center;
+}
+
+#logo {
+    width: 8%;
+    height: 8%
 }

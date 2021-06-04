@@ -5,11 +5,8 @@ import {selectArtist} from '../../reducers/selectors'
 import {fetchAlbums} from '../../actions/album_actions'
 
 const mapStateToProps = (state,ownProps) => {
-    // const artistId = match.params.artistId;
-    // const artist = state.entities.artists[artistId]
     const id = ownProps.match.params.artistId
     const artistSlice = state.entities.artists[id]
-    // debugger;
     return {
         "artist": artistSlice
     }

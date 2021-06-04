@@ -1,5 +1,10 @@
-import {RECEIVE_ARTIST_ALBUMS, RECEIVE_ALBUM} from '../actions/album_actions'
+import {RECEIVE_ARTIST_ALBUMS, RECEIVE_ALBUM, RECEIVE_HP_ALBUMS} from '../actions/album_actions'
 
+// const hpAlbums = (allAlbums) => {
+//     for (let i = 0; i < allAlbums.length; i++){
+
+//     }
+// }
 
 const albumsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -13,6 +18,9 @@ const albumsReducer = (state = {}, action) => {
         case RECEIVE_ALBUM: 
             nextState[action.album.id] = action.album
             return nextState;
+        case RECEIVE_HP_ALBUMS: 
+            nextState['artists'] = Object.values(action.response.artists);
+            nextState['albums'] = Object.values(action.response.albums)
         default:
             return state;
     }
