@@ -698,7 +698,8 @@ var ArtistShow = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       artist: {
         name: "null",
-        location: "null"
+        location: "null",
+        image_url: "null"
       },
       albums: ['album1', 'album2', 'album3']
     };
@@ -713,12 +714,14 @@ var ArtistShow = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchArtist(this.artistId).then(function (response) {
+        debugger;
         var artist = response.artist.artist;
 
         _this2.setState({
           artist: {
             name: artist.name,
-            location: artist.location
+            location: artist.location,
+            image_url: artist.image_url
           }
         });
       });
@@ -755,7 +758,10 @@ var ArtistShow = /*#__PURE__*/function (_React$Component) {
         id: "artist-show-info-name"
       }, this.state.artist.name), /*#__PURE__*/_react["default"].createElement("h2", {
         id: "artist-show-info-location"
-      }, this.state.artist.location)));
+      }, this.state.artist.location), /*#__PURE__*/_react["default"].createElement("img", {
+        src: this.state.artist.image_url,
+        alt: "shut up"
+      })));
     }
   }, {
     key: "render",

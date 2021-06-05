@@ -1,0 +1,3 @@
+Artist.find_by(name: "Kiss")(io: File.open("/Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/images/kiss-band-photo.jpeg"), filename: "kiss-band-photo.jpeg")
+
+kiss.photo.attach(io: File.open("/Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/images/kiss-band-photo.jpeg"), filename: "kiss-band-photo.jpeg")

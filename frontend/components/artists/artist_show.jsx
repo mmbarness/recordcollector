@@ -6,7 +6,7 @@ export class ArtistShow extends React.Component {
         super(props)
         this.artistId = parseInt(this.props.match.params.artistId)
         this.state = {
-            artist: {name: "null", location: "null"},
+            artist: {name: "null", location: "null", image_url: "null"},
             albums: ['album1', 'album2', 'album3'] 
         }
         this.showInfo = this.showInfo.bind(this);
@@ -16,8 +16,9 @@ export class ArtistShow extends React.Component {
     componentDidMount(){
         this.props.fetchArtist(this.artistId)
             .then((response) => {
+                debugger;
                 const artist = response.artist.artist;
-                this.setState({artist: {name: artist.name, location: artist.location}})
+                this.setState({artist: {name: artist.name, location: artist.location, image_url: artist.image_url}})
             })
         this.props.fetchAlbums(this.artistId)
             .then((response => {
@@ -41,7 +42,8 @@ export class ArtistShow extends React.Component {
             <ul className="album-grid">{this.albumGrid()}</ul>
             <div className="artist-show-info">
                 <h2 id="artist-show-info-name">{this.state.artist.name}</h2>
-                <h2 id="artist-show-info-location">{this.state.artist.location}</h2>    
+                <h2 id="artist-show-info-location">{this.state.artist.location}</h2> 
+                <img src={this.state.artist.image_url} alt="shut up" />   
             </div>
         </div>)
     }
