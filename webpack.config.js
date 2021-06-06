@@ -40,7 +40,13 @@ module.exports = {
               }
             }
         }]
-      }
+      },
+      // {
+      //   test: /\.(otf|eot)$/,
+      //   use: {
+      //     loader: 'url-loader'
+      //   }
+      // }
     ]
   },
   devtool: 'source-map',

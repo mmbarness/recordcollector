@@ -18,7 +18,8 @@ export class Home extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchArtists().then(response => this.getTenArtistsAlbums(response.artists));
+        this.props.fetchArtists().then(response => {
+            this.getTenArtistsAlbums(response.artists)})
     }
 
     getTenArtists(artists){
@@ -48,7 +49,6 @@ export class Home extends React.Component {
 
     buildAlbumElement(album){
         let albArtist = this.state.artists[album.artist_id]
-        debugger;
         return(
         <ul className="hp-album">
             <li className="hp-album-title">{album.title}</li>
@@ -58,26 +58,30 @@ export class Home extends React.Component {
         )
     }
 
-    async renderTenAlbums() {
-        const albums = await this.state.albums
+    renderTenAlbums() {
+        let albumArr = []
+        if (this.state.albums !== ""){
+            const albums = this.state.albums 
+            for (let i = 0; i < Object.values(this.state.albums).length; i++) {
+                albumArr.push((Object.values(this.state.albums)[i]))
+            }
+            return albumArr.map(
+                album => { 
+                return<HPAlbumItem album ={album} artist={this.state.artists[album["artist_id"]]}/>
+            })
+        }
+        // debugger
     }
+
+    
 
 
     render(){
         window.state = this.state
-        let albumArr = []
-        let albumItems 
-        if (this.state.albums !== ""){
-            const albums = this.state.albums 
-            for (let i = 0; i < Object.values(this.state.albums).length; i++) {
-                albumArr.push((Object.values(this.state.albums)[i][0]))
-            }
-            albumItems = albumArr.map(album => <HPAlbumItem album ={album} artist={this.state.artists[album["artist_id"]]}/>)
-        }
         return(
-            <div>
+            <div className="hp-album-grid-container">
                 <ul className ="hp-album-grid">
-                    {albumItems}
+                    {this.renderTenAlbums()}
                 </ul>
             </div>
         )

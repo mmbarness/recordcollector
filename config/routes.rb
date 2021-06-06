@@ -13,4 +13,5 @@ namespace :api, defaults: { format: :json } do
     end
   end
   root to: 'static_pages#root'
+
 end

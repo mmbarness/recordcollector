@@ -1,0 +1,164 @@
+/* line 1, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/artist/show-page.scss */
+.artist-show-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* line 7, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/artist/show-page.scss */
+.artist-show-info {
+  justify-self: flex-end;
+  padding: 2vw;
+}
+
+/* line 13, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/artist/show-page.scss */
+.album-grid {
+  padding: 2vw;
+  justify-self: center;
+  flex-grow: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: center;
+}
+.hp-album-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(2, 20%);
+    justify-content: center;
+    align-content: space-around;
+    padding: 5%;
+    width: 100%
+}
+
+.hp-album{
+    padding-top: 5%;
+}
+
+.hp-album-img{
+    width: 9vw;
+    height: 16vh;
+}
+
+.hp-album-title{
+    font-family: 'Luna-Heavy'
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* line 1, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/session/session_form.scss */
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 1, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+.top-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  /* overflow: hidden; */
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 1%;
+}
+
+/* line 13, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+.header-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 25, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+.header-link {
+  align-self: center;
+}
+
+/* line 29, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+.header-button {
+  margin-left: 1vw;
+}
+
+/* line 33, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+.header-name {
+  align-self: center;
+}
+
+/* line 37, /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/stylesheets/top-bar.css.scss */
+#logo {
+  width: 8%;
+  height: 8%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+@font-face {
+    font-family: 'Luna-Heavy';
+    src: url(/Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/fonts/Luna/Luna0.3Demo-Heavy.otf) format('opentype');
+} 
+
+
+
+

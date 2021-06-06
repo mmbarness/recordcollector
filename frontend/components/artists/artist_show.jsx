@@ -16,7 +16,7 @@ export class ArtistShow extends React.Component {
     componentDidMount(){
         this.props.fetchArtist(this.artistId)
             .then((response) => {
-                debugger;
+                // debugger;
                 const artist = response.artist.artist;
                 this.setState({artist: {name: artist.name, location: artist.location, image_url: artist.image_url}})
             })

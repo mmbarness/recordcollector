@@ -16,9 +16,14 @@ class Api::AlbumsController < ApplicationController
         @response = {artists: {}, albums: {}};
         artistIds.each do |id| 
             artist = Artist.find_by(id: id)
+            artist_image_url ={:artist_image_url => url_for(artist.photo)}
+            artistJSON = artist_image_url.merge(artist.as_json)
             @response[:artists][id] = []
-            @response[:artists][id] = artist.as_json
-            @response[:albums][id]= artist.albums[0...numAlbums].as_json;
+            @response[:artists][id] = artistJSON
+            @album = artist.albums.first
+            album_image_url = {:album_image_url => url_for(@album.photo)}
+            albumJSON = album_image_url.merge(@album.as_json)
+            @response[:albums][id]= albumJSON;
         end
         render "api/albums/homepage"
     end

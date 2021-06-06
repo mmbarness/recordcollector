@@ -9,16 +9,21 @@ export const HPAlbumItem = (props) => {
     const artistUrl = `/artists/${albArtist.id}`;
     const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link>  
     const artistLink = <Link to={artistUrl} className="hp-album-artist">{albArtist.name}</Link>
+    
+    window.props = props 
+    // debugger;
     return (
         <ul className="hp-album">
-            <li className="hp-album-title">
-                album: {albumLink}
-            </li>
-            <li className="hp-album-description">
-                description: {album.description}
-            </li>
-            <li className="hp-album-artist">
-                artist: {artistLink}
+            <img src={album.album_image_url} alt={album.title} className= "hp-album-img"/>
+            <li> 
+                <ul className="hp-album-text">
+                    <li className="hp-album-title">
+                        {albumLink}
+                    </li>
+                    <li className="hp-album-artist">
+                        {artistLink}
+                    </li>
+                </ul>
             </li>
             <br />
         </ul>

@@ -22,11 +22,6 @@ const logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8Sd
 const App = () => (
   <div>
     <header className="top-bar">
-      <div className="logo-text">Record Collector</div>
-      <Link to="/" className="header-link">
-        <img id="logo" src={logo} alt="rc logo" />
-        <h1 id="rc-button"></h1>
-      </Link>
       <TopBarContainer />
     </header>
     <Switch>

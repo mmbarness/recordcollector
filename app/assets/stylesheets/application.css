@@ -14,25 +14,10 @@
  *= require_self
  */
 
-/* .top-bar {
-    position: sticky;
-    top: 0;
-    display: flex; 
-    flex-wrap: nowrap;
-    justify-content: space-between; 
-    /* overflow: hidden; 
-    
-}*/
+a:link {
+  text-decoration: none;
+}
 
-/* 
-.sticky {
-    position: fixed;
-    width: 100% 
-} */
-
-@font-face {
-    font-family: 'Banto';
-    src:url('../fonts/Banto/EOT/Banto1.8Trial-Regular.eot');
-    font-weight: normal;
-    font-style: normal;
+body{
+    font-family: 'Roboto Slab'
 }

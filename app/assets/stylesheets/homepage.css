@@ -1,0 +1,51 @@
+.hp-album-grid-container{
+    padding-top: 3vmax;
+    padding-right: 5vmax;
+    padding-bottom: 5vmax;
+    padding-left: 5vmax;
+    z-index: 1;
+}
+
+.hp-album-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(2, 20%);
+    justify-content: center;
+    align-content: space-around;
+    width: 100%
+}
+
+.hp-album{
+    padding-top: 5%;
+    font-family: 'Roboto', serif; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vmin
+}
+
+.hp-album-img{
+    width: 14vmin;
+    height: 14vmin;
+    padding-bottom: 1vmin;
+}
+
+.hp-album-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Roboto Slab';
+    font-weight: 400;
+}
+
+.hp-album-title{
+    padding-bottom: .5vmax
+}
+
+
+
+
+
+

@@ -462,18 +462,7 @@ var logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8Sddd
 var App = function App() {
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("header", {
     className: "top-bar"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "logo-text"
-  }, "Record Collector"), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
-    to: "/",
-    className: "header-link"
-  }, /*#__PURE__*/_react["default"].createElement("img", {
-    id: "logo",
-    src: logo,
-    alt: "rc logo"
-  }), /*#__PURE__*/_react["default"].createElement("h1", {
-    id: "rc-button"
-  })), /*#__PURE__*/_react["default"].createElement(_top_bar_container["default"], null)), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react["default"].createElement(_top_bar_container["default"], null)), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/",
     component: _home_container["default"]
@@ -714,7 +703,7 @@ var ArtistShow = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchArtist(this.artistId).then(function (response) {
-        debugger;
+        // debugger;
         var artist = response.artist.artist;
 
         _this2.setState({
@@ -996,7 +985,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchArtists().then(function (response) {
-        return _this2.getTenArtistsAlbums(response.artists);
+        _this2.getTenArtistsAlbums(response.artists);
       });
     }
   }, {
@@ -1058,7 +1047,6 @@ var Home = /*#__PURE__*/function (_React$Component) {
     key: "buildAlbumElement",
     value: function buildAlbumElement(album) {
       var albArtist = this.state.artists[album.artist_id];
-      debugger;
       return /*#__PURE__*/_react["default"].createElement("ul", {
         className: "hp-album"
       }, /*#__PURE__*/_react["default"].createElement("li", {
@@ -1071,60 +1059,36 @@ var Home = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "renderTenAlbums",
-    value: function () {
-      var _renderTenAlbums = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var albums;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.state.albums;
-
-              case 2:
-                albums = _context2.sent;
-
-              case 3:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function renderTenAlbums() {
-        return _renderTenAlbums.apply(this, arguments);
-      }
-
-      return renderTenAlbums;
-    }()
-  }, {
-    key: "render",
-    value: function render() {
+    value: function renderTenAlbums() {
       var _this4 = this;
 
-      window.state = this.state;
       var albumArr = [];
-      var albumItems;
 
       if (this.state.albums !== "") {
         var albums = this.state.albums;
 
         for (var i = 0; i < Object.values(this.state.albums).length; i++) {
-          albumArr.push(Object.values(this.state.albums)[i][0]);
+          albumArr.push(Object.values(this.state.albums)[i]);
         }
 
-        albumItems = albumArr.map(function (album) {
+        return albumArr.map(function (album) {
           return /*#__PURE__*/_react["default"].createElement(_hpAlbumItem["default"], {
             album: album,
             artist: _this4.state.artists[album["artist_id"]]
           });
         });
-      }
+      } // debugger
 
-      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("ul", {
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      window.state = this.state;
+      return /*#__PURE__*/_react["default"].createElement("div", {
+        className: "hp-album-grid-container"
+      }, /*#__PURE__*/_react["default"].createElement("ul", {
         className: "hp-album-grid"
-      }, albumItems));
+      }, this.renderTenAlbums()));
     }
   }]);
 
@@ -1231,15 +1195,21 @@ var HPAlbumItem = function HPAlbumItem(props) {
     className: "hp-album-artist"
   }, albArtist.name);
 
+  window.props = props; // debugger;
+
   return /*#__PURE__*/_react["default"].createElement("ul", {
     className: "hp-album"
+  }, /*#__PURE__*/_react["default"].createElement("img", {
+    src: album.album_image_url,
+    alt: album.title,
+    className: "hp-album-img"
+  }), /*#__PURE__*/_react["default"].createElement("li", null, /*#__PURE__*/_react["default"].createElement("ul", {
+    className: "hp-album-text"
   }, /*#__PURE__*/_react["default"].createElement("li", {
     className: "hp-album-title"
-  }, "album: ", albumLink), /*#__PURE__*/_react["default"].createElement("li", {
-    className: "hp-album-description"
-  }, "description: ", album.description), /*#__PURE__*/_react["default"].createElement("li", {
+  }, albumLink), /*#__PURE__*/_react["default"].createElement("li", {
     className: "hp-album-artist"
-  }, "artist: ", artistLink), /*#__PURE__*/_react["default"].createElement("br", null));
+  }, artistLink))), /*#__PURE__*/_react["default"].createElement("br", null));
 };
 
 exports.HPAlbumItem = HPAlbumItem;
@@ -1584,44 +1554,70 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+var logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8SdddYY0T3LYB9KaK4BWxgj1SvtPi6cE5TuaSYMJ6eWxqfFoeMJ2qFGP9RpzZOccmMIVRZPfoSnlxxxBWIpgAYlSIo7Ghzb1MCLR3xOF4s4wG7sXkqMVhPaEKeds3vtaJQrkyFzhpCjpgbHFreOUkcnGfvQCz-AZP7KBONHxl-sLtlIDOmSPPWBYrN26vGwmC6KJyPOE44PKDvR1Hu3qgYRHLJuB8Vk_q_gZ2Id7e4W6NtW2tSGLhXym_oOepEfbSI0UCKsksq4jnPNCJjKBdZSC6YBnEuLxBxH8TO4NK1kAp8jlzRiyawnCwdkLpQ3IXSn72QFadKToiaBcpWwg/p.png?fv_content=true&size_mode=5';
+
 var TopBar = function TopBar(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
-  var onScroll = function onScroll() {
-    var topbar = document.getElementsByClassName("top-bar");
-    var sticky = topbar.offsetTop;
+  var logoContainer = function logoContainer() {
+    return /*#__PURE__*/_react["default"].createElement("div", {
+      className: "logo-container"
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      className: "logo-and-image"
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      className: ["top-bar-text", "logo-text"].join(" ")
+    }, "Record"), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
+      to: "/",
+      className: "logo-home-link"
+    }, /*#__PURE__*/_react["default"].createElement("img", {
+      id: "logo-img",
+      src: logo,
+      alt: "rc logo"
+    }), /*#__PURE__*/_react["default"].createElement("h1", {
+      id: "rc-button"
+    })), /*#__PURE__*/_react["default"].createElement("div", {
+      className: ["top-bar-text", "logo-text"].join(" ")
+    }, "Collector")), /*#__PURE__*/_react["default"].createElement("div", {
+      className: ["top-bar-text", "logo-sentence"].join(" ")
+    }, "Discover amazing new music and directly support the artists who make it."));
+  };
 
-    if (topbar !== undefined) {
-      if (window.pageYOffset >= sticky) {
-        topbar.classList.add("sticky");
-      } else {
-        topbar.classList.remove("sticky");
-      }
-    }
+  var searchBar = function searchBar() {
+    return /*#__PURE__*/_react["default"].createElement("input", {
+      type: "text",
+      className: "search-bar",
+      placeholder: "Search and discover music"
+    });
   };
 
   var sessionLinks = function sessionLinks() {
-    // onScroll();
-    return /*#__PURE__*/_react["default"].createElement("nav", {
-      className: "login-signup"
+    return /*#__PURE__*/_react["default"].createElement("div", {
+      className: "top-bar-container"
+    }, logoContainer(), /*#__PURE__*/_react["default"].createElement("div", {
+      className: "right-side-elements"
+    }, searchBar(), /*#__PURE__*/_react["default"].createElement("nav", {
+      className: ["login-signup", "top-bar-text"].join(" ")
     }, /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
-      to: "/login"
-    }, "Login"), "\xA0or\xA0", /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
       to: "/signup"
-    }, "Sign up!"));
+    }, "sign up"), "\xA0 \xA0", /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Link, {
+      to: "/login"
+    }, "login"))));
   };
 
   var splashGreeting = function splashGreeting() {
-    // onScroll();
-    return /*#__PURE__*/_react["default"].createElement("hgroup", {
-      className: "header-group"
+    return /*#__PURE__*/_react["default"].createElement("div", {
+      className: "top-bar-container"
+    }, logoContainer(), /*#__PURE__*/_react["default"].createElement("div", {
+      className: "right-side-elements"
+    }, searchBar(), /*#__PURE__*/_react["default"].createElement("hgroup", {
+      className: ["welcome-container", "top-bar-greeting"].join(" ")
     }, /*#__PURE__*/_react["default"].createElement("h2", {
-      className: "header-name"
-    }, "hi ", currentUser.username, "!"), /*#__PURE__*/_react["default"].createElement("button", {
-      className: "header-button",
+      className: "welcome-name"
+    }, currentUser.username), /*#__PURE__*/_react["default"].createElement("button", {
+      className: "logout-button",
       onClick: logout
-    }, "Log Out"));
+    }, "log out"))));
   };
 
   return currentUser ? splashGreeting() : sessionLinks();
