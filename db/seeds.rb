@@ -290,6 +290,7 @@ albums = Album.create([
     credits: 'yep',
     artist_id: 723
   },
+  
   {
     title: 'Barter 6',
     description: 'top 5 album covers ever',

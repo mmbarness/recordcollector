@@ -220,10 +220,10 @@
 #     io: File.open("/Users/matthewbarnes/Documents/programming/aA/rc-media/723-band-photo.jpeg"), 
 #     filename: "723-band-photo.jpeg")
 
-# id724 = Artist.find(724)
-# id724.photo.attach(
-#     io: File.open("/Users/matthewbarnes/Documents/programming/aA/rc-media/724-band-photo.jpeg"), 
-#     filename: "724-band-photo.jpeg")
+id724 = Artist.find(724)
+id724.photo.attach(
+    io: File.open("/Users/matthewbarnes/Documents/programming/aA/rc-media/724-band-photo.jpeg"), 
+    filename: "724-band-photo.jpeg")
 
 # i = 689
 # while i < 725 do 

@@ -1645,14 +1645,16 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       window.props = this.props;
+      var formType = this.props.formType;
+      var navLink = this.props.navLink;
       return /*#__PURE__*/_react["default"].createElement("div", {
         className: "login-form-container"
       }, /*#__PURE__*/_react["default"].createElement("form", {
         onSubmit: this.handleSubmit,
         className: "login-form-box"
-      }, /*#__PURE__*/_react["default"].createElement("br", null), "Please ", this.props.formType, " or ", this.props.navLink, this.renderErrors(), /*#__PURE__*/_react["default"].createElement("div", {
-        className: "login-form"
-      }, this.conditionalDisplay(), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("label", null, "Username:", /*#__PURE__*/_react["default"].createElement("input", {
+      }, /*#__PURE__*/_react["default"].createElement("h3", null, "Please ", formType, " or ", navLink), this.renderErrors(), /*#__PURE__*/_react["default"].createElement("div", {
+        className: "login-form-fields"
+      }, this.conditionalDisplay(), /*#__PURE__*/_react["default"].createElement("label", null, "Username:", /*#__PURE__*/_react["default"].createElement("input", {
         type: "text",
         value: this.state.username,
         onChange: this.update('username'),

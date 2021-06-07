@@ -73,15 +73,15 @@ class SessionForm extends React.Component {
 
   render() {
     window.props = this.props 
+    const formType = this.props.formType
+    const navLink = this.props.navLink
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          <h3>Please {formType} or {navLink}</h3>
           {this.renderErrors()}
-          <div className="login-form">
+          <div className="login-form-fields">
             {this.conditionalDisplay()}
-            <br/>
             <label>Username:
               <input type="text"
                 value={this.state.username}

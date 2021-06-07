@@ -2,4 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 13vmax;
+    width: 100%;
+}
+
+.login-form-box{
+    display: flex;
+    flex-flow:column;
+    align-items: center;
+    width: 20vmax;
+}
+
+.login-form-fields{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
