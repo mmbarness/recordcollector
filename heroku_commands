@@ -1,0 +1,1 @@
+heroku run -a record-collector-aa bundle exec rails db:migrate 
