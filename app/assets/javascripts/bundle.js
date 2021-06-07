@@ -925,6 +925,12 @@ var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/i
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -960,29 +966,51 @@ var HPFeatures = /*#__PURE__*/function (_React$Component) {
       primaryArtist: "",
       primaryAlbum: ""
     };
+    _this.stateSetter = _this.stateSetter.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(HPFeatures, [{
+    key: "stateSetter",
+    value: function () {
+      var _stateSetter = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var artists;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.props['artists'].then((Object.values(artists), _readOnlyError("artists"))).then(this.setState({
+                  primaryArtist: artists[artists.length - 1]
+                }));
+
+              case 2:
+                artists = _context.sent;
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function stateSetter() {
+        return _stateSetter.apply(this, arguments);
+      }
+
+      return stateSetter;
+    }()
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
-      this.props.fetchArtist(725).then(function (fetchArtist) {
-        _this2.setState({
-          primaryArtist: fetchArtist.artist.artist
-        });
-      });
-      this.props.fetchAlbums(725).then(function (fetchAlbum) {
-        _this2.setState({
-          primaryAlbum: fetchAlbum.albums
-        });
-      });
+      this.stateSetter();
     }
   }, {
     key: "render",
     value: function render() {
       window.hpFeaturesState = this.state;
+      window.hpFeaturesProps = this.props;
 
       var hpFeatureArtistPhoto = /*#__PURE__*/_react["default"].createElement("img", {
         src: this.state.primaryArtist.image_url,
@@ -1029,9 +1057,9 @@ var _album_actions = __webpack_require__(/*! ../../actions/album_actions */ "./f
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    artists: Object.values(state.entities.artists)
+    artists: state.entities.artists
   };
 };
 

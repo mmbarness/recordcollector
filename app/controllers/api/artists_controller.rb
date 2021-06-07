@@ -7,7 +7,7 @@ class Api::ArtistsController < ApplicationController
     end
 
     def index 
-        @artists = Artist.all 
+        @artists = Artist.all
         render "api/artists/index"
     end
 end

@@ -4,8 +4,9 @@ import {fetchArtist} from '../../actions/artist_actions';
 import {fetchAlbums} from '../../actions/album_actions'
 
 
-export const mapStateToProps = state => {
-    return {artists: Object.values(state.entities.artists)}
+export const mapStateToProps = (state, ownProps) => {
+    return {
+      artists: (state.entities.artists)}
 }
 
 export const mapDispatchToProps = dispatch => ({

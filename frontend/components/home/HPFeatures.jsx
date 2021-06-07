@@ -11,19 +11,23 @@ export class HPFeatures extends React.Component{
             primaryArtist: "",
             primaryAlbum: ""
         }
+        this.stateSetter = this.stateSetter.bind(this);
+    }
+
+    async stateSetter(){
+        const artists = await (this.props['artists'])
+
+            .then(artists = Object.values(artists))
+            .then(this.setState({primaryArtist: artists[artists.length-1]}))
     }
 
     componentDidMount(){
-        this.props.fetchArtist(725).then(
-            fetchArtist => {this.setState({primaryArtist: fetchArtist.artist.artist})}
-        )
-        this.props.fetchAlbums(725).then(
-            fetchAlbum => {this.setState({primaryAlbum: fetchAlbum.albums})}
-        )
+        this.stateSetter()
     }
 
     render(){
         window.hpFeaturesState = this.state; 
+        window.hpFeaturesProps = this.props; 
         const hpFeatureArtistPhoto = <img src={this.state.primaryArtist.image_url} alt={this.state.primaryArtist.name} />
         return(
             <div className="HPFeaturesContainer">
