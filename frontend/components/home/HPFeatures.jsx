@@ -28,10 +28,10 @@ export class HPFeatures extends React.Component{
     render(){
         window.hpFeaturesState = this.state; 
         window.hpFeaturesProps = this.props; 
-        const hpFeatureArtistPhoto = <img src={this.state.primaryArtist.image_url} alt={this.state.primaryArtist.name} />
+        const HPFeatureArtistPhoto = <img src={this.state.primaryArtist.image_url} alt={this.state.primaryArtist.name} />
         return(
             <div className="HPFeaturesContainer">
-                {hpFeatureArtistPhoto}
+                {HPFeatureArtistPhoto}
                 <h3>Squarepusher's Iconic Debut "Feed Me Weird Things" Turns 25</h3>
             </div>
         )

@@ -1012,14 +1012,14 @@ var HPFeatures = /*#__PURE__*/function (_React$Component) {
       window.hpFeaturesState = this.state;
       window.hpFeaturesProps = this.props;
 
-      var hpFeatureArtistPhoto = /*#__PURE__*/_react["default"].createElement("img", {
+      var HPFeatureArtistPhoto = /*#__PURE__*/_react["default"].createElement("img", {
         src: this.state.primaryArtist.image_url,
         alt: this.state.primaryArtist.name
       });
 
       return /*#__PURE__*/_react["default"].createElement("div", {
         className: "HPFeaturesContainer"
-      }, hpFeatureArtistPhoto, /*#__PURE__*/_react["default"].createElement("h3", null, "Squarepusher's Iconic Debut \"Feed Me Weird Things\" Turns 25"));
+      }, HPFeatureArtistPhoto, /*#__PURE__*/_react["default"].createElement("h3", null, "Squarepusher's Iconic Debut \"Feed Me Weird Things\" Turns 25"));
     }
   }]);
 
