@@ -3,7 +3,7 @@ require 'open-uri'
 Artist.destroy_all
 Album.destroy_all
 Track.destroy_all
-\
+
 actress = Artist.create({
     name:'Actress',
     location: 'London, UK'})
