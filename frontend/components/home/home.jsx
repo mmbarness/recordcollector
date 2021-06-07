@@ -4,6 +4,8 @@ import _, { map } from 'underscore';
 import { fetchAlbums } from '../../actions/album_actions';
 import "regenerator-runtime/runtime";
 import HPAlbumItem from './hpAlbumItem';
+import MoneyCounter from './money_counter';
+import HPFeatures_container from './HPFeatures_container';
 
 export class Home extends React.Component {
     constructor(props){
@@ -18,7 +20,8 @@ export class Home extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchArtists().then(response => {
+        this.props.fetchArtists().
+            then(response => {
             this.getTenArtistsAlbums(response.artists)})
     }
 
@@ -37,6 +40,7 @@ export class Home extends React.Component {
     }
 
     async getTenArtistsAlbums(artists, cb){
+        // console.log(artists)
         let tenArtists = this.getTenArtists(artists)
         const fetchResponse = await this.props.fetchHPAlbums(tenArtists, 1)
             .then(fetchAlbums => {
@@ -73,16 +77,21 @@ export class Home extends React.Component {
         // debugger
     }
 
-    
+
 
 
     render(){
         window.state = this.state
         return(
-            <div className="hp-album-grid-container">
-                <ul className ="hp-album-grid">
-                    {this.renderTenAlbums()}
-                </ul>
+            <div className="hp-container">
+                <HPFeatures_container/>
+                <MoneyCounter/>
+                <div className="hp-album-grid-container">
+                    <h3>New and Notable</h3>
+                    <ul className ="hp-album-grid">
+                        {this.renderTenAlbums()}
+                    </ul>
+                </div>
             </div>
         )
     }

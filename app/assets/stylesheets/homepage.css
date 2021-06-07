@@ -1,5 +1,23 @@
+.hp-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 12vmax;
+}
+
+.money-counter{
+    padding: 3vmax;
+    text-align: center;
+    font-weight: 300;
+}
+
+.hp-album-grid-container > h3{
+    font-weight: 300;
+    font-size: 2vmax;
+    padding-left: 5vmax;
+}
+
 .hp-album-grid-container{
-    padding-top: 3vmax;
     padding-right: 5vmax;
     padding-bottom: 5vmax;
     padding-left: 5vmax;
@@ -9,7 +27,7 @@
 .hp-album-grid{
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(2, 20%);
+    grid-template-rows: repeat(2, 50%);
     justify-content: center;
     align-content: space-around;
     width: 100%

@@ -1,15 +1,13 @@
 .top-bar-container {
-    position: sticky;
+    position: fixed;
+    background-color: white;
     top: 0;
     display: flex; 
-    flex-wrap: nowrap;
-    justify-content: space-between; 
-    align-items: center;
-    /* overflow: hidden; */
-    height: 15vh;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 1%;
+    flex-flow: wrap;
+    justify-content: center; 
+    height: 10vmax;
+    width: 100%;
+    padding-bottom: 1vmax;
     z-index: 2;
 }
 
@@ -21,6 +19,11 @@
 
 .top-bar-text{
     font-style: bold;
+    background-color: white;
+}
+
+.session-text{
+    padding-top: 2vh;
 }
 
 
@@ -57,7 +60,6 @@
 
 .logo-sentence{
     font-family: 'Roboto Slab';
-    padding-top: 1vmax;
     font-size: 1.2vmax;
     font-weight: 300;
 }

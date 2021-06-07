@@ -1,0 +1,12 @@
+.HPFeaturesContainer{
+    display: flex;
+    flex-flow:column;
+    justify-content: center;
+    width: 60vmax;
+    height: 30vmax;
+}
+
+.HPFeaturesContainer > img {
+    max-width: 100%;
+    height: auto
+}

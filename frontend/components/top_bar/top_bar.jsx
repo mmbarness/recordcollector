@@ -33,7 +33,7 @@ const TopBar = ({ currentUser, logout }) => {
         {logoContainer()}
         <div className="right-side-elements">
           {searchBar()}
-          <nav className={["login-signup", "top-bar-text"].join(" ")}>
+          <nav className={["login-signup", "top-bar-text", "session-text"].join(" ")}>
             <Link to="/signup">sign up</Link>
             &nbsp; &nbsp;
             <Link to="/login">login</Link>
