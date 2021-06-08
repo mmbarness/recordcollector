@@ -19,4 +19,7 @@ export const fetchArtists = () => dispatch => APIUtil.fetchArtists()
     .then(artists => dispatch(receiveAllArtists(artists)));
 
 export const fetchArtist = artistId => dispatch => APIUtil.fetchArtist(artistId)
-    .then(artist => dispatch(receiveArtist(artist)))
+    .then(
+        artist => {
+            debugger;
+            return(dispatch(receiveArtist(artist)))})

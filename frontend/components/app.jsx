@@ -15,6 +15,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import Home from './home/home_container'
 import NotFoundPage from './NotFoundPage'
 import ArtistShowContainer from './artists/artist_show_container'
+import AlbumShowContainer from './albums/album_show_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ArtistIndexContainer from './artists/artist_index_container'
 const logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8SdddYY0T3LYB9KaK4BWxgj1SvtPi6cE5TuaSYMJ6eWxqfFoeMJ2qFGP9RpzZOccmMIVRZPfoSnlxxxBWIpgAYlSIo7Ghzb1MCLR3xOF4s4wG7sXkqMVhPaEKeds3vtaJQrkyFzhpCjpgbHFreOUkcnGfvQCz-AZP7KBONHxl-sLtlIDOmSPPWBYrN26vGwmC6KJyPOE44PKDvR1Hu3qgYRHLJuB8Vk_q_gZ2Id7e4W6NtW2tSGLhXym_oOepEfbSI0UCKsksq4jnPNCJjKBdZSC6YBnEuLxBxH8TO4NK1kAp8jlzRiyawnCwdkLpQ3IXSn72QFadKToiaBcpWwg/p.png?fv_content=true&size_mode=5'
@@ -25,9 +26,10 @@ const App = () => (
       <TopBarContainer />
     </header>
     <Switch>
+      <Route path="/artists/:artistId/albums/:albumId" component={AlbumShowContainer} />
+      <Route path="/artists/:artistId" component={ArtistShowContainer} />
       <Route exact path = "/" component ={Home}/>
       <Route exact path="/artists/" component={ArtistIndexContainer} />
-      <Route path="/artists/:artistId" component={ArtistShowContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route path="/404" component={NotFoundPage} />
