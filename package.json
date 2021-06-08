@@ -44,7 +44,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w --mode=development",
     "heroku-prebuild": "npm install --dev",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "heroku-postbuild": "webpack -p"
   },
   "engines": {
     "node": "10.13.0",
