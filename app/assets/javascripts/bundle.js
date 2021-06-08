@@ -1932,6 +1932,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 document.addEventListener('DOMContentLoaded', function () {
   var store;
+  console.log('i love u heroku');
 
   if (window.currentUser) {
     var preloadedState = {
