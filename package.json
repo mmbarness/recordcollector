@@ -45,7 +45,7 @@
     "start": "webpack -w --mode=development",
     "heroku-prebuild": "npm install --dev",
     "build": "webpack --config webpack.config.js",
-    "postinstall": "webpack -w --mode=production"
+    "postinstall": "webpack"
   },
   "engines": {
     "node": "10.13.0",
