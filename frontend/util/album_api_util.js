@@ -8,8 +8,9 @@ export const fetchAlbums = artistId => {
 }
 
 export const fetchAlbum = (artistId, albumId) => {
+    // debugger
     return ($.ajax({
-        url: `api/${artistId}/albums/${albumId}`,
+        url: `api/artists/${artistId}/albums/${albumId}`,
         method: 'GET'
     }))
 }

@@ -1,7 +1,9 @@
 class Api::AlbumsController < ApplicationController
     def show
         @album = Album.find(params[:id])
+        @album_image_url = {:album_image_url => url_for(@album.photo)};
         @artist = @album.artist 
+        @artist_image_url = {:artist_image_url => url_for(@artist.photo)};
         render "api/albums/show"
     end
 

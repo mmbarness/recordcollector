@@ -12,7 +12,7 @@ const mapStateToProps = (state,ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
+    fetchAlbum: (artistId, albumId) => dispatch(fetchAlbum(artistId, albumId)),
     fetchAlbums: artistId => dispatch(fetchAlbums(artistId)),
     fetchArtist: artistId => dispatch(fetchArtist(artistId))
 })

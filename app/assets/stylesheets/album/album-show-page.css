@@ -1,0 +1,34 @@
+.album-show-container{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    padding-top: 12vmax;
+}
+
+.album-show-page{
+    display: flex;
+    flex-flow: row;
+}
+
+.album-show-info{
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+    width: 20vmax;
+    padding-right: 3vmax;
+}
+
+.album-show-page > img {
+    width: 18vmax;
+}
+
+
+#album-show-info-name{
+    font-size: 2vmax;
+    padding-bottom: .5vmax;
+}
+
+.digital-purchase-boilerplate{
+    font-size: 1.25vmin;
+    padding-top: 1vmin;
+}

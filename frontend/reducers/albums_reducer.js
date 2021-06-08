@@ -15,11 +15,12 @@ const albumsReducer = (state = {}, action) => {
             const albums = {[artist_id]: action.albums}
             return Object.assign({}, state, albums)
         case RECEIVE_ALBUM: 
-            nextState[action.album.id] = action.album
+            nextState['album'] = action.album
             return nextState;
         case RECEIVE_HP_ALBUMS: 
             nextState['artists'] = Object.values(action.response.artists);
             nextState['albums'] = Object.values(action.response.albums)
+            return nextState
         default:
             return state;
     }

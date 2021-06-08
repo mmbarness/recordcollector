@@ -11,7 +11,7 @@ export const HPAlbumItem = (props) => {
     const artistLink = <Link to={artistUrl} className="hp-album-artist">{albArtist.name}</Link>
     
     window.props = props 
-    // debugger;
+    
     return (
         <ul className="hp-album">
             <img src={album.album_image_url} alt={album.title} className= "hp-album-img"/>

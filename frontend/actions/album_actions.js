@@ -11,10 +11,10 @@ export const receiveArtistAlbums = (albums) => {
     })
 }
 
-export const receiveAlbum = album => {
+export const receiveAlbum = (response) => {
     return ({
     type: RECEIVE_ALBUM,
-    album
+    album: response.album
     }) 
 }
 
@@ -28,8 +28,8 @@ export const receiveHPAlbums = (response) => {
 export const fetchAlbums = (artistId) => dispatch => APIUtil.fetchAlbums(artistId)
     .then(albums => dispatch(receiveArtistAlbums(albums)));
 
-export const fetchAlbum = (artistId,albumId) => dispatch => APIUtil.fetchAlbum(albumId, artistId)
-    .then(album => dispatch(receiveAlbum(album)))
+export const fetchAlbum = (artistId,albumId) => dispatch => APIUtil.fetchAlbum(artistId,albumId)
+    .then(response => dispatch(receiveAlbum(response)))
 
 export const fetchHPAlbums = (artistIds, numAlbumsPer) => dispatch => APIUtil.hpAlbumFetch(artistIds, numAlbumsPer)
     .then(response => dispatch(receiveHPAlbums(response)))
