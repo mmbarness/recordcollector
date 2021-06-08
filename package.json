@@ -35,7 +35,7 @@
   },
   "description": "bcamp clone",
   "version": "1.0.0",
-  "main": "sample_state.js",
+  "main": "./frontend/recordCollector.jsx",
   "directories": {
     "lib": "lib",
     "test": "test"
