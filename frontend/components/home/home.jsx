@@ -12,7 +12,8 @@ export class Home extends React.Component {
         super(props)
         this.state = {
             albums: "" ,
-            albums: ""
+            albums: "",
+            feature: "",
         }
         this.getTenArtists = this.getTenArtists.bind(this);
         this.getTenArtistsAlbums = this.getTenArtistsAlbums.bind(this);
@@ -46,7 +47,8 @@ export class Home extends React.Component {
             .then(fetchAlbums => {
                 this.setState({
                     albums: fetchAlbums.response.albums, 
-                    artists: fetchAlbums.response.artists}) 
+                    artists: fetchAlbums.response.artists,
+                    feature: fetchAlbums.response.feature_artist}) 
                 })
             
     }
@@ -77,14 +79,11 @@ export class Home extends React.Component {
         // debugger
     }
 
-
-
-
     render(){
         window.state = this.state
         return(
             <div className="hp-container">
-                <HPFeatures_container/>
+                <HPFeatures_container feature={this.state.feature}/>
                 <MoneyCounter/>
                 <div className="hp-album-grid-container">
                     <h3>New and Notable</h3>

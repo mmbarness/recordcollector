@@ -2,6 +2,7 @@ import React from 'react'
 import {logger} from 'redux-logger';
 import {Link} from 'react-router-dom'
 import { render } from 'react-dom';
+import { async } from 'regenerator-runtime';
 
 export class HPFeatures extends React.Component{
 
@@ -9,30 +10,31 @@ export class HPFeatures extends React.Component{
         super(props);
         this.state = {
             primaryArtist: "",
-            primaryAlbum: ""
+            primaryAlbum: "",
+            feature: {feature_artist_image_url: ""}
         }
         this.stateSetter = this.stateSetter.bind(this);
+        this.featureImage = this.featureImage.bind(this);
     }
 
-    async stateSetter(){
-        const artists = await (this.props['artists'])
-
-            .then(artists = Object.values(artists))
-            .then(this.setState({primaryArtist: artists[artists.length-1]}))
-    }
-
-    componentDidMount(){
-        // this.stateSetter()
+    featureImage () {
+        let imageUrl = ""
+        if (this.props.feature.feature_artist_image_url !== undefined){
+            debugger;
+            imageUrl = this.props.feature.feature_artist_image_url
+        }
+        return <img src={imageUrl} alt="picture" />
     }
 
     render(){
         window.hpFeaturesState = this.state; 
         window.hpFeaturesProps = this.props; 
-        const HPFeatureArtistPhoto = <img src={this.state.primaryArtist.image_url} alt={this.state.primaryArtist.name} />
+        // let img = this.featureImage();
         return(
             <div className="HPFeaturesContainer">
-                {HPFeatureArtistPhoto}
+                {this.featureImage()}
                 <h3>Squarepusher's Iconic Debut "Feed Me Weird Things" Turns 25</h3>
+
             </div>
         )
     }

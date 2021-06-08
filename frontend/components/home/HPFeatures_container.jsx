@@ -6,7 +6,8 @@ import {fetchAlbums} from '../../actions/album_actions'
 
 export const mapStateToProps = (state, ownProps) => {
     return {
-      artists: (state.entities.artists)}
+      feature: ownProps.feature
+    }
 }
 
 export const mapDispatchToProps = dispatch => ({
