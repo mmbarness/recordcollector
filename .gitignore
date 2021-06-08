@@ -12,6 +12,7 @@
 !/tmp/.keep
 /file-that-doesnt-exist
 /file-that-doesnt-exist2
+/file-that-doesnt-exist3
 
 # Ignore uploaded files in development
 /storage/*
