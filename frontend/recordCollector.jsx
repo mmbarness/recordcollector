@@ -8,6 +8,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 document.addEventListener('DOMContentLoaded', () => {
+  
   let store;
   console.log('i love u heroku :)')
   if (window.currentUser) {
@@ -23,5 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store} />, root);
+  ReactDOM.render(<h1>hi </h1>, root);
 });
