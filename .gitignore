@@ -10,7 +10,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-/file-that-doesnt-exist
+
 
 
 # Ignore uploaded files in development
