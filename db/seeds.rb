@@ -492,7 +492,7 @@ actress_album = Album.create(
 
 actress_album.photo.attach(
     io: URI.open("https://record-collector-dev.s3.amazonaws.com/heroku-dev/albums/actress-album-photo.jpeg"),
-    filename: "actress-album-photo.jpeg"
+    filename: "actress-album-photo.jpeg")
 
 amen_dunes_album = Album.create(
   {
