@@ -12,9 +12,9 @@
 
 .byebug_history
 fs.code-workspace
-bundle.js
-/Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/javascripts/bundle.js
-bundle.js.map
+# bundle.js
+# /Users/matthewbarnes/Documents/programming/aA/recordcollector/app/assets/javascripts/bundle.js
+# bundle.js.map
 
 /config/master.key
 

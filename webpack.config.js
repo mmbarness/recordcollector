@@ -24,29 +24,8 @@ module.exports = {
                       name: '[path][name].[ext]',
                     },
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              query: {
-                mozjpeg: {
-                  progressive: true,
-                },
-                gifsicle: {
-                  interlaced: true,
-                },
-                optipng: {
-                  optimizationLevel: 7,
-                }
-              }
-            }
-        }]
+        ]
       },
-      // {
-      //   test: /\.(otf|eot)$/,
-      //   use: {
-      //     loader: 'url-loader'
-      //   }
-      // }
     ]
   },
   devtool: 'source-map',
