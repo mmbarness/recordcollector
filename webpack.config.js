@@ -16,20 +16,10 @@ module.exports = {
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
       },
-      {test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-                      name: '[path][name].[ext]',
-                    },
-          },
-        ]
-      },
     ]
   },
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '*'],
   }
-}
+};
