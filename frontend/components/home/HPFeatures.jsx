@@ -22,7 +22,7 @@ export class HPFeatures extends React.Component{
     }
 
     componentDidMount(){
-        this.stateSetter()
+        // this.stateSetter()
     }
 
     render(){

@@ -1003,8 +1003,7 @@ var HPFeatures = /*#__PURE__*/function (_React$Component) {
     }()
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.stateSetter();
+    value: function componentDidMount() {// this.stateSetter()
     }
   }, {
     key: "render",
