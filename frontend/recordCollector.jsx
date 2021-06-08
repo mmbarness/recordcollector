@@ -9,7 +9,7 @@ import "regenerator-runtime/runtime";
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-  console.log('i love u heroku')
+  console.log('i love u heroku :)')
   if (window.currentUser) {
     const preloadedState = {
       session: { id: window.currentUser.id },
