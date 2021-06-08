@@ -13,7 +13,6 @@ export class HPFeatures extends React.Component{
             primaryAlbum: "",
             feature: {feature_artist_image_url: ""}
         }
-        this.stateSetter = this.stateSetter.bind(this);
         this.featureImage = this.featureImage.bind(this);
     }
 
