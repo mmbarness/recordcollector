@@ -62,6 +62,7 @@ export class AlbumShow extends React.Component {
                         <br />
                         Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.
                     </div>
+                    
                 </div>
                 <img src={this.state.album.album_image_url} alt="hm" /> 
                 <ol className="track-grid">{this.trackGrid()}</ol>
