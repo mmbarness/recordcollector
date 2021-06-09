@@ -12,7 +12,6 @@ export class ArtistShow extends React.Component {
         }
         this.showInfo = this.showInfo.bind(this);
         this.albumGrid = this.albumGrid.bind(this);
-        this.getAlbums = this.getAlbums.bind(this);
     } 
 
     componentDidMount(){
@@ -27,16 +26,6 @@ export class ArtistShow extends React.Component {
                     albums: artist.albums
                     })
             })
-        // this.getAlbums();
-    }
-
-    async getAlbums(){
-        // let albums = await this.props.fetchAlbums(this.artistId)
-        //     .then((response => {
-        //         debugger;
-        //         const albums = response.albums; 
-        //         this.setState({albums})
-        //     }))
     }
 
     albumGrid(){

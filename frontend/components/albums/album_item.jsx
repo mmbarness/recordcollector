@@ -12,7 +12,9 @@ export const AlbumItem = (props) => {
     
     return (
         <ul className="artist-show-album-item">
-            <img src={album.album_image_url} alt={album.title} className= "artist-show-album-img"/>
+            <Link to={albumUrl} className="hp-album-link">
+                <img src={album.album_image_url} alt={album.title} className= "artist-show-album-img"/>
+            </Link> 
             <li> 
                 <ul className="artist-show-album-text">
                     <li className="artist-show-album-title">
