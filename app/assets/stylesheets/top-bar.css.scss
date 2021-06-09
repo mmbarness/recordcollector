@@ -5,7 +5,7 @@
     display: flex; 
     flex-flow: wrap;
     justify-content: center; 
-    height: 10vmax;
+    height: auto;
     width: 100%;
     padding-bottom: 1vmax;
     z-index: 2;
@@ -29,7 +29,7 @@
 
 
 .logo-container{
-    height: 10vh;
+    // height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
