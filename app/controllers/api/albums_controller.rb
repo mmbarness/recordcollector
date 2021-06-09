@@ -4,6 +4,7 @@ class Api::AlbumsController < ApplicationController
         @album_image_url = {:album_image_url => url_for(@album.photo)};
         @artist = @album.artist 
         @artist_image_url = {:artist_image_url => url_for(@artist.photo)};
+        @tracks = @album.tracks 
         render "api/albums/show"
     end
 

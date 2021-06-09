@@ -1038,7 +1038,7 @@ baroness_album_tracks = Track.create([
     album_id: baroness_album_id 
   },
   {
-    title: 'Strechmarker',
+    title: 'Stretchmarker',
     track_number: 16,
     artist_id: baroness_id,
     album_id: baroness_album_id 
@@ -1139,7 +1139,7 @@ baroness_album_3_tracks = Album.create(
     title: 'Gold & Grey',
     description: 'Gold & Grey represents the end of Baroness\' color-schemed album titles, preceded by Red Album, Blue Record, Yellow & Green, and Purple. The now-Philadelphia-based quartet have been through major changes, from magazine covers and award nominations to a horrific life-threatening bus crash that caused the original rhythm section to leave, and the 2018 departure of founding guitarist Peter Adams, vocalist/guitarist John Baizley is the only original member.',
     credits: 'n/a',
-    artist_id: drakeJSON['id']
+    artist_id: baronessJSON['id']
   })
 
 baroness_album_3_tracks.photo.attach(

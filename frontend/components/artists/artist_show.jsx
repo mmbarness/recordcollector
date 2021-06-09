@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import AlbumItem from '../albums/album_item';
 
 export class ArtistShow extends React.Component {
     constructor(props){
@@ -11,33 +12,38 @@ export class ArtistShow extends React.Component {
         }
         this.showInfo = this.showInfo.bind(this);
         this.albumGrid = this.albumGrid.bind(this);
+        this.getAlbums = this.getAlbums.bind(this);
     } 
 
     componentDidMount(){
         this.props.fetchArtist(this.artistId)
             .then((response) => {
-                const artist = response.artist.artist;
+                const artist = response.artist
                 this.setState(
                     {artist: {
                         name: artist.name, 
                         location: artist.location, 
                         artist_image_url: artist.artist_image_url},
+                    albums: artist.albums
                     })
             })
-        this.props.fetchAlbums(this.artistId)
-            .then((response => {
-                const albums = response.albums; 
-                this.setState({albums})
-            }))
+        // this.getAlbums();
+    }
+
+    async getAlbums(){
+        // let albums = await this.props.fetchAlbums(this.artistId)
+        //     .then((response => {
+        //         debugger;
+        //         const albums = response.albums; 
+        //         this.setState({albums})
+        //     }))
     }
 
     albumGrid(){
         const albums = Object.values(this.state.albums)
         return (albums.map(album => {
             const albumId = album.id
-            return(<li className="album-entry" key={albumId}>
-                {album.title}
-            </li>)
+            return(<AlbumItem album={album}/> )
         }))
     }
 

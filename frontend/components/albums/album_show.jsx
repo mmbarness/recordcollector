@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import TrackItem from '../tracks/track_item';
 
 export class AlbumShow extends React.Component {
     constructor(props){
@@ -8,7 +9,8 @@ export class AlbumShow extends React.Component {
         this.artistId = parseInt(this.props.match.params.artistId)
         this.state = {
             artist: {name: "null", location: "null", artist_image_url: "null"},
-            album: {title: "", album_image_url: ""} 
+            album: {title: "", album_image_url: "", description: ""},
+            tracks: [] 
         }
         this.showInfo = this.showInfo.bind(this);
         this.trackGrid = this.trackGrid.bind(this);
@@ -20,7 +22,9 @@ export class AlbumShow extends React.Component {
         this.setState({
             album: {
                 title: response.album.title, 
-                album_image_url: response.album.album_image_url},
+                album_image_url: response.album.album_image_url,
+                description: response.album.description},
+            tracks: response.album.tracks,
             artist: {
                 name: response.album.name, 
                 location: response.album.location, 
@@ -33,18 +37,19 @@ export class AlbumShow extends React.Component {
     }
 
     trackGrid(){
-        const albums = Object.values(this.state.albums)
-        return (albums.map(album => {
-            const albumId = album.id
-            return(<li className="album-entry" key={albumId}>
-                {album.title}
+        const tracks = this.state.tracks
+        return (tracks.map(track => {
+            const trackId = track.id
+            return(<li className="track-entry" key={trackId}>
+                <TrackItem track={track}/>
             </li>)
         }))
     }
 
     showInfo() {
         const artistLink = `/artists/${this.artistId}`
-        return (<div className="album-show-container">
+        return (
+        <div className="album-show-container">
             <div className="album-show-page">
                 <div className="album-show-info">
                     <h2 id="album-show-info-name">{this.state.album.title}</h2>  
@@ -59,7 +64,7 @@ export class AlbumShow extends React.Component {
                     </div>
                 </div>
                 <img src={this.state.album.album_image_url} alt="hm" /> 
-        
+                <ol className="track-grid">{this.trackGrid()}</ol>
             </div>
         </div>)
     }

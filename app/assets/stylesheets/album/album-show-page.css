@@ -2,14 +2,14 @@
     display: flex;
     flex-flow: row;
     justify-content: center;
-    padding-top: 12vmax;
+    padding-top: 15vmax;
 }
 
 .album-show-page{
-    display: flex;
-    flex-flow: row;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
     width: 60%;
-    justify-content: center;
 }
 
 .album-show-info{
@@ -23,6 +23,9 @@
 .album-show-page > img {
     width: 35vmax;
     padding-left: 2vmax;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
 }
 
 
@@ -34,4 +37,9 @@
 .digital-purchase-boilerplate{
     font-size: 1.5vmin;
     padding-top: 1vmin;
+}
+
+.album-show-page > ol {
+    grid-row-start: 2;
+    grid-row-end: 2
 }
