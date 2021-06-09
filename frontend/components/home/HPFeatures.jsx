@@ -19,7 +19,6 @@ export class HPFeatures extends React.Component{
     featureImage () {
         let imageUrl = ""
         if (this.props.feature.feature_artist_image_url !== undefined){
-            debugger;
             imageUrl = this.props.feature.feature_artist_image_url
         }
         return <img src={imageUrl} alt="picture" />
