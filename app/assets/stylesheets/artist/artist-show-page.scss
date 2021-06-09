@@ -2,12 +2,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding-top: 12vmax;
 }
 
 .artist-show-info{
     justify-self: flex-end; 
     // flex-grow: 1;
     padding: 2vw
+}
+
+.artist-show-info > img {
+    width: 30vmax;
 }
 
 .album-grid{

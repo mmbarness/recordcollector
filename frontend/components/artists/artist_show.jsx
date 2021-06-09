@@ -16,9 +16,13 @@ export class ArtistShow extends React.Component {
     componentDidMount(){
         this.props.fetchArtist(this.artistId)
             .then((response) => {
-                // debugger;
                 const artist = response.artist.artist;
-                this.setState({artist: {name: artist.name, location: artist.location, image_url: artist.image_url}})
+                this.setState(
+                    {artist: {
+                        name: artist.name, 
+                        location: artist.location, 
+                        artist_image_url: artist.artist_image_url},
+                    })
             })
         this.props.fetchAlbums(this.artistId)
             .then((response => {
@@ -41,9 +45,9 @@ export class ArtistShow extends React.Component {
         return (<div className="artist-show-container">
             <ul className="album-grid">{this.albumGrid()}</ul>
             <div className="artist-show-info">
+                <img src={this.state.artist.artist_image_url} alt="shut up" />
                 <h2 id="artist-show-info-name">{this.state.artist.name}</h2>
-                <h2 id="artist-show-info-location">{this.state.artist.location}</h2> 
-                <img src={this.state.artist.image_url} alt="shut up" />   
+                <h2 id="artist-show-info-location">{this.state.artist.location}</h2>    
             </div>
         </div>)
     }

@@ -8,6 +8,8 @@
 .album-show-page{
     display: flex;
     flex-flow: row;
+    width: 60%;
+    justify-content: center;
 }
 
 .album-show-info{
@@ -15,11 +17,12 @@
     flex-flow: column;
     align-content: flex-start;
     width: 20vmax;
-    padding-right: 3vmax;
+    padding-right: 4vmax;
 }
 
 .album-show-page > img {
-    width: 18vmax;
+    width: 35vmax;
+    padding-left: 2vmax;
 }
 
 
@@ -29,6 +32,6 @@
 }
 
 .digital-purchase-boilerplate{
-    font-size: 1.25vmin;
+    font-size: 1.5vmin;
     padding-top: 1vmin;
 }

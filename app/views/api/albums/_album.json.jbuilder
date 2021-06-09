@@ -5,4 +5,5 @@ if @album
     json.extract! @album_image_url, :album_image_url
 else
     json.extract! album, :title, :id, :description, :credits, :artist_id
+    # json.album_image_url url_for(album.photo)
 end 

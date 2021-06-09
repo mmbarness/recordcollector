@@ -21,5 +21,4 @@ export const fetchArtists = () => dispatch => APIUtil.fetchArtists()
 export const fetchArtist = artistId => dispatch => APIUtil.fetchArtist(artistId)
     .then(
         artist => {
-            debugger;
             return(dispatch(receiveArtist(artist)))})
