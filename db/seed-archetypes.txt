@@ -1,0 +1,125 @@
+proto-artist-album-2 = Album.create(
+  {
+    title: '',
+    description: '',
+    credits: 'n/a',
+    artist_id: proto-artistJSON['id']
+  })
+
+proto-artist-album-2.photo.attach(
+    io: URI.open(`https://record-collector-dev.s3.amazonaws.com/heroku-dev/albums/proto-artist-album-2-photo.jpeg`), 
+    filename: `proto-artist-album-2-photo.jpeg`)
+
+proto-artist-album-2JSON = proto-artist-album-2.as_json
+proto-artist-album-2_id = proto-artist-album-2JSON['id']
+proto-artist-album-2_tracks = Track.create([
+  {
+    title: '',
+    track_number: 1,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id
+  },
+  {
+    title: '',
+    track_number: 2,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id
+  },
+  {
+    title: '',
+    track_number: 3,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 4,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 5,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 6,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 7,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 8,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 9,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 10,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 11,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },  
+  {
+    title: '',
+    track_number: 12,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 13,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 14,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 15,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: '',
+    track_number: 16,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: ''
+    track_number: 17,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  },
+  {
+    title: ''
+    track_number: 18,
+    artist_id: proto-artist_id,
+    album_id: proto-artist-album-2_id 
+  }
+])
+
