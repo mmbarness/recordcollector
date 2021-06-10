@@ -6,7 +6,7 @@ import "regenerator-runtime/runtime";
 import HPAlbumItem from './hpAlbumItem';
 import MoneyCounter from './money_counter';
 import HPFeatures_container from './HPFeatures_container';
-
+import CartIcon from '../cart/cart_icon'
 export class Home extends React.Component {
     constructor(props){
         super(props)
@@ -24,6 +24,7 @@ export class Home extends React.Component {
         this.props.fetchArtists().
             then(response => {
             this.getTenArtistsAlbums(response.artists)})
+                
     }
 
     getTenArtists(artists){
@@ -76,11 +77,9 @@ export class Home extends React.Component {
                 return<HPAlbumItem album ={album} artist={this.state.artists[album["artist_id"]]}/>
             })
         }
-        // debugger
     }
 
     render(){
-        window.state = this.state
         return(
             <div className="hp-container">
                 <HPFeatures_container feature={this.state.feature}/>
@@ -91,6 +90,7 @@ export class Home extends React.Component {
                         {this.renderTenAlbums()}
                     </ul>
                 </div>
+                {/* <CartIcon currentUser={currentUser} fetchCart = {props.fetchCart}/> */}
             </div>
         )
     }

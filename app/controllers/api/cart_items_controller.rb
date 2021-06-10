@@ -8,6 +8,7 @@ class Api::CartItemsController < ApplicationController
         @user.albums_in_cart.each do |album|
             @cart_item_id = CartItem.find_by(user_id: @user.id, album_id: album.id).id;
             cart_album = {@cart_item_id => album}
+            @user_cart = []
             @user_cart << album  
         end
         render "api/cart/user_cart"
@@ -21,7 +22,7 @@ class Api::CartItemsController < ApplicationController
             @user = User.find_by(id: params[:user_id])
             @user_cart = @user.albums_in_cart
             @cart_ids = @user.cart_items.as_json
-            render "api/cart/user_cart"
+            render "api/cart/cart_item"
         else 
             render json: @cart_item.errors.full_messages, status: 422
         end

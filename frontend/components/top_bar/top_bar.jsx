@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-const logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8SdddYY0T3LYB9KaK4BWxgj1SvtPi6cE5TuaSYMJ6eWxqfFoeMJ2qFGP9RpzZOccmMIVRZPfoSnlxxxBWIpgAYlSIo7Ghzb1MCLR3xOF4s4wG7sXkqMVhPaEKeds3vtaJQrkyFzhpCjpgbHFreOUkcnGfvQCz-AZP7KBONHxl-sLtlIDOmSPPWBYrN26vGwmC6KJyPOE44PKDvR1Hu3qgYRHLJuB8Vk_q_gZ2Id7e4W6NtW2tSGLhXym_oOepEfbSI0UCKsksq4jnPNCJjKBdZSC6YBnEuLxBxH8TO4NK1kAp8jlzRiyawnCwdkLpQ3IXSn72QFadKToiaBcpWwg/p.png?fv_content=true&size_mode=5'
+const logo = 'https://record-collector-dev.s3.amazonaws.com/heroku-dev/record-collector-no-text.png'
+import CartIcon from '../cart/cart_icon'
+import CartIconContainer from '../cart/cart_icon_container';
 
+const TopBar = (props) => {
 
-const TopBar = ({ currentUser, logout }) => {
-
+  const currentUser = props.currentUser;
+  const logout = props.logout 
 
   const logoContainer = () => {
     return(
@@ -53,8 +56,10 @@ const TopBar = ({ currentUser, logout }) => {
             <button className="logout-button" onClick={logout}>log out</button>
           </hgroup>
         </div>
+        <CartIconContainer/>
       </div>
-  )};
+    )
+  };
   return currentUser ? splashGreeting() : sessionLinks();
 };
 

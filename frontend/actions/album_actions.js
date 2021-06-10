@@ -12,10 +12,9 @@ export const receiveArtistAlbums = (albums) => {
 }
 
 export const receiveAlbum = (response) => {
-
     return ({
     type: RECEIVE_ALBUM,
-    album: response.album
+    response: response.album 
     }) 
 }
 

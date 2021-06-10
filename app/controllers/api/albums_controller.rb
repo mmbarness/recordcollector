@@ -26,7 +26,7 @@ class Api::AlbumsController < ApplicationController
             @album = artist.albums.first
             album_image_url = {:album_image_url => url_for(@album.photo)}
             albumJSON = album_image_url.merge(@album.as_json)
-            @response[:albums][id]= albumJSON;
+            @response[:albums][@album.id]= albumJSON;
         end
         squarepusher = Artist.find_by(name: 'Squarepusher')
         squarepusher_image_url = {:feature_artist_image_url => url_for(squarepusher.photo)}
