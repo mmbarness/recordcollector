@@ -5,10 +5,16 @@ namespace :api, defaults: { format: :json } do
     resources :artists, only: [:index, :show] do 
       resources :albums, only: [:index, :show, :destroy]
     end
-    resources :albums, only: [] do 
+    resources :cart_items
+    resources :albums do 
       collection do 
         get 'homepage'
         get 'search'
+      end 
+    end
+    resources :users do 
+      member do 
+        get 'deleteCart'
       end 
     end
   end

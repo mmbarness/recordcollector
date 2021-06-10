@@ -2,8 +2,6 @@ class Api::ArtistsController < ApplicationController
     def show
         artistId = params[:id].to_i
         @artist = Artist.find_by(id: artistId)
-        # @album = @artist.albums.first 
-        # @album_image_url = {:album_image_url => url_for(@album.photo)};
         @albums = @artist.albums 
         @albums = @albums.map do |album|
             album_image_url = url_for(album.photo);

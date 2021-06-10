@@ -33,7 +33,8 @@ export class AlbumShow extends React.Component {
     }
 
     componentDidMount(){    
-        this.getAlbum();        
+        this.getAlbum();  
+        debugger;      
     }
 
     trackGrid(){
