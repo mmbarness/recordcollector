@@ -6,7 +6,12 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
-      @cart = @user.albums_in_cart
+      @cart 
+      if @user.albums_in_cart.nil? 
+        @cart = nil
+      else  
+        @cart = @user.albums_in_cart
+      end 
       render "api/users/show"
     else
       render json: ["bad credentials"], status: 401
