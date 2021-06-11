@@ -17,8 +17,7 @@ export const AddToCartModal = (props) => {
                     <input type="text" id="name-album-price" value="10"/>
                 </div>
                 <div className="submit">
-                    <button onClick={() => addCartItem(currentUser.id, album.id)}>Add to Cart</button>
-                    <span className="button-alternative">or <strong className="js-modal-close">Cancel</strong></span>
+                    <button onClick={(e) => addCartItem(e,currentUser.id, album.id)}>Add to Cart</button>
                 </div>
             </form>
             <div className="modal-screen js-modal-close"></div>

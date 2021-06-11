@@ -7,9 +7,8 @@ export const AlbumItem = (props) => {
     const albArtistId = album.artist_id;   
     const albumUrl = `/artists/${albArtistId}/albums/${album.id}`;
     const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link>  
-    // debugger;
     window.albumItemProps = props 
-    
+
     return (
         <ul className="artist-show-album-item">
             <Link to={albumUrl} className="hp-album-link">

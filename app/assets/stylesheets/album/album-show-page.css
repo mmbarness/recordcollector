@@ -37,9 +37,12 @@
 .digital-purchase-boilerplate{
     font-size: 1.5vmin;
     padding-top: 1vmin;
+    padding-bottom: 1.5vmax;
 }
 
 .track-grid {
     display: flex;
     flex-flow: column;
+    padding-top: 1vmax;
 }
+

@@ -4,24 +4,23 @@ export class CartIcon extends React.Component {
 
     constructor(props){
         super(props);
-        let cart = 0
+        let cart = 0;
+        this.state = {
+            cart: this.props.cart 
+        }
     }
-    // debugger
 
-    // const [cart, setCart] = useState({})
-
-    // useEffect(() => {
-    //     (async () => {
-    //         if (this.props.cart.cart.length === 0) {(setCart(await this.props.fetchCart(this.props.currentUser.id)))};
-    //     })();
-    // }, []);
+    componentDidMount(){
+        // this.props.fetchCart(this.props.currentUser.id).then(response => {debugger})
+        this.props.fetchCart(this.props.currentUser.id)
+            .then(response => {this.setState({cart: response.response.user_cart})
+            ;})
+    }
 
     componentDidUpdate(){
         let cartCount 
-        if (this.props.cart !== undefined){
-            cartCount = this.props.cart.length
-        }
-        window.cartCount = cartCount
+        cartCount = this.props.cart.length
+        // this.setState({cart: this.props.cart})
     }
 
     renderCart(){
@@ -33,9 +32,12 @@ export class CartIcon extends React.Component {
 
 
     render(){
+        window.cartIconProps = this.props; 
+        window.cartIconState = this.state;
+        // debugger
         return(<div>
             {/* {cartCount} */}
-            {(this.props.cart !== undefined) ? this.props.cart.length : 0}
+            {(this.props.cart !== ["empty"]) ? this.props.cart.length : 0}
         </div>  )
     }  
     

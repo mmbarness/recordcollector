@@ -19,6 +19,7 @@ export class AlbumShow extends React.Component {
         this.trackGrid = this.trackGrid.bind(this);
         this.getAlbum = this.getAlbum.bind(this);
         this.toggleCartModal = this.toggleCartModal.bind(this);
+        this.addCartItem = this.addCartItem.bind(this);
     } 
 
     async getAlbum(){
@@ -58,6 +59,8 @@ export class AlbumShow extends React.Component {
         this.setState({cartModalVisible: !this.state.cartModalVisible})                
     }
 
+
+
     showInfo() {
         const artistLink = `/artists/${this.artistId}`
         return (
@@ -68,11 +71,11 @@ export class AlbumShow extends React.Component {
                     <h3 id="album-show-artist-info-name"><Link to={artistLink}>by {this.state.artist.name}</Link>
                     </h3>
                     <div className="digital-purchase-boilerplate"> 
-                        Digital Album
+                        <p>Digital Album</p>
                         <br /> 
-                        Streaming + Download
+                        <p>Streaming + Download</p>
                         <br />
-                        Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.
+                        <p>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
                     </div> 
                     <button onClick={
                         (e)=>this.toggleCartModal(e)}>Add to Cart
@@ -82,6 +85,10 @@ export class AlbumShow extends React.Component {
                 <ol className="track-grid">{this.trackGrid()}</ol>
             </div>
         </div>)
+    }
+
+    addCartItem(e,userId, albumId){
+        this.props.addCartItem(userId, albumId).then(this.toggleCartModal(e))
     }
 
     render() {
@@ -94,7 +101,7 @@ export class AlbumShow extends React.Component {
                     album={this.state.album} 
                     artist = {this.state.artist}
                     currentUser = {this.state.currentUser}
-                    addCartItem = {this.props.addCartItem}
+                    addCartItem = {this.addCartItem}
                     cartModalVisible = {this.state.cartModalVisible}
                     toggleCartModal = {this.toggleCartModal}
                     />

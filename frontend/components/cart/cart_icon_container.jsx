@@ -5,10 +5,11 @@ import { logout } from '../../actions/session_actions';
 import CartIcon from './cart_icon';
 
 const mapStateToProps = (state, ownProps) => {
-
+    let cart 
+    state.entities.cart.cart === undefined ? cart = ["empty"] : cart = state.entities.cart.cart
     return ({
         currentUser: state.entities.users[state.session.id],
-        cart: state.entities.cart.cart 
+        cart: cart 
     });
 };
 

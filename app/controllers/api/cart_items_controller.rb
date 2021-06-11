@@ -2,13 +2,12 @@ class Api::CartItemsController < ApplicationController
 
     def index 
         @user = User.find_by(id: params[:user_id]);
-        @user_cart = nil  
+        @user.albums_in_cart.empty? ? @user_cart = nil : @user_cart = []  
         @cart_ids = nil 
         @cart_ids = @user.cart_items.as_json
         @user.albums_in_cart.each do |album|
             @cart_item_id = CartItem.find_by(user_id: @user.id, album_id: album.id).id;
             cart_album = {@cart_item_id => album}
-            @user_cart = []
             @user_cart << album  
         end
         render "api/cart/user_cart"

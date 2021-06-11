@@ -4,12 +4,20 @@ const logo = 'https://record-collector-dev.s3.amazonaws.com/heroku-dev/record-co
 import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
 
-const TopBar = (props) => {
+export class TopBar extends React.Component{
 
-  const currentUser = props.currentUser;
-  const logout = props.logout 
+  constructor(props){
+    super(props);
+    this.state = {
+      cart: ""
+    }
+  }
 
-  const logoContainer = () => {
+  componentDidMount(){
+    
+  }
+
+  logoContainer (){
     return(
     <div className="logo-container">
       <div className="logo-and-image">
@@ -21,21 +29,21 @@ const TopBar = (props) => {
         <div className={["top-bar-text","logo-text"].join(" ")}>Collector</div>
       </div>
       <div className={["top-bar-text","logo-sentence"].join(" ")}>
-        Discover amazing new music and directly support the artists who make it.
+        Discover amazing new music and directly support the artists who make it. (Also everything costs $10)
       </div>
     </div>)
   }
   
-  const searchBar = () => {
+  searchBar (){
     return (<input type="text" className="search-bar" placeholder="Search and discover music"></input>)
   }
 
-  const sessionLinks = () => {
+  sessionLinks () {
     return (
       <div className="top-bar-container">
-        {logoContainer()}
+        {this.logoContainer()}
         <div className="right-side-elements">
-          {searchBar()}
+          {this.searchBar()}
           <nav className={["login-signup", "top-bar-text", "session-text"].join(" ")}>
             <Link to="/signup">sign up</Link>
             &nbsp; &nbsp;
@@ -45,22 +53,34 @@ const TopBar = (props) => {
       </div>)
   };
 
-  const splashGreeting = () => {
+  splashGreeting () {
+    const currentUser = this.props.currentUser;
+    const logout = this.props.logout 
     return (
       <div className="top-bar-container">
-        {logoContainer()}
+        {this.logoContainer()}
         <div className="right-side-elements">
-          {searchBar()}
+          {this.searchBar()}
           <hgroup className={["welcome-container","top-bar-greeting"].join(" ")}>
             <h2 className="welcome-name">{currentUser.username}</h2>
             <button className="logout-button" onClick={logout}>log out</button>
+            <Link to="/cart" className="top-bar-cart-link">
+              <img src="https://record-collector-dev.s3.amazonaws.com/shopping-cart-icon.jpeg" />
+          </Link>
           </hgroup>
         </div>
-        <CartIconContainer/>
+        {/* <CartIconContainer/> */}
       </div>
     )
   };
-  return currentUser ? splashGreeting() : sessionLinks();
+  render(){
+    const currentUser = this.props.currentUser;
+    const logout = this.props.logout 
+    return(
+      currentUser ? this.splashGreeting() : this.sessionLinks()
+    )
+  }
+  
 };
 
 
