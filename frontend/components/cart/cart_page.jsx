@@ -18,7 +18,6 @@ export class CartPage extends React.Component {
 
     removeCartItem(cartId){
         this.props.removeCartItem(this.props.currentUser.id, cartId)
-        // debugger
         if (this.state.cart.length === 1) {
             this.state.cart = []
             this.state.price = 0;

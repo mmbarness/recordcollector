@@ -24,7 +24,6 @@ export class Home extends React.Component {
         this.props.fetchArtists().
             then(response => {
             this.getTenArtistsAlbums(response.artists)})
-                
     }
 
     getTenArtists(artists){
@@ -42,7 +41,6 @@ export class Home extends React.Component {
     }
 
     async getTenArtistsAlbums(artists, cb){
-        // console.log(artists)
         let tenArtists = this.getTenArtists(artists)
         const fetchResponse = await this.props.fetchHPAlbums(tenArtists, 1)
             .then(fetchAlbums => {
@@ -51,7 +49,6 @@ export class Home extends React.Component {
                     artists: fetchAlbums.response.artists,
                     feature: fetchAlbums.response.feature_artist}) 
                 })
-            
     }
 
     buildAlbumElement(album){

@@ -10,7 +10,7 @@ export const CartItem = (props) => {
     const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link> 
     window.cartItemProps = props 
 
-    const removeCart = () => {
+    const removeCartItem = () => {
         props.removeCartItem(album.cart_id);
     }
 
@@ -29,7 +29,7 @@ export const CartItem = (props) => {
                 </li>
                 <br />
             </ul>
-            <img src={redX} alt="redX" className= "red-x" onClick={() => removeCart()}/>
+            <img src={redX} alt="redX" className= "red-x" onClick={() => removeCartItem()}/>
         </div>
     )
 }
