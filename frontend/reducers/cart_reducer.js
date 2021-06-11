@@ -8,7 +8,7 @@ const cartReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_CURRENT_USER:
             cart = action.currentUser.cart  
-            nextState = cart 
+            nextState = Object.assign({}, cart, nextState)
             return nextState
         case RECEIVE_CART:
             if (action.response.user_cart === undefined){

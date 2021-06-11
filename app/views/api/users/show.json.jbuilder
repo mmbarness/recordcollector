@@ -1,7 +1,7 @@
 json.user @user, :username, :id, :email
-debugger;
+# debugger;
 json.cart do 
-    unless @cart.nil? 
+    unless @cart.nil? || @cart.empty?
         json.array!(@cart) do |album|
             json.album_id album.id 
             json.title album.title 
