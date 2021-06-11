@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors !== undefined) {
+    if (this.props.errors !== []) {
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -72,7 +72,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    window.props = this.props 
+    window.session_props = this.props 
     const formType = this.props.formType
     const navLink = this.props.navLink
     return (
