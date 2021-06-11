@@ -1,4 +1,5 @@
 json.user @user, :username, :id, :email
+debugger;
 json.cart do 
     unless @cart.nil? 
         json.array!(@cart) do |album|
