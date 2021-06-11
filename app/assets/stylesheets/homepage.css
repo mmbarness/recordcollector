@@ -59,7 +59,11 @@
 }
 
 .hp-album-title{
-    padding-bottom: .5vmax
+    padding-bottom: .5vmax;
+    font-size: 1.75vmin;
+}
+.hp-album-artist{
+    font-size: 1.75vmin;
 }
 
 
