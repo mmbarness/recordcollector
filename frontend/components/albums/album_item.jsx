@@ -9,6 +9,8 @@ export const AlbumItem = (props) => {
     const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link>  
     window.albumItemProps = props 
 
+
+
     return (
         <ul className="artist-show-album-item">
             <Link to={albumUrl} className="hp-album-link">

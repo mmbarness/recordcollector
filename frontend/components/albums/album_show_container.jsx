@@ -3,12 +3,23 @@ import AlbumShow  from './album_show'
 import {fetchAlbum, fetchAlbums} from '../../actions/album_actions'
 import { fetchArtist } from '../../util/artist_api_util';
 import { addCartItem, fetchCart } from '../../actions/cart_actions'
+import * as _ from 'underscore'
 
 const mapStateToProps = (state,ownProps) => {
-    const id = parseInt(ownProps.match.params.albumId)
-    const albumSlice = state.entities.albums[id]
+    const albumId = parseInt(ownProps.match.params.albumId)
+    const artistId = parseInt(ownProps.match.params.artistId)
+    let albumSlice
+    let artistSlice 
+    let inProps= false 
+    if (!_.isEmpty(state.entities.hp)) {
+        albumSlice = state.entities.hp.albums[albumId]
+        artistSlice = state.entities.hp.artists[artistId]
+        inProps = true 
+    }
     return {
+        inProps: inProps,
         "album": albumSlice,
+        "artist": artistSlice, 
         currentUser: state.entities.users[state.session.id]
     }
 }
