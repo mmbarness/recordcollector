@@ -14,11 +14,35 @@ class Api::AlbumsController < ApplicationController
     end
 
     def homepage 
-        artistIds = parser(params[:artistIds])
-        numAlbums = (params[:albumsPer].to_i)        
+        numAlbums = (params[:albumsPer].to_i)    
+        artistIds = Artist.pluck(:id)
+        i = artistIds.length;
+        j = 0;
+        while (i >= 0) do 
+            j = rand(i) 
+            temp = artistIds[i];
+            artistIds[i] = artistIds[j];
+            artistIds[j] = temp;
+            i-=1
+        end
+        randomArtistIDs = artistIds.select{|id| !id.nil?}[0..9]
+        @response = tenArtists(randomArtistIDs, 1);
+        render "api/albums/homepage"
+    end
+
+    private 
+    def parser(nums)
+        ints = nums.map do |num|
+            num.to_i
+        end
+        ints 
+    end
+
+    def tenArtists(artistIds, numAlbums)     
         @response = {artists: {}, albums: {}};
         artistIds.each do |id| 
             artist = Artist.find_by(id: id)
+            p `id:#{id} artist: #{artist}`
             artist_image_url ={:artist_image_url => url_for(artist.photo)}
             artistJSON = artist_image_url.merge(artist.as_json)
             @response[:artists][id] = []
@@ -34,15 +58,7 @@ class Api::AlbumsController < ApplicationController
         squarepusher_image_url = {:feature_artist_image_url => url_for(squarepusher.photo)}
         squarepusherJSON = squarepusher_image_url.merge(squarepusher.as_json)
         @response[:feature_artist] = squarepusherJSON
-        render "api/albums/homepage"
-    end
-
-    private 
-    def parser(nums)
-        ints = nums.map do |num|
-            num.to_i
-        end
-        ints 
+        @response 
     end
     
 end

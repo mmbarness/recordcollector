@@ -15,10 +15,10 @@ export const fetchAlbum = (artistId, albumId) => {
     }))
 }
 
-export const hpAlbumFetch = (artistIds, albumsPer) => {
+export const hpAlbumFetch = (albumsPer) => {
     return ($.ajax({
         url: "api/albums/homepage",
-        data: {artistIds: artistIds, albumsPer: albumsPer},
+        data: {albumsPer: albumsPer},
         method: "GET"
     }))
 }

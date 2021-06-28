@@ -31,5 +31,5 @@ export const fetchAlbums = (artistId) => dispatch => APIUtil.fetchAlbums(artistI
 export const fetchAlbum = (artistId,albumId) => dispatch => APIUtil.fetchAlbum(artistId,albumId)
     .then(response => dispatch(receiveAlbum(response)))
 
-export const fetchHPAlbums = (artistIds, numAlbumsPer) => dispatch => APIUtil.hpAlbumFetch(artistIds, numAlbumsPer)
+export const fetchHPAlbums = (albumsPer) => dispatch => APIUtil.hpAlbumFetch(albumsPer)
     .then(response => dispatch(receiveHPAlbums(response)))
