@@ -1,0 +1,28 @@
+.searchbar-container{
+    width: 100%;
+    height: 4vh; 
+}
+
+#typeahead-artist-search{
+    background-color: white;
+}
+
+.rbt-input-main{
+    width: 100%
+}
+
+.rbt{
+    height:100%
+}
+
+.typeahead-option{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+}
+
+.typeahead-option > img {
+    width: 24px;
+    margin-right: 10px;
+    border-radius: .25vw;
+}

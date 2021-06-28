@@ -1,4 +1,6 @@
 class Api::ArtistsController < ApplicationController
+
+
     def show
         artistId = params[:id].to_i
         @artist = Artist.find_by(id: artistId)
