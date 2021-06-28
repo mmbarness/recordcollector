@@ -1,60 +1,57 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import AlbumItem from '../albums/album_item';
+import React,{ useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchArtist } from '../../actions/artist_actions'
+import AlbumItem from '../albums/album_item'
 
-export class ArtistShow extends React.Component {
-    constructor(props){
-        super(props)
-        this.artistId = parseInt(this.props.match.params.artistId)
-        this.state = {
-            artist: {name: "null", location: "null", image_url: "null"},
-            albums: ['album1', 'album2', 'album3'] 
-        }
-        this.showInfo = this.showInfo.bind(this);
-        this.albumGrid = this.albumGrid.bind(this);
-    } 
 
-    componentDidMount(){
-        this.props.fetchArtist(this.artistId)
-            .then((response) => {
-                const artist = response.artist
-                this.setState(
-                    {artist: {
-                        name: artist.name, 
-                        location: artist.location, 
-                        artist_image_url: artist.artist_image_url},
-                    albums: artist.albums
-                    })
-            })
+export const ArtistShow = props => {
+    const [artist, setartist] = useState({})
+    const [albums, setalbums] = useState({})
+    const dispatch = useDispatch()
+
+    const getArtist = async () => {
+        const {artist, albums} = await dispatch(fetchArtist(parseInt(props.match.params.artistId)));
+        return {artist: artist, albums: albums};
     }
 
-    albumGrid(){
-        const albums = Object.values(this.state.albums)
-        return (albums.map(album => {
-            const albumId = album.id
-            return(<AlbumItem album={album}/> )
+    window.artist = artist;
+    window.albums = albums; 
+
+    const stateSetter = ({artist, albums}) => {
+        setartist(artist)
+        setalbums(albums)
+    }
+
+    useEffect(async () => {
+        const artist = await getArtist()
+        stateSetter(artist)
+    },[1])
+
+    const albumGrid = () => {
+        const albumArr = Object.values(albums)
+        return (albumArr.map(albumEle => {
+            const albumId = albumEle.id
+            return(<AlbumItem album={albumEle}/> )
         }))
     }
+    
+    const showInfo = () => {
 
-    showInfo() {
         return (<div className="artist-show-container">
-            <ul className="album-grid">{this.albumGrid()}</ul>
+            <ul className="album-grid">{albumGrid()}</ul>
             <div className="artist-show-info">
-                <img src={this.state.artist.artist_image_url} alt="shut up" />
-                <h2 id="artist-show-info-name">{this.state.artist.name}</h2>
-                <h2 id="artist-show-info-location">{this.state.artist.location}</h2>    
+                <img src={artist.artist_image_url} alt={`${artist.name} show image`} />
+                <h2 id="artist-show-info-name">{artist.name}</h2>
+                <h2 id="artist-show-info-location">{artist.location}</h2>    
             </div>
         </div>)
     }
 
-    render() {
-        window.state = this.state
-        return(
-            <div>
-                {this.showInfo()}
-            </div>
-        )
-    }
-}
+    return(
+        <div>
+            {showInfo()}
+        </div>
+    )
 
-export default ArtistShow 
+
+}

@@ -17,10 +17,6 @@ const albumsReducer = (state = {}, action) => {
         case RECEIVE_ALBUM: 
             nextState['album'] = action.album
             return nextState;
-        case RECEIVE_HP_ALBUMS: 
-            nextState['artists'] = action.response.artists;
-            nextState['albums'] = action.response.albums
-            return nextState
         default:
             return state;
     }

@@ -9,7 +9,6 @@ namespace :api, defaults: { format: :json } do
     resources :albums do 
       collection do 
         get 'homepage'
-        get 'search'
       end 
     end
     resources :users do 
@@ -17,6 +16,7 @@ namespace :api, defaults: { format: :json } do
         get 'deleteCart'
       end 
     end
+    resources :search, only: [:index]
   end
   root to: 'static_pages#root'
 

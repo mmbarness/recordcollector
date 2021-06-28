@@ -13,8 +13,8 @@ export const AddToCartModal = (props) => {
             <form className="cart-modal-form">
                 <span className="cart-modal-close js-cart-modal-close" onClick={(e)=> toggleCartModal(e)}>&times;</span>
                 <div className="name-album-price">
-                    <label for="name-album-price">Name Your Price $</label>
-                    <input type="text" id="name-album-price" value="10"/>
+                    <label htmlFor="name-album-price">Name Your Price $</label>
+                    <input type="text" id="name-album-price" defaultValue="10"/>
                 </div>
                 <div className="submit">
                     <button onClick={(e) => addCartItem(e,currentUser.id, album.id)}>Add to Cart</button>

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 const logo = 'https://record-collector-dev.s3.amazonaws.com/heroku-dev/record-collector-no-text.png'
 import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
+import { SearchBar } from './search';
+import { SearchHook } from './search2hook';
+import { SearchBarModel } from './search_model';
 
 export class TopBar extends React.Component{
 
@@ -34,8 +37,10 @@ export class TopBar extends React.Component{
     </div>)
   }
   
+  
   searchBar (){
-    return (<input type="text" className="search-bar" placeholder="Search and discover music"></input>)
+    return(<div className="searchbar-container"><SearchBar/></div>)
+    // return (<input type="text" className="search-bar" placeholder="Search and discover music"></input>)
   }
 
   sessionLinks () {

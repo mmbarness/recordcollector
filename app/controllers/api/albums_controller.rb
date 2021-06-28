@@ -24,8 +24,10 @@ class Api::AlbumsController < ApplicationController
             @response[:artists][id] = []
             @response[:artists][id] = artistJSON
             @album = artist.albums.first
+            @tracks = @album.tracks
             album_image_url = {:album_image_url => url_for(@album.photo)}
             albumJSON = album_image_url.merge(@album.as_json)
+            albumJSON['tracks'] = @tracks.as_json
             @response[:albums][@album.id]= albumJSON;
         end
         squarepusher = Artist.find_by(name: 'Squarepusher')

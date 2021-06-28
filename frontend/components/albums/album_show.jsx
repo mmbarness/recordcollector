@@ -25,23 +25,33 @@ export class AlbumShow extends React.Component {
     async getAlbum(){
         let response = await this.props.fetchAlbum(this.artistId, this.albumId)
         response = response.response //this looks stupid i know, need to clean up JSON packaging in actions & jbuilder
+        // debugger;
+        response.album.album_image_url = response.album_image_url;
+        response.artist.artist_image_url = response.artist_image_url; 
+        delete response.album_image_url;
+        delete response.artist_image_url
+        this.stateSetter(response);
+    }
+
+    stateSetter(data) {
         this.setState({
             album: {
-                id: response.album.id,
-                title: response.album.title, 
-                album_image_url: response.album_image_url,
-                description: response.album.description},
-            tracks: response.tracks,
+                id: data.album.id,
+                title: data.album.title, 
+                album_image_url: data.album_image_url || data.album.album_image_url,
+                description: data.album.description},
+            tracks: data.tracks,
             artist: {
-                id: response.artist.id,
-                name: response.artist.name, 
-                location: response.artist.location, 
-                artist_image_url: response.artist_image_url}
+                id: data.artist.id,
+                name: data.artist.name, 
+                location: data.artist.location , 
+                artist_image_url: data.artist_image_url || data.artist.artist_image_url
+            }
         })
     }
 
     componentDidMount(){    
-        if (this.props.album === undefined) this.getAlbum();       
+        (this.props.inProps) ? this.stateSetter({album: this.props.album, artist: this.props.artist, tracks: this.props.album.tracks}) : this.getAlbum();       
     }
 
     trackGrid(){
@@ -58,7 +68,6 @@ export class AlbumShow extends React.Component {
         e.preventDefault();
         this.setState({cartModalVisible: !this.state.cartModalVisible})                
     }
-
 
 
     showInfo() {
