@@ -1,12 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import _, { map } from 'underscore';
-import { fetchAlbums } from '../../actions/album_actions';
 import "regenerator-runtime/runtime";
 import HPAlbumItem from './hpAlbumItem';
 import MoneyCounter from './money_counter';
 import HPFeatures_container from './HPFeatures_container';
 import CartIcon from '../cart/cart_icon'
+import { newHPFetch } from '../../util/album_api_util';
 export class Home extends React.Component {
     constructor(props){
         super(props)
@@ -15,34 +13,16 @@ export class Home extends React.Component {
             albums: "",
             feature: "",
         }
-        this.getTenArtists = this.getTenArtists.bind(this);
         this.getTenArtistsAlbums = this.getTenArtistsAlbums.bind(this);
         this.renderTenAlbums = this.renderTenAlbums.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchArtists().
-            then(response => {
-            this.getTenArtistsAlbums(response.artists)})
+        this.getTenArtistsAlbums(1)
     }
 
-    getTenArtists(artists){
-        const artistIds = _.pluck(artists, "id")
-        let i = artistIds.length;
-        let j = 0;
-        let temp;
-        while (i--) {
-            j = Math.floor(Math.random() * (i+1));
-            temp = artistIds[i];
-            artistIds[i] = artistIds[j];
-            artistIds[j] = temp;
-        }
-        return artistIds.slice(0,10);
-    }
-
-    async getTenArtistsAlbums(artists, cb){
-        let tenArtists = this.getTenArtists(artists)
-        const fetchResponse = await this.props.fetchHPAlbums(tenArtists, 1)
+    getTenArtistsAlbums(albumsPer = 1){
+        this.props.fetchHPAlbums(albumsPer)
             .then(fetchAlbums => {
                 this.setState({
                     albums: fetchAlbums.response.albums, 
@@ -66,8 +46,8 @@ export class Home extends React.Component {
         let albumArr = []
         if (this.state.albums !== ""){
             const albums = this.state.albums 
-            for (let i = 0; i < Object.values(this.state.albums).length; i++) {
-                albumArr.push((Object.values(this.state.albums)[i]))
+            for (let i = 0; i < Object.values(albums).length; i++) {
+                albumArr.push((Object.values(albums)[i]))
             }
             return albumArr.map(
                 album => { 
@@ -77,6 +57,7 @@ export class Home extends React.Component {
     }
 
     render(){
+        window.newHPFetch = newHPFetch
         return(
             <div className="hp-container">
                 <HPFeatures_container feature={this.state.feature}/>
@@ -87,7 +68,6 @@ export class Home extends React.Component {
                         {this.renderTenAlbums()}
                     </ul>
                 </div>
-                {/* <CartIcon currentUser={currentUser} fetchCart = {props.fetchCart}/> */}
             </div>
         )
     }
