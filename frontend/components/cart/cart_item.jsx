@@ -13,6 +13,16 @@ export const CartItem = (props) => {
     const removeCartItem = () => {
         props.removeCartItem(album.cart_id);
     }
+    
+    const handleMouseover = () => {
+        const priceDiv = document.getElementById(`${album.album_id}-namedPrice`)
+        priceDiv.style.display = "none";
+    }
+
+    const handleMouseout = () => {
+        const priceDiv = document.getElementById(`${album.album_id}-namedPrice`)
+        priceDiv.style.display = "block";
+    }
 
     return (
         <div className="cart-item">
@@ -29,8 +39,16 @@ export const CartItem = (props) => {
                 </li>
                 <br />
             </ul>
-            <div>${album.namedPrice}</div>
-            <img src={redX} alt="redX" className= "red-x" onClick={() => removeCartItem()}/>
+            <div className="rightside-cart-items">
+                <div className="namedPrice" id={`${album.album_id}-namedPrice`}>${album.namedPrice}</div>
+                <img src={redX} 
+                    alt="redX" 
+                    className= "red-x" 
+                    onMouseOver={handleMouseover} 
+                    onMouseOut={handleMouseout}
+                    onClick={() => removeCartItem()}
+                />
+            </div>
         </div>
     )
 }

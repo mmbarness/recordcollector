@@ -51,7 +51,11 @@ export class CartPage extends React.Component {
 
     renderSum = () => {
         const sum = (_.isEmpty(this.props.cart)) ? 0 : this.sumCart();
-        return(<p>${sum}</p>)
+        return(
+        <div className="sum-container">
+            <p className="sum-text">Total: ${sum}</p>
+        </div>
+        )
     }
 
     sumCart = () => {
@@ -66,7 +70,7 @@ export class CartPage extends React.Component {
         window.cartPageProps = this.props
         return(
             <div className="cart-container">
-                <h2>Cart</h2>
+                <h2>Your Cart</h2>
                 <div className="cart-grid">
                     {this.albumGrid()}
                     {this.renderSum()}
