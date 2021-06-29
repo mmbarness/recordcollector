@@ -29,6 +29,7 @@ export const CartItem = (props) => {
                 </li>
                 <br />
             </ul>
+            <div>${album.namedPrice}</div>
             <img src={redX} alt="redX" className= "red-x" onClick={() => removeCartItem()}/>
         </div>
     )

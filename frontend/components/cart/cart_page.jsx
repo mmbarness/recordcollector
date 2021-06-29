@@ -46,9 +46,19 @@ export class CartPage extends React.Component {
     }    
 
     componentDidMount(){
-        this.props.fetchCart(this.props.currentUser.id)
-            .then(response => {this.setState({cart: response.response.user_cart, price: (response.response.user_cart.length * 10)})
-            ;})
+        if (_.isEmpty(this.props.cart)){this.props.fetchCart(this.props.currentUser.id)}
+    }
+
+    renderSum = () => {
+        const sum = (_.isEmpty(this.props.cart)) ? 0 : this.sumCart();
+        return(<p>${sum}</p>)
+    }
+
+    sumCart = () => {
+        const cart = this.props.cart
+        const prices = (Object.values(cart)).map(({ namedPrice }) => namedPrice)
+        const sum = prices.reduce((a,b) => a + b)
+        return sum
     }
 
     render() {
@@ -59,7 +69,7 @@ export class CartPage extends React.Component {
                 <h2>Cart</h2>
                 <div className="cart-grid">
                     {this.albumGrid()}
-                    <p>Total: ${this.state.price}.00</p>
+                    {this.renderSum()}
                 </div>
             </div>
         )
