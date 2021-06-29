@@ -21,7 +21,7 @@ export const receiveCartItem = item => {
 export const deleteCartItem = response => {
     return({
         type: REMOVE_CART_ITEM,
-        cart: response.user_cart
+        deleted_item: response.deleted_item
     })
 }
 
@@ -31,7 +31,7 @@ export const fetchCart = (userId) => dispatch => {
         .then(response =>{return(dispatch(receiveCart(response)))})
 )}
 
-export const addCartItem = (userId, albumId)=> dispatch => cartUtils.addCartItem(userId, albumId)
+export const addCartItem = (namedPrice, userId, albumId) => dispatch => cartUtils.addCartItem(namedPrice, userId, albumId)
     .then(response => dispatch(receiveCartItem(response)))
 
 export const removeCartItem = (userId, cartId) => dispatch => cartUtils.removeCartItem(userId, cartId)

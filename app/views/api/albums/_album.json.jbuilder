@@ -12,6 +12,5 @@ if @album
     end 
 else
     json.extract! album, :title, :id, :description, :credits, :artist_id
-    debugger;
     # json.album_image_url url_for(album.photo)
 end 

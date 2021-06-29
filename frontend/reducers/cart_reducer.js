@@ -3,7 +3,7 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const cartReducer = (state = {}, action) => {
     Object.freeze(state);
-    let nextState = Object.assign({}, state.cart);
+    let nextState = Object.assign({}, state);
     let cart 
     switch(action.type){
         case RECEIVE_CURRENT_USER:
@@ -12,19 +12,19 @@ const cartReducer = (state = {}, action) => {
             return nextState
         case RECEIVE_CART:
             if (action.response.user_cart === undefined){
-                cart = []
+                cart = {}
             } else {
-                cart = action.response.user_cart
+                cart = {}
+                action.response.user_cart.forEach(album => cart[album.cart_id] = album)
             }
             nextState= cart 
-            // debugger
             return nextState;
         case RECEIVE_CART_ITEM: 
             let item = action.item.cart_item
             nextState[item.id] = item
             return nextState; 
         case REMOVE_CART_ITEM:
-            nextState = action.cart
+            delete nextState[action.deleted_item]
             return nextState;
         default:
             return state;

@@ -7,7 +7,7 @@ export const fetchCart = userId => {
     }))
 }
 
-export const addCartItem = (userId, albumId) => {
+export const addCartItem = (namedPrice, userId, albumId) => {
     return ($.ajax({
         url: "api/cart_items/",
         data: {user_id: userId, album_id: albumId},

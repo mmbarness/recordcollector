@@ -8,9 +8,10 @@ json.user_cart do
             json.album_image_url url_for(album.photo)
             unless @cart_ids.nil? 
                 @cart_ids.each do |item| 
-                    if item["album_id"] == album.id
-                        json.cart_id item["id"]
+                    if item.album_id == album.id
+                        json.cart_id item.id
                     end
+                    json.namedPrice (item.named_price.nil? ? 10 : item.named_price )
                 end 
             end 
         end

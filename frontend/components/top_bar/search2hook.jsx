@@ -16,7 +16,6 @@ export const SearchHook = () => {
 	}
 
 	const handleSearch = query => {
-		debugger;
 		if (_cache[query]) {
 			setoptions(_cache[query].options)
 			return;

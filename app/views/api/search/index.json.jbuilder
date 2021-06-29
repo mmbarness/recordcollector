@@ -4,7 +4,6 @@ json.results do
         json.name result.name 
         json.id result.id
     end
-    # debugger;
 end
 
 # json.results @results  

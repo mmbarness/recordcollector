@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
     fetchAlbum: (artistId, albumId) => dispatch(fetchAlbum(artistId, albumId)),
     fetchAlbums: artistId => dispatch(fetchAlbums(artistId)),
     fetchArtist: artistId => dispatch(fetchArtist(artistId)),
-    addCartItem: (userId, albumId) => dispatch(addCartItem(userId, albumId)),
+    addCartItem: (namedPrice, userId, albumId) => dispatch(addCartItem(namedPrice, userId, albumId)),
     fetchCart: (userId) => dispatch(fetchCart(userId))
 })
 

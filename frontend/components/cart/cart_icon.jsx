@@ -11,7 +11,6 @@ export class CartIcon extends React.Component {
     }
 
     componentDidMount(){
-        // this.props.fetchCart(this.props.currentUser.id).then(response => {debugger})
         this.props.fetchCart(this.props.currentUser.id)
             .then(response => {this.setState({cart: response.response.user_cart})
             ;})
@@ -34,7 +33,6 @@ export class CartIcon extends React.Component {
     render(){
         window.cartIconProps = this.props; 
         window.cartIconState = this.state;
-        // debugger
         return(<div>
             {/* {cartCount} */}
             {(this.props.cart !== ["empty"]) ? this.props.cart.length : 0}

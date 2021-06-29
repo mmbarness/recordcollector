@@ -8,7 +8,6 @@ const artistsReducer = (state = {}, action) => {
         case RECEIVE_ALL_ARTISTS:
             return Object.assign({}, state, action.artists)
         case RECEIVE_ARTIST: 
-            // debugger;
             nextState[action.artist.id] = action.artist;
             nextState[action.artist.id]['albums'] = Object.values(action.albums)
             return nextState;

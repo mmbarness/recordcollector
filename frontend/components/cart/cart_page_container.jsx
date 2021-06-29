@@ -4,7 +4,6 @@ import CartPage  from './cart_page'
 import _, { map } from 'underscore';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     cart: state.entities.cart

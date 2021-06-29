@@ -8,6 +8,13 @@ export const AddToCartModal = (props) => {
     const addCartItem = props.addCartItem
     const toggleCartModal = props.toggleCartModal
     let cartModalVisible = props.cartModalVisible 
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const namedPrice = parseInt(document.getElementById('name-album-price').value)     
+        addCartItem(e, namedPrice, currentUser.id, album.id)
+    }
+
     return(
         <div className={`cart-modal ${cartModalVisible ? "is-open" : "close"}`}>
             <form className="cart-modal-form">
@@ -17,7 +24,7 @@ export const AddToCartModal = (props) => {
                     <input type="text" id="name-album-price" defaultValue="10"/>
                 </div>
                 <div className="submit">
-                    <button onClick={(e) => addCartItem(e,currentUser.id, album.id)}>Add to Cart</button>
+                    <button onClick={handleSubmit}>Add to Cart</button>
                 </div>
             </form>
             <div className="modal-screen js-modal-close"></div>
@@ -25,4 +32,3 @@ export const AddToCartModal = (props) => {
     )
 }
 
-// export default AddToCartModal

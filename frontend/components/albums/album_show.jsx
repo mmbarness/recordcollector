@@ -25,7 +25,6 @@ export class AlbumShow extends React.Component {
     async getAlbum(){
         let response = await this.props.fetchAlbum(this.artistId, this.albumId)
         response = response.response //this looks stupid i know, need to clean up JSON packaging in actions & jbuilder
-        // debugger;
         response.album.album_image_url = response.album_image_url;
         response.artist.artist_image_url = response.artist_image_url; 
         delete response.album_image_url;
@@ -96,8 +95,8 @@ export class AlbumShow extends React.Component {
         </div>)
     }
 
-    addCartItem(e,userId, albumId){
-        this.props.addCartItem(userId, albumId).then(this.toggleCartModal(e))
+    addCartItem(e, namedPrice, userId, albumId){
+        this.props.addCartItem(namedPrice, userId, albumId).then(this.toggleCartModal(e))
     }
 
     render() {
@@ -120,6 +119,3 @@ export class AlbumShow extends React.Component {
 }
 
 export default AlbumShow 
-
-//cart-modal close
-//cart-modal is-open 
