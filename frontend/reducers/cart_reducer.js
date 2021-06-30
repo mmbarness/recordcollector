@@ -1,6 +1,6 @@
 import { RECEIVE_CART, RECEIVE_CART_ITEM, REMOVE_CART_ITEM } from "../actions/cart_actions";
 import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from "../actions/session_actions";
-
+import * as _ from 'underscore'
 const cartReducer = (state = {}, action) => {
     Object.freeze(state);
     let nextState = Object.assign({}, state);
@@ -10,7 +10,9 @@ const cartReducer = (state = {}, action) => {
             return {};
         case RECEIVE_CURRENT_USER:
             cart = {}
-            action.currentUser.cart.forEach(album => cart[album.cart_id] = album)
+            if (!_.isEmpty(action.currentUser.cart)){
+                action.currentUser.cart.forEach(album => cart[album.cart_id] = album)
+            }
             nextState = Object.assign({}, cart, nextState)
             return nextState
         case RECEIVE_CART:
