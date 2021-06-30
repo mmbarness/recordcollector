@@ -21,7 +21,8 @@ export class HPFeatures extends React.Component{
         if (this.props.feature.feature_artist_image_url !== undefined){
             imageUrl = this.props.feature.feature_artist_image_url
         }
-        return <img src={imageUrl} alt="picture" />
+        const artistUrl = `/artists/${this.props.feature.id}`
+        return <Link id="feature-artist-img-link" to={artistUrl}><img src={imageUrl} alt="picture" id="feature-img"/></Link>
     }
 
     render(){
@@ -32,7 +33,6 @@ export class HPFeatures extends React.Component{
             <div className="HPFeaturesContainer">
                 {this.featureImage()}
                 <h3 id="feature-text">Squarepusher's Iconic Debut "Feed Me Weird Things" Turns 25</h3>
-
             </div>
         )
     }

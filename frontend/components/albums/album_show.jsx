@@ -49,7 +49,8 @@ export class AlbumShow extends React.Component {
         })
     }
 
-    componentDidMount(){    
+    componentDidMount(){
+            
         (this.props.inProps) ? this.stateSetter({album: this.props.album, artist: this.props.artist, tracks: this.props.album.tracks}) : this.getAlbum();       
     }
 
@@ -57,9 +58,9 @@ export class AlbumShow extends React.Component {
         const tracks = this.state.tracks
         return (tracks.map(track => {
             const trackId = track.id
-            return(<li className="track-entry" key={trackId}>
-                <TrackItem track={track}/>
-            </li>)
+            return(
+                <TrackItem className="track-entry" key={trackId} track={track}/>
+            )
         }))
     }
 
@@ -85,7 +86,7 @@ export class AlbumShow extends React.Component {
                         <br />
                         <p>Includes unlimited streaming via the free Bandcamp app, plus high-quality download in MP3, FLAC and more.</p>
                     </div> 
-                    <button onClick={
+                    <button id="add-cart-album-btn" onClick={
                         (e)=>this.toggleCartModal(e)}>Add to Cart
                     </button>
                 </div>

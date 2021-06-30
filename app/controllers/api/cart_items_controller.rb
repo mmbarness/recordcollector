@@ -37,7 +37,7 @@ class Api::CartItemsController < ApplicationController
             @cart_ids = @user.cart_items.as_json
             render "api/cart/remove_cart_item"
         else 
-            render json @cart_item.errors.full_messages, status: 666
+            render json: @cart_item.errors.full_messages, status: 666
         end
     end
 end

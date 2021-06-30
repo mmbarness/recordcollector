@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { ReactSVG } from 'react-svg';
 const logo = 'https://record-collector-dev.s3.amazonaws.com/logo-garnish.png'
 import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
 import { SearchBar } from './search';
 import { SearchHook } from './search2hook';
 import { SearchBarModel } from './search_model';
+// require('svg-url-loader!./shopping-cart.svg')
+import cartIcon from './shopping-cart.svg'
+// import * from '../../../app/assets/images/shopping-cart.svg'
 
 export class TopBar extends React.Component{
 
@@ -59,9 +63,18 @@ export class TopBar extends React.Component{
       </div>)
   };
 
+  showCart = () => {
+    if (this.props.cartInProps === false) {this.props.fetchCart(currentUser.id)}
+    let cart = Object.values(this.props.cart)
+    if (cart.length > 0){
+      return <p>{`(${cart.length})`}</p>
+    }
+  }
+
   splashGreeting () {
     const currentUser = this.props.currentUser;
     const logout = this.props.logout 
+    let cart = (this.props.cartInProps === true) ? this.props.cart : []
     return (
       <div className="top-bar-container">
         {this.logoContainer()}
@@ -71,7 +84,8 @@ export class TopBar extends React.Component{
             <h2 className="welcome-name">{currentUser.username}</h2>
             <button className="logout-button" onClick={logout}>log out</button>
             <Link to="/cart" className="top-bar-cart-link">
-              <img src="https://record-collector-dev.s3.amazonaws.com/D414BBAA-5213-4D99-A992-7233DFED3632+copy.png" />
+              <img src={cartIcon} alt="" />
+              <p id="cart-count">{this.showCart()}</p>
           </Link>
           </hgroup>
         </div>
@@ -82,6 +96,7 @@ export class TopBar extends React.Component{
   render(){
     const currentUser = this.props.currentUser;
     const logout = this.props.logout 
+    window.barProps = this.props 
     return(
       currentUser ? this.splashGreeting() : this.sessionLinks()
     )

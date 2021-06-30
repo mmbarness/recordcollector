@@ -16,7 +16,13 @@ module.exports = {
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
       },
-      {test: /\.(css|scss})$/, loader: 'css-loader'}
+      {test: /\.(css|scss})$/, loader: 'css-loader'},
+      {
+        test: /\.svg/,
+        use: {
+            loader: 'svg-url-loader'
+        }
+      },
     ]
   },
   devtool: 'source-map',

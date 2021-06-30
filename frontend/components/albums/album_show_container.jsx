@@ -11,11 +11,12 @@ const mapStateToProps = (state,ownProps) => {
     let albumSlice
     let artistSlice 
     let inProps= false 
-    if (!_.isEmpty(state.entities.hp)) {
+    if (!_.isEmpty(state.entities.hp) && state.entities.hp.albums[albumId] !== undefined) {
         albumSlice = state.entities.hp.albums[albumId]
         artistSlice = state.entities.hp.artists[artistId]
         inProps = true 
     }
+
     return {
         inProps: inProps,
         "album": albumSlice,

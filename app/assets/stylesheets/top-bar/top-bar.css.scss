@@ -70,10 +70,20 @@
 
 .logout-button {
     margin-left: 1vw;
-    font-family: 'Roboto';
+    font-family: 'Roboto Slab';
     align-self: center;
     padding-top: .2vmin;
     padding-bottom: .2vmin;
+    background-color: #738F9B;
+    color: white;
+    font-weight: 400;
+    border-radius: .5em;
+    border: none;
+}
+
+.logout-button:hover{
+    cursor: pointer;
+    background-color: #bad1db;
 }
 
 .welcome-name{
@@ -88,9 +98,16 @@
 
 .top-bar-cart-link {
     padding-left: 1vmin;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
 }
 
 .top-bar-cart-link >img{
     width: 2vmax;
     padding: .5vmax;
+}
+
+#cart-count{
+    // position: absolute;
 }

@@ -33,7 +33,7 @@ const App = () => {
       <Route path="/artists/:artistId/albums/:albumId" component={AlbumShowContainer} />
       <Route exact path="/artists/:artistId" component={ArtistShow} />
       <Route exact path = "/" component ={Home}/>
-      <Route exact path="/cart" component={CartPageContainer}/>
+      <ProtectedRoute exact path="/cart" component={CartPageContainer}/>
       <Route exact path="/artists/" component={ArtistIndexContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

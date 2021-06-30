@@ -41,7 +41,7 @@ export class CartPage extends React.Component {
             cart = Object.values(this.props.cart)
         }
         const range = ["#f0fdff", "#defbff", "#e6fcff", "#c0e7ed,", "#bff7ff"]
-
+        
         return (cart.map(album => {
             const randoIndex = Math.floor(Math.random() * (range.length) + 0)
             const color = range[randoIndex];

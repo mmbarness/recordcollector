@@ -25,7 +25,6 @@ export const CartItem = (props) => {
         const priceDiv = document.getElementById(`${album.album_id}-namedPrice`)
         const cartSum = document.getElementById('cart-sum')
         const redX = document.getElementById(`${album.album_id}-red-x`)
-        // debugger;
         priceDiv.style.display = "none"
         redX.style.display = "block"
         const otherItems = (Object.values(cart)).filter(item => item.album_id !== album.album_id)

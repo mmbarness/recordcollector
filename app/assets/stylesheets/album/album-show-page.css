@@ -8,7 +8,7 @@
 .album-show-page{
     display: grid;
     grid-template-columns: 45% 55%;
-    grid-template-rows: 30% 60%;
+    grid-auto-rows: max-content min-content;
     width: 60%;
 }
 
@@ -24,7 +24,7 @@
     width: 35vmax;
     padding-left: 2vmax;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
     grid-column-start: 2;
 }
 
@@ -35,14 +35,27 @@
 }
 
 .digital-purchase-boilerplate{
-    font-size: 1.5vmin;
-    padding-top: 1vmin;
-    padding-bottom: 1.5vmax;
+    font-size: 1em;
+    padding-top: 1em;
+    padding-bottom: .5em;
 }
 
 .track-grid {
     display: flex;
     flex-flow: column;
-    padding-top: 1vmax;
+    margin-top: 1em;
 }
 
+#add-cart-album-btn{
+  height: 2em;
+  background-color: #738F9B;
+  color: white;
+  font-weight: 600;
+  border-radius: .5em;
+  border: none;
+}
+
+#add-cart-album-btn:hover {
+  cursor: pointer;
+  background-color: #bad1db;
+}

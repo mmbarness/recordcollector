@@ -24,7 +24,7 @@ export const AddToCartModal = (props) => {
                     <input type="text" id="name-album-price" defaultValue="10"/>
                 </div>
                 <div className="submit">
-                    <button onClick={handleSubmit}>Add to Cart</button>
+                    <button id="add-cart-modal-btn" onClick={handleSubmit}>Add to Cart</button>
                 </div>
             </form>
             <div className="modal-screen js-modal-close"></div>

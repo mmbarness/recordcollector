@@ -11,6 +11,7 @@ class Api::SessionsController < ApplicationController
         @cart = nil
       else  
         @cart = @user.albums_in_cart
+        @cart_ids = @user.cart_items.as_json
       end 
       render "api/users/show"
     else

@@ -4,9 +4,16 @@ import { logout } from '../../actions/session_actions';
 import TopBar from './top_bar';
 
 const mapStateToProps = (state, ownProps) => {
+  let cartInProps = false 
+  let cart 
+  if (state.entities.users[state.session.id] !== undefined){
+    cartInProps = true 
+    cart = state.entities.cart
+  }
   return {
     currentUser: state.entities.users[state.session.id],
-    cart: state.entities.cart
+    cartInProps: cartInProps, 
+    cart: cart
   };
 };
 
