@@ -8,7 +8,7 @@ import { fetchCart } from '../../actions/cart_actions';
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'login',
+    formType: 'Log in',
     navLink: <Link to="/signup">sign up instead</Link>,
   };
 };

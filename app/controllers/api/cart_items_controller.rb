@@ -4,6 +4,8 @@ class Api::CartItemsController < ApplicationController
         @user = User.find_by(id: params[:user_id]);
         @user.albums_in_cart.empty? ? @user_cart = nil : @user_cart = @user.albums_in_cart
         @cart_ids = @user.cart_items
+        @artists = []
+        @user_cart.each{|item| @artists.push(Artist.find(item.artist_id))}
         render "api/cart/user_cart"
     end
 

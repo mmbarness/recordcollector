@@ -21,6 +21,7 @@
 
 .cart-item-link > img {
     width: 8em;
+    border-radius:  .25em;
 }
 
 .cart-item{
@@ -61,18 +62,18 @@ ul.cart-item-info > li {
 .rightside-cart-items{
     align-self: center;
     display: flex;
-    width: 8em;
-    height: 8em;
+    width: 6em;
+    height: 6em;
     justify-content: flex-end;
     align-items: center;
 }
 
 .rightside-cart-items > .red-x {
-    height: 10vmax;
+    height: 6em;
     display: none;
 }
 .rightside-cart-items:hover > .red-x {
-    display: block;
+    /* display: block; */
     cursor: pointer;
     align-self: center;
 }

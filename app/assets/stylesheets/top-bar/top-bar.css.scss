@@ -1,6 +1,6 @@
 .top-bar-container {
     position: fixed;
-    background-color: white;
+    background-color: #ffe9c9;
     top: 0;
     display: flex; 
     flex-flow: wrap;
@@ -20,7 +20,6 @@
 
 .top-bar-text{
     font-style: bold;
-    background-color: white;
 }
 
 .session-text{
@@ -38,26 +37,10 @@
     font-family: 'Mate SC', serif;
 }
 
-.logo-and-image{
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
 .logo-text{
-    font-size: large;
+    font-size: 2em;
 }
 
-.logo-home-link{
-    height: 100%
-}
-
-#logo-img {
-    height: 100%;
-    width: auto;
-}
 
 .logo-sentence{
     font-family: 'Roboto Slab';

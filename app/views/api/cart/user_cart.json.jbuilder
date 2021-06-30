@@ -5,6 +5,7 @@ json.user_cart do
             json.album_id album.id 
             json.title album.title 
             json.artist_id album.artist_id
+            json.artist_name album.artist.name 
             json.album_image_url url_for(album.photo)
             json.user_id @user.id
             unless @cart_ids.nil? 
@@ -14,6 +15,7 @@ json.user_cart do
                         json.namedPrice (item.named_price.nil? ? 10 : item.named_price )
                     end
                 end 
+
             end 
         end
     end 

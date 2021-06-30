@@ -40,8 +40,13 @@ export class CartPage extends React.Component {
         } else {
             cart = Object.values(this.props.cart)
         }
+        const range = ["#f0fdff", "#defbff", "#e6fcff", "#c0e7ed,", "#bff7ff"]
+
         return (cart.map(album => {
-            return(<CartItem album={album} removeCartItem = {this.removeCartItem}/> )
+            const randoIndex = Math.floor(Math.random() * (range.length) + 0)
+            const color = range[randoIndex];
+            delete range[randoIndex]
+            return(<CartItem album={album} removeCartItem = {this.removeCartItem} color={color}/> )
         }))
     }    
 
@@ -53,7 +58,7 @@ export class CartPage extends React.Component {
         const sum = (_.isEmpty(this.props.cart)) ? 0 : this.sumCart();
         return(
         <div className="sum-container">
-            <p className="sum-text">Total: ${sum}</p>
+            <p id="cart-sum" className="sum-text" data-sum={sum}>Total: ${sum}</p>
         </div>
         )
     }
