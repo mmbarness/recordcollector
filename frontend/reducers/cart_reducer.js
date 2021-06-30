@@ -17,11 +17,11 @@ const cartReducer = (state = {}, action) => {
                 cart = {}
                 action.response.user_cart.forEach(album => cart[album.cart_id] = album)
             }
-            nextState= cart 
+            nextState = cart 
             return nextState;
         case RECEIVE_CART_ITEM: 
             let item = action.item.cart_item
-            nextState[item.id] = item
+            nextState[item.cart_id] = item
             return nextState; 
         case REMOVE_CART_ITEM:
             delete nextState[action.deleted_item]

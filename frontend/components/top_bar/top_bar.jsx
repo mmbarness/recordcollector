@@ -23,16 +23,14 @@ export class TopBar extends React.Component{
   logoContainer (){
     return(
     <div className="logo-container">
-      <div className="logo-and-image">
-        <div className={["top-bar-text","logo-text"].join(" ")}>Record</div>
-          <Link to="/" className="logo-home-link">
-            <img id="logo-img" src={logo} alt="rc logo" />
-            <h1 id="rc-button"></h1>
-          </Link>
-        <div className={["top-bar-text","logo-text"].join(" ")}>Collector</div>
+      <div className="logo">
+        <Link to="/" className="logo-home-link">
+          <div className={["top-bar-text","logo-text"].join(" ")}>Record</div>
+          <div className={["top-bar-text","logo-text"].join(" ")}>Collector</div>
+        </Link>
       </div>
       <div className={["top-bar-text","logo-sentence"].join(" ")}>
-        Discover amazing new music and directly support the artists who make it. (Also everything costs $10)
+        Discover amazing new music and directly support the artists who make it.
       </div>
     </div>)
   }
@@ -70,7 +68,7 @@ export class TopBar extends React.Component{
             <h2 className="welcome-name">{currentUser.username}</h2>
             <button className="logout-button" onClick={logout}>log out</button>
             <Link to="/cart" className="top-bar-cart-link">
-              <img src="https://record-collector-dev.s3.amazonaws.com/shopping-cart-icon.jpeg" />
+              <img src="https://record-collector-dev.s3.amazonaws.com/D414BBAA-5213-4D99-A992-7233DFED3632+copy.png" />
           </Link>
           </hgroup>
         </div>

@@ -13,8 +13,8 @@
 
 .hp-album-grid-container > h3{
     font-weight: 300;
-    font-size: 2vmax;
-    padding-left: 5vmax;
+    font-size: 1.5em;
+    margin-left: 1.25em;
 }
 
 .hp-album-grid-container{
@@ -46,7 +46,6 @@
 .hp-album-img{
     width: 14vmin;
     height: 14vmin;
-    padding-bottom: 1vmin;
 }
 
 .hp-album-text{
@@ -66,6 +65,9 @@
     font-size: 1.75vmin;
 }
 
+.hp-album > li {
+    margin-top: .25em;
+}
 
 
 

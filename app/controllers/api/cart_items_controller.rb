@@ -4,6 +4,8 @@ class Api::CartItemsController < ApplicationController
         @user = User.find_by(id: params[:user_id]);
         @user.albums_in_cart.empty? ? @user_cart = nil : @user_cart = @user.albums_in_cart
         @cart_ids = @user.cart_items
+        @artists = []
+        @user_cart.each{|item| @artists.push(Artist.find(item.artist_id))}
         render "api/cart/user_cart"
     end
 
@@ -11,8 +13,10 @@ class Api::CartItemsController < ApplicationController
         @cart_item = CartItem.new(user_id: params[:user_id], album_id: params[:album_id], named_price: params[:named_price])
         @user_cart = nil  
         @cart_ids = nil  
-        if @cart_item.save 
+        if @cart_item.save! 
             @user = User.find_by(id: params[:user_id])
+            @album = Album.find_by(id: params[:album_id])
+            @artist = @album.artist 
             @user_cart = @user.albums_in_cart
             @cart_ids = @user.cart_items.as_json
             render "api/cart/cart_item"

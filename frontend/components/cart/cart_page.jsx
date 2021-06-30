@@ -40,15 +40,34 @@ export class CartPage extends React.Component {
         } else {
             cart = Object.values(this.props.cart)
         }
+        const range = ["#f0fdff", "#defbff", "#e6fcff", "#c0e7ed,", "#bff7ff"]
+
         return (cart.map(album => {
-            return(<CartItem album={album} removeCartItem = {this.removeCartItem}/> )
+            const randoIndex = Math.floor(Math.random() * (range.length) + 0)
+            const color = range[randoIndex];
+            delete range[randoIndex]
+            return(<CartItem album={album} removeCartItem = {this.removeCartItem} color={color}/> )
         }))
     }    
 
     componentDidMount(){
-        this.props.fetchCart(this.props.currentUser.id)
-            .then(response => {this.setState({cart: response.response.user_cart, price: (response.response.user_cart.length * 10)})
-            ;})
+        if (_.isEmpty(this.props.cart)){this.props.fetchCart(this.props.currentUser.id)}
+    }
+
+    renderSum = () => {
+        const sum = (_.isEmpty(this.props.cart)) ? 0 : this.sumCart();
+        return(
+        <div className="sum-container">
+            <p id="cart-sum" className="sum-text" data-sum={sum}>Total: ${sum}</p>
+        </div>
+        )
+    }
+
+    sumCart = () => {
+        const cart = this.props.cart
+        const prices = (Object.values(cart)).map(({ namedPrice }) => namedPrice)
+        const sum = prices.reduce((a,b) => a + b)
+        return sum
     }
 
     render() {
@@ -56,10 +75,10 @@ export class CartPage extends React.Component {
         window.cartPageProps = this.props
         return(
             <div className="cart-container">
-                <h2>Cart</h2>
+                <h2>Your Cart</h2>
                 <div className="cart-grid">
                     {this.albumGrid()}
-                    <p>Total: ${this.state.price}.00</p>
+                    {this.renderSum()}
                 </div>
             </div>
         )

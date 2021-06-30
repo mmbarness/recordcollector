@@ -9,12 +9,45 @@
 .login-form-box{
     display: flex;
     flex-flow:column;
+    justify-content: center;
     align-items: center;
-    width: 20vmax;
+    font-size: 1.25em;
+    font-weight: 200;
+}
+
+.login-form-box > h3 {
+    padding: 1em;
+    padding-right: 4em;
+    align-self: flex-end;
+    font-weight: 300;
 }
 
 .login-form-fields{
     display: flex;
     flex-flow: column;
-    align-items: center;
+    align-items: flex-end;
+}
+
+.login-input{
+    margin-left: .5em;
+    width: 15em;
+    height: 2em;
+}
+
+.session-submit{
+    align-self: flex-end;
+    margin: 0.5em;
+    margin-right: 0;
+    width: 16em;
+    height: 2em;
+    background-color: #738F9B;
+    color: white;
+    font-weight: 600;
+    border-radius: .5em;
+    border: none;
+}
+
+.session-submit:hover{
+    cursor: pointer;
+    background-color: #bad1db;
 }
