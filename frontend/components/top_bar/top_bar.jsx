@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-const logo = 'https://record-collector-dev.s3.amazonaws.com/heroku-dev/record-collector-no-text.png'
+const logo = 'https://record-collector-dev.s3.amazonaws.com/logo-garnish.png'
 import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
 import { SearchBar } from './search';
@@ -25,8 +25,11 @@ export class TopBar extends React.Component{
     <div className="logo-container">
       <div className="logo">
         <Link to="/" className="logo-home-link">
-          <div className={["top-bar-text","logo-text"].join(" ")}>Record</div>
-          <div className={["top-bar-text","logo-text"].join(" ")}>Collector</div>
+          <div id="logo-text" className="top-bar-text">
+            <p>Record</p>
+            <p>Collector</p>
+          </div>
+          <img src={logo} alt="" id="logo-garnish"/>
         </Link>
       </div>
       <div className={["top-bar-text","logo-sentence"].join(" ")}>

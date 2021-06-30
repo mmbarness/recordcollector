@@ -31,7 +31,7 @@ export class HPFeatures extends React.Component{
         return(
             <div className="HPFeaturesContainer">
                 {this.featureImage()}
-                <h3>Squarepusher's Iconic Debut "Feed Me Weird Things" Turns 25</h3>
+                <h3 id="feature-text">Squarepusher's Iconic Debut "Feed Me Weird Things" Turns 25</h3>
 
             </div>
         )

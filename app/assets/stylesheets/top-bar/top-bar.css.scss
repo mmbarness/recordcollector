@@ -28,7 +28,6 @@
 
 
 .logo-container{
-    // height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -37,10 +36,16 @@
     font-family: 'Mate SC', serif;
 }
 
-.logo-text{
+#logo-text{
+    position: absolute;
     font-size: 2em;
 }
 
+#logo-garnish{
+    width: 4em;
+    margin-left: -3.75em;
+    margin-top: .75em;
+}
 
 .logo-sentence{
     font-family: 'Roboto Slab';

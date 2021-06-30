@@ -2,15 +2,20 @@
     display: flex;
     flex-flow:column;
     justify-content: center;
-    width: 60vmax;
-    height: 30vmax;
+    align-items: center;
 }
 
 .HPFeaturesContainer > img {
-    max-width: 100%;
+    max-width: 65%;
     height: auto
 }
 
 .hp-album > img {
     border-radius: .25em;
+}
+
+#feature-text{
+    position: absolute;
+    color: white;
+    margin-top: 30em;
 }
