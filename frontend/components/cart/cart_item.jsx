@@ -29,7 +29,7 @@ export const CartItem = (props) => {
         redX.style.display = "block"
         const otherItems = (Object.values(cart)).filter(item => item.album_id !== album.album_id)
         const otherPrices = (otherItems.map(item => item.namedPrice))
-        const sumLessThis = otherPrices.reduce((a,b) => a+b)
+        const sumLessThis = (otherItems.length > 0) ? otherPrices.reduce((a,b) => a+b) : 0
         cartSum.innerText= `Total: $${sumLessThis}` 
         priceDiv.style.display = "none";
     }
