@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import * as subsonic from '../../util/subsonic_api_utils';
 import { AddToCartModal } from '../cart/add_to_cart_modal';
 import TrackItem from '../tracks/track_item';
-
+import { parseString, parseStringPromise } from 'xml2js'
 
 export class AlbumShow extends React.Component {
     constructor(props){
@@ -104,14 +104,19 @@ export class AlbumShow extends React.Component {
         this.props.addCartItem(namedPrice, userId, albumId).then(this.toggleCartModal(e))
     }
 
-    searcher = async () => {
-        const search = await subsonic.searchPlex(this.state.album.title)
-        debugger
-    }
+    // searcher = async () => {
+    //     // console.log(subsonic.searchPlex(this.state.album.title))
+    //     let search = await subsonic.searchPlex(this.state.album.title).then(resp => parseStringPromise(resp))
+    //     search = JSON.parse(JSON.stringify(search))
+    //     return (search["subsonic-response"]["searchResult2"][0])
+    // }
 
     render() {
         // window.search = subsonic.searchPlex(this.state.album.title).then(resp => {debugger; return(resp)})
-        this.searcher();
+        window.parseString = parseString
+        window.parseStringPromise = parseStringPromise
+        // window.albums = subsonic.searchAlbums(this.state.album.title)
+        // window.search = this.searcher();
         window.state = this.state;
         window.albShowProps = this.props;
         return(

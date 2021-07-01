@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchArtist } from '../../actions/artist_actions'
+import { getFolders, getIndices, getMusicFolders } from '../../util/subsonic_api_utils'
 import AlbumItem from '../albums/album_item'
 
 
@@ -46,6 +47,8 @@ export const ArtistShow = props => {
             </div>
         </div>)
     }
+    window.getFolders = getFolders 
+    window.getIndices = getIndices 
 
     return(
         <div>

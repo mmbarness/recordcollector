@@ -7,6 +7,7 @@
     "core-js": "^3.13.1",
     "css-loader": "^5.2.0",
     "isomorphic-fetch": "^3.0.0",
+    "jquery": "^3.6.0",
     "lodash.range": "^3.2.0",
     "md5": "^2.3.0",
     "node-fetch": ">=2.6.1",

@@ -1,0 +1,2082 @@
+
+
+{"$": {
+        "name": "A"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "237",
+                "name": "A$AP Mob"
+            }
+        },
+        {
+            "$": {
+                "id": "194",
+                "name": "Actress"
+            }
+        },
+        {
+            "$": {
+                "id": "333",
+                "name": "Aerosmith"
+            }
+        },
+        {
+            "$": {
+                "id": "213",
+                "name": "Aesop Rock"
+            }
+        },
+        {
+            "$": {
+                "id": "352",
+                "name": "Against All Logic"
+            }
+        },
+        {
+            "$": {
+                "id": "415",
+                "name": "Alcest"
+            }
+        },
+        {
+            "$": {
+                "id": "191",
+                "name": "The Allman Brothers Band"
+            }
+        },
+        {
+            "$": {
+                "id": "393",
+                "name": "Alva Noto + Ryuichi Sakamoto"
+            }
+        },
+        {
+            "$": {
+                "id": "357",
+                "name": "Amaarae"
+            }
+        },
+        {
+            "$": {
+                "id": "148",
+                "name": "Ambrose Akinmusire"
+            }
+        },
+        {
+            "$": {
+                "id": "142",
+                "name": "Amen Dunes"
+            }
+        },
+        {
+            "$": {
+                "id": "442",
+                "name": "American Football"
+            }
+        },
+        {
+            "$": {
+                "id": "187",
+                "name": "Amy Winehouse"
+            }
+        },
+        {
+            "$": {
+                "id": "405",
+                "name": "Anaïs Mitchell"
+            }
+        },
+        {
+            "$": {
+                "id": "358",
+                "name": "Andy Stott"
+            }
+        },
+        {
+            "$": {
+                "id": "217",
+                "name": "Angelika Niescier Trio"
+            }
+        },
+        {
+            "$": {
+                "id": "341",
+                "name": "Angel Olsen"
+            }
+        },
+        {
+            "$": {
+                "id": "193",
+                "name": "Animal Collective"
+            }
+        },
+        {
+            "$": {
+                "id": "387",
+                "name": "Anohni"
+            }
+        },
+        {
+            "$": {
+                "id": "398",
+                "name": "Anouar Brahem"
+            }
+        },
+        {
+            "$": {
+                "id": "346",
+                "name": "Antonio Sánchez"
+            }
+        },
+        {
+            "$": {
+                "id": "262",
+                "name": "Antony and the Johnsons"
+            }
+        },
+        {
+            "$": {
+                "id": "291",
+                "name": "Aphex Twin"
+            }
+        },
+        {
+            "$": {
+                "id": "325",
+                "name": "Arca"
+            }
+        },
+        {
+            "$": {
+                "id": "258",
+                "name": "Arcade Fire"
+            }
+        },
+        {
+            "$": {
+                "id": "192",
+                "name": "Arctic Monkeys"
+            }
+        },
+        {
+            "$": {
+                "id": "449",
+                "name": "Ariana Grande"
+            }
+        },
+        {
+            "$": {
+                "id": "344",
+                "name": "Ariel Pink’s Haunted Graffiti"
+            }
+        },
+        {
+            "$": {
+                "id": "402",
+                "name": "Arooj Aftjab"
+            }
+        },
+        {
+            "$": {
+                "id": "438",
+                "name": "Ashley McBryde"
+            }
+        },
+        {
+            "$": {
+                "id": "429",
+                "name": "Atticus Ross"
+            }
+        },
+        {
+            "$": {
+                "id": "290",
+                "name": "Austin Peralta"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "B"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "302",
+                "name": "Bad Bunny"
+            }
+        },
+        {
+            "$": {
+                "id": "401",
+                "name": "Baroness"
+            }
+        },
+        {
+            "$": {
+                "id": "214",
+                "name": "Basic Channel"
+            }
+        },
+        {
+            "$": {
+                "id": "175",
+                "name": "Beyonce"
+            }
+        },
+        {
+            "$": {
+                "id": "145",
+                "name": "Beyoncé"
+            }
+        },
+        {
+            "$": {
+                "id": "349",
+                "name": "Bibio"
+            }
+        },
+        {
+            "$": {
+                "id": "417",
+                "name": "Big Red Machine"
+            }
+        },
+        {
+            "$": {
+                "id": "354",
+                "name": "Big Thief"
+            }
+        },
+        {
+            "$": {
+                "id": "310",
+                "name": "Bill Evans Trio"
+            }
+        },
+        {
+            "$": {
+                "id": "392",
+                "name": "Billie Eilish"
+            }
+        },
+        {
+            "$": {
+                "id": "369",
+                "name": "Bizzy Banks"
+            }
+        },
+        {
+            "$": {
+                "id": "261",
+                "name": "black midi"
+            }
+        },
+        {
+            "$": {
+                "id": "359",
+                "name": "Blake Mills"
+            }
+        },
+        {
+            "$": {
+                "id": "340",
+                "name": "Bone Thugs-n-Harmony"
+            }
+        },
+        {
+            "$": {
+                "id": "413",
+                "name": "Bon Iver"
+            }
+        },
+        {
+            "$": {
+                "id": "246",
+                "name": "Brad Mehldau"
+            }
+        },
+        {
+            "$": {
+                "id": "151",
+                "name": "Brand New"
+            }
+        },
+        {
+            "$": {
+                "id": "264",
+                "name": "Brian Blade & The Fellowship Band"
+            }
+        },
+        {
+            "$": {
+                "id": "296",
+                "name": "Brothers Osborne"
+            }
+        },
+        {
+            "$": {
+                "id": "200",
+                "name": "Buck Owens"
+            }
+        },
+        {
+            "$": {
+                "id": "327",
+                "name": "The Bug"
+            }
+        },
+        {
+            "$": {
+                "id": "152",
+                "name": "Burial"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "C"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "328",
+                "name": "Car Seat Headrest"
+            }
+        },
+        {
+            "$": {
+                "id": "251",
+                "name": "Central Cee"
+            }
+        },
+        {
+            "$": {
+                "id": "242",
+                "name": "Charles Mingus"
+            }
+        },
+        {
+            "$": {
+                "id": "189",
+                "name": "Charli XCX"
+            }
+        },
+        {
+            "$": {
+                "id": "315",
+                "name": "Chevelle"
+            }
+        },
+        {
+            "$": {
+                "id": "406",
+                "name": "Chick Corea"
+            }
+        },
+        {
+            "$": {
+                "id": "272",
+                "name": "Chick Corea Trio"
+            }
+        },
+        {
+            "$": {
+                "id": "220",
+                "name": "Choker"
+            }
+        },
+        {
+            "$": {
+                "id": "205",
+                "name": "Chris Stapleton"
+            }
+        },
+        {
+            "$": {
+                "id": "180",
+                "name": "Christian McBride"
+            }
+        },
+        {
+            "$": {
+                "id": "170",
+                "name": "Chucky73"
+            }
+        },
+        {
+            "$": {
+                "id": "345",
+                "name": "Clairo"
+            }
+        },
+        {
+            "$": {
+                "id": "244",
+                "name": "Compilations"
+            }
+        },
+        {
+            "$": {
+                "id": "430",
+                "name": "Conway The Machine"
+            }
+        },
+        {
+            "$": {
+                "id": "166",
+                "name": "Corinne Bailey Rae"
+            }
+        },
+        {
+            "$": {
+                "id": "239",
+                "name": "Courtney Barnett"
+            }
+        },
+        {
+            "$": {
+                "id": "335",
+                "name": "Courtney Barnett & Kurt Vile"
+            }
+        },
+        {
+            "$": {
+                "id": "249",
+                "name": "The Cranberries"
+            }
+        },
+        {
+            "$": {
+                "id": "230",
+                "name": "Crystal Castles"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "D"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "342",
+                "name": "D'Angelo"
+            }
+        },
+        {
+            "$": {
+                "id": "245",
+                "name": "Dads"
+            }
+        },
+        {
+            "$": {
+                "id": "136",
+                "name": "Daft Punk"
+            }
+        },
+        {
+            "$": {
+                "id": "274",
+                "name": "Danish String Quartet"
+            }
+        },
+        {
+            "$": {
+                "id": "198",
+                "name": "Darkside"
+            }
+        },
+        {
+            "$": {
+                "id": "158",
+                "name": "Davd Holland Octet"
+            }
+        },
+        {
+            "$": {
+                "id": "146",
+                "name": "Dave Holland"
+            }
+        },
+        {
+            "$": {
+                "id": "303",
+                "name": "Dave Holland & Kenny Baron"
+            }
+        },
+        {
+            "$": {
+                "id": "209",
+                "name": "Dave Matthews Band"
+            }
+        },
+        {
+            "$": {
+                "id": "407",
+                "name": "David Byrne & St. Vincent"
+            }
+        },
+        {
+            "$": {
+                "id": "435",
+                "name": "Deafheaven"
+            }
+        },
+        {
+            "$": {
+                "id": "424",
+                "name": "The Decemberists"
+            }
+        },
+        {
+            "$": {
+                "id": "286",
+                "name": "Deyarmond Edison"
+            }
+        },
+        {
+            "$": {
+                "id": "419",
+                "name": "Dire Straits"
+            }
+        },
+        {
+            "$": {
+                "id": "185",
+                "name": "Dirty Projectors"
+            }
+        },
+        {
+            "$": {
+                "id": "308",
+                "name": "Dixie Chicks"
+            }
+        },
+        {
+            "$": {
+                "id": "155",
+                "name": "DMX"
+            }
+        },
+        {
+            "$": {
+                "id": "444",
+                "name": "Donny Hathaway"
+            }
+        },
+        {
+            "$": {
+                "id": "188",
+                "name": "Drake"
+            }
+        },
+        {
+            "$": {
+                "id": "365",
+                "name": "Drexciya"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "E"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "313",
+                "name": "Earl Sweatshirt"
+            }
+        },
+        {
+            "$": {
+                "id": "247",
+                "name": "Earth"
+            }
+        },
+        {
+            "$": {
+                "id": "399",
+                "name": "EMA"
+            }
+        },
+        {
+            "$": {
+                "id": "133",
+                "name": "Emma Ruth Rundle"
+            }
+        },
+        {
+            "$": {
+                "id": "131",
+                "name": "Eric Dolphy"
+            }
+        },
+        {
+            "$": {
+                "id": "183",
+                "name": "Erika de Casier"
+            }
+        },
+        {
+            "$": {
+                "id": "130",
+                "name": "Erykah Badu"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "F"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "243",
+                "name": "Father John Misty"
+            }
+        },
+        {
+            "$": {
+                "id": "221",
+                "name": "Faye Webster"
+            }
+        },
+        {
+            "$": {
+                "id": "400",
+                "name": "Feist"
+            }
+        },
+        {
+            "$": {
+                "id": "343",
+                "name": "Fever Ray"
+            }
+        },
+        {
+            "$": {
+                "id": "216",
+                "name": "Fiona Apple"
+            }
+        },
+        {
+            "$": {
+                "id": "355",
+                "name": "FKA twigs"
+            }
+        },
+        {
+            "$": {
+                "id": "322",
+                "name": "Fleet Foxes"
+            }
+        },
+        {
+            "$": {
+                "id": "412",
+                "name": "Floating Points"
+            }
+        },
+        {
+            "$": {
+                "id": "287",
+                "name": "Flying Lotus"
+            }
+        },
+        {
+            "$": {
+                "id": "186",
+                "name": "Four Tet"
+            }
+        },
+        {
+            "$": {
+                "id": "225",
+                "name": "Frankie Cosmos"
+            }
+        },
+        {
+            "$": {
+                "id": "263",
+                "name": "Frank Ocean"
+            }
+        },
+        {
+            "$": {
+                "id": "203",
+                "name": "Frank Zappa"
+            }
+        },
+        {
+            "$": {
+                "id": "348",
+                "name": "Funkadelic"
+            }
+        },
+        {
+            "$": {
+                "id": "390",
+                "name": "Future"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "G"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "295",
+                "name": "Girls"
+            }
+        },
+        {
+            "$": {
+                "id": "304",
+                "name": "Goat Rodeo"
+            }
+        },
+        {
+            "$": {
+                "id": "168",
+                "name": "Gojira"
+            }
+        },
+        {
+            "$": {
+                "id": "372",
+                "name": "Grimes"
+            }
+        },
+        {
+            "$": {
+                "id": "172",
+                "name": "Grizzly Bear"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "H"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "432",
+                "name": "HAIM"
+            }
+        },
+        {
+            "$": {
+                "id": "233",
+                "name": "Hans Zimmer"
+            }
+        },
+        {
+            "$": {
+                "id": "141",
+                "name": "HARDY"
+            }
+        },
+        {
+            "$": {
+                "id": "366",
+                "name": "Helado Negro"
+            }
+        },
+        {
+            "$": {
+                "id": "222",
+                "name": "Home Is Where"
+            }
+        },
+        {
+            "$": {
+                "id": "380",
+                "name": "Hop Along"
+            }
+        },
+        {
+            "$": {
+                "id": "371",
+                "name": "The Hotelier"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "I"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "378",
+                "name": "Immanuel Wilkins"
+            }
+        },
+        {
+            "$": {
+                "id": "169",
+                "name": "Isaiah Rashad"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "J"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "248",
+                "name": "James Blake"
+            }
+        },
+        {
+            "$": {
+                "id": "195",
+                "name": "Janet Jackson"
+            }
+        },
+        {
+            "$": {
+                "id": "204",
+                "name": "Jason Isbell"
+            }
+        },
+        {
+            "$": {
+                "id": "306",
+                "name": "Jason Isbell and the 400 Unit"
+            }
+        },
+        {
+            "$": {
+                "id": "394",
+                "name": "Jason Moran"
+            }
+        },
+        {
+            "$": {
+                "id": "234",
+                "name": "Jay-Z & Kanye West"
+            }
+        },
+        {
+            "$": {
+                "id": "384",
+                "name": "Jazmine Sullivan"
+            }
+        },
+        {
+            "$": {
+                "id": "149",
+                "name": "Joanna Newsom"
+            }
+        },
+        {
+            "$": {
+                "id": "252",
+                "name": "John Abercrombie Quartet"
+            }
+        },
+        {
+            "$": {
+                "id": "370",
+                "name": "John Coltrane & Johnny Hartman (1963)"
+            }
+        },
+        {
+            "$": {
+                "id": "162",
+                "name": "John FM"
+            }
+        },
+        {
+            "$": {
+                "id": "420",
+                "name": "Joni Mitchell"
+            }
+        },
+        {
+            "$": {
+                "id": "276",
+                "name": "Jonny Greenwood"
+            }
+        },
+        {
+            "$": {
+                "id": "139",
+                "name": "Joshua Redman"
+            }
+        },
+        {
+            "$": {
+                "id": "150",
+                "name": "Juan Atkins"
+            }
+        },
+        {
+            "$": {
+                "id": "338",
+                "name": "Julia Holter"
+            }
+        },
+        {
+            "$": {
+                "id": "441",
+                "name": "Justin Timberlake"
+            }
+        },
+        {
+            "$": {
+                "id": "282",
+                "name": "Jyoti"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "K"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "379",
+                "name": "Kacey Musgraves"
+            }
+        },
+        {
+            "$": {
+                "id": "215",
+                "name": "Kal Marks"
+            }
+        },
+        {
+            "$": {
+                "id": "326",
+                "name": "Kanye West"
+            }
+        },
+        {
+            "$": {
+                "id": "173",
+                "name": "Keith Jarrett"
+            }
+        },
+        {
+            "$": {
+                "id": "144",
+                "name": "Kendrick Lamar"
+            }
+        },
+        {
+            "$": {
+                "id": "427",
+                "name": "King Gizzard & The Lizard Wizard"
+            }
+        },
+        {
+            "$": {
+                "id": "267",
+                "name": "King Krule"
+            }
+        },
+        {
+            "$": {
+                "id": "138",
+                "name": "Kings of Leon"
+            }
+        },
+        {
+            "$": {
+                "id": "163",
+                "name": "The Knife"
+            }
+        },
+        {
+            "$": {
+                "id": "395",
+                "name": "Kode9 & Burial"
+            }
+        },
+        {
+            "$": {
+                "id": "240",
+                "name": "Kurt Vile"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "L"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "385",
+                "name": "Ladytron"
+            }
+        },
+        {
+            "$": {
+                "id": "334",
+                "name": "Lana Del Rey"
+            }
+        },
+        {
+            "$": {
+                "id": "309",
+                "name": "Laurie Anderson"
+            }
+        },
+        {
+            "$": {
+                "id": "171",
+                "name": "Led Zeppelin"
+            }
+        },
+        {
+            "$": {
+                "id": "259",
+                "name": "Legowelt"
+            }
+        },
+        {
+            "$": {
+                "id": "260",
+                "name": "Leonard Cohen"
+            }
+        },
+        {
+            "$": {
+                "id": "135",
+                "name": "Lianne La Havas"
+            }
+        },
+        {
+            "$": {
+                "id": "351",
+                "name": "Lil Baby & Gunna"
+            }
+        },
+        {
+            "$": {
+                "id": "182",
+                "name": "Lil Durk"
+            }
+        },
+        {
+            "$": {
+                "id": "353",
+                "name": "Lil Peep"
+            }
+        },
+        {
+            "$": {
+                "id": "294",
+                "name": "Lil Peep & Atoms"
+            }
+        },
+        {
+            "$": {
+                "id": "299",
+                "name": "Lil Peep & Bexey"
+            }
+        },
+        {
+            "$": {
+                "id": "278",
+                "name": "Lil Peep & OmenXIII"
+            }
+        },
+        {
+            "$": {
+                "id": "307",
+                "name": "Lil Yachty"
+            }
+        },
+        {
+            "$": {
+                "id": "179",
+                "name": "LINKIN PARK"
+            }
+        },
+        {
+            "$": {
+                "id": "364",
+                "name": "Little Feat"
+            }
+        },
+        {
+            "$": {
+                "id": "153",
+                "name": "Lizzy Grant"
+            }
+        },
+        {
+            "$": {
+                "id": "409",
+                "name": "Lost Girls"
+            }
+        },
+        {
+            "$": {
+                "id": "411",
+                "name": "Louis C.K_"
+            }
+        },
+        {
+            "$": {
+                "id": "414",
+                "name": "Low"
+            }
+        },
+        {
+            "$": {
+                "id": "404",
+                "name": "Lucinda Williams"
+            }
+        },
+        {
+            "$": {
+                "id": "265",
+                "name": "Luke Combs"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "M"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "319",
+                "name": "Mac DeMarco"
+            }
+        },
+        {
+            "$": {
+                "id": "159",
+                "name": "Mach Hommy"
+            }
+        },
+        {
+            "$": {
+                "id": "421",
+                "name": "Mala"
+            }
+        },
+        {
+            "$": {
+                "id": "288",
+                "name": "Mary Halvorson Octet"
+            }
+        },
+        {
+            "$": {
+                "id": "316",
+                "name": "Mary Halvorson Quintet"
+            }
+        },
+        {
+            "$": {
+                "id": "386",
+                "name": "Mastodon"
+            }
+        },
+        {
+            "$": {
+                "id": "336",
+                "name": "Matt Sweeney & Bonnie Prince Billy"
+            }
+        },
+        {
+            "$": {
+                "id": "373",
+                "name": "Medeski, Scofield, Martin, & Wood"
+            }
+        },
+        {
+            "$": {
+                "id": "229",
+                "name": "Medhane"
+            }
+        },
+        {
+            "$": {
+                "id": "375",
+                "name": "Medslaus"
+            }
+        },
+        {
+            "$": {
+                "id": "428",
+                "name": "Meshuggah"
+            }
+        },
+        {
+            "$": {
+                "id": "324",
+                "name": "Metheny Mehldau"
+            }
+        },
+        {
+            "$": {
+                "id": "283",
+                "name": "Mica Levi"
+            }
+        },
+        {
+            "$": {
+                "id": "140",
+                "name": "Microphones"
+            }
+        },
+        {
+            "$": {
+                "id": "161",
+                "name": "MIKE"
+            }
+        },
+        {
+            "$": {
+                "id": "362",
+                "name": "Mike Sopko, Bill Laswell, & Tyshawn Sorey"
+            }
+        },
+        {
+            "$": {
+                "id": "446",
+                "name": "Miles Davis"
+            }
+        },
+        {
+            "$": {
+                "id": "257",
+                "name": "Miranda Lambert"
+            }
+        },
+        {
+            "$": {
+                "id": "132",
+                "name": "Model 500"
+            }
+        },
+        {
+            "$": {
+                "id": "450",
+                "name": "Modest Mouse"
+            }
+        },
+        {
+            "$": {
+                "id": "397",
+                "name": "Moodymann"
+            }
+        },
+        {
+            "$": {
+                "id": "235",
+                "name": "Morad"
+            }
+        },
+        {
+            "$": {
+                "id": "323",
+                "name": "Moritz von Oswald Trio"
+            }
+        },
+        {
+            "$": {
+                "id": "137",
+                "name": "Morray"
+            }
+        },
+        {
+            "$": {
+                "id": "356",
+                "name": "Mötorhead"
+            }
+        },
+        {
+            "$": {
+                "id": "210",
+                "name": "Mount Eerie"
+            }
+        },
+        {
+            "$": {
+                "id": "312",
+                "name": "Mustafa"
+            }
+        },
+        {
+            "$": {
+                "id": "416",
+                "name": "My Bloody Valentine"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "N"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "423",
+                "name": "The National"
+            }
+        },
+        {
+            "$": {
+                "id": "300",
+                "name": "Navy Blue"
+            }
+        },
+        {
+            "$": {
+                "id": "289",
+                "name": "Nicolas Jaar"
+            }
+        },
+        {
+            "$": {
+                "id": "156",
+                "name": "Norah Jones"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "O"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "250",
+                "name": "Olivia Rodrigo"
+            }
+        },
+        {
+            "$": {
+                "id": "292",
+                "name": "Omar S"
+            }
+        },
+        {
+            "$": {
+                "id": "219",
+                "name": "Omar-S"
+            }
+        },
+        {
+            "$": {
+                "id": "297",
+                "name": "Oneohtrix Point Never"
+            }
+        },
+        {
+            "$": {
+                "id": "436",
+                "name": "The Other People Place"
+            }
+        },
+        {
+            "$": {
+                "id": "422",
+                "name": "Outkast"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "P"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "377",
+                "name": "Pallbearer"
+            }
+        },
+        {
+            "$": {
+                "id": "223",
+                "name": "Palm"
+            }
+        },
+        {
+            "$": {
+                "id": "279",
+                "name": "Pat Metheny"
+            }
+        },
+        {
+            "$": {
+                "id": "280",
+                "name": "Phosphorescent"
+            }
+        },
+        {
+            "$": {
+                "id": "206",
+                "name": "Pino Palladino & Blake Mills"
+            }
+        },
+        {
+            "$": {
+                "id": "347",
+                "name": "Pistol Annies"
+            }
+        },
+        {
+            "$": {
+                "id": "227",
+                "name": "Playboi Carti"
+            }
+        },
+        {
+            "$": {
+                "id": "301",
+                "name": "Pop Smoke"
+            }
+        },
+        {
+            "$": {
+                "id": "181",
+                "name": "Porches"
+            }
+        },
+        {
+            "$": {
+                "id": "190",
+                "name": "Porter Ricks"
+            }
+        },
+        {
+            "$": {
+                "id": "253",
+                "name": "Portishead"
+            }
+        },
+        {
+            "$": {
+                "id": "382",
+                "name": "Punch Brothers"
+            }
+        },
+        {
+            "$": {
+                "id": "374",
+                "name": "Pusha T"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "R"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "434",
+                "name": "Radiohead"
+            }
+        },
+        {
+            "$": {
+                "id": "154",
+                "name": "Red House Painters"
+            }
+        },
+        {
+            "$": {
+                "id": "408",
+                "name": "Return to Forever"
+            }
+        },
+        {
+            "$": {
+                "id": "269",
+                "name": "Rhythm & Sound"
+            }
+        },
+        {
+            "$": {
+                "id": "256",
+                "name": "Rickie Lee Jones"
+            }
+        },
+        {
+            "$": {
+                "id": "129",
+                "name": "Rihanna"
+            }
+        },
+        {
+            "$": {
+                "id": "445",
+                "name": "Rob Mazurek"
+            }
+        },
+        {
+            "$": {
+                "id": "201",
+                "name": "Robyn"
+            }
+        },
+        {
+            "$": {
+                "id": "174",
+                "name": "The Rolling Stones"
+            }
+        },
+        {
+            "$": {
+                "id": "147",
+                "name": "Rosalia"
+            }
+        },
+        {
+            "$": {
+                "id": "410",
+                "name": "Roy Hargrove"
+            }
+        },
+        {
+            "$": {
+                "id": "431",
+                "name": "Roy Hargrove Big Band"
+            }
+        },
+        {
+            "$": {
+                "id": "254",
+                "name": "Roy Hargrove Quintet"
+            }
+        },
+        {
+            "$": {
+                "id": "207",
+                "name": "Ruben Blades"
+            }
+        },
+        {
+            "$": {
+                "id": "425",
+                "name": "Ryan Lott"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "S"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "439",
+                "name": "Sada Baby"
+            }
+        },
+        {
+            "$": {
+                "id": "448",
+                "name": "Sade"
+            }
+        },
+        {
+            "$": {
+                "id": "389",
+                "name": "Saintseneca"
+            }
+        },
+        {
+            "$": {
+                "id": "238",
+                "name": "Sam Cooke"
+            }
+        },
+        {
+            "$": {
+                "id": "396",
+                "name": "Sam Hunt"
+            }
+        },
+        {
+            "$": {
+                "id": "383",
+                "name": "Sara Bareilles"
+            }
+        },
+        {
+            "$": {
+                "id": "196",
+                "name": "Scion"
+            }
+        },
+        {
+            "$": {
+                "id": "285",
+                "name": "Seefeel"
+            }
+        },
+        {
+            "$": {
+                "id": "134",
+                "name": "Sharon Van Etten"
+            }
+        },
+        {
+            "$": {
+                "id": "361",
+                "name": "Shed"
+            }
+        },
+        {
+            "$": {
+                "id": "447",
+                "name": "Skee Mask"
+            }
+        },
+        {
+            "$": {
+                "id": "273",
+                "name": "Skream"
+            }
+        },
+        {
+            "$": {
+                "id": "360",
+                "name": "Slowthai"
+            }
+        },
+        {
+            "$": {
+                "id": "337",
+                "name": "Smog"
+            }
+        },
+        {
+            "$": {
+                "id": "212",
+                "name": "Solange"
+            }
+        },
+        {
+            "$": {
+                "id": "332",
+                "name": "SOPHIE"
+            }
+        },
+        {
+            "$": {
+                "id": "281",
+                "name": "Soundtrack"
+            }
+        },
+        {
+            "$": {
+                "id": "376",
+                "name": "Southside Hoodlum"
+            }
+        },
+        {
+            "$": {
+                "id": "368",
+                "name": "Speedy Ortiz"
+            }
+        },
+        {
+            "$": {
+                "id": "143",
+                "name": "Spellling"
+            }
+        },
+        {
+            "$": {
+                "id": "241",
+                "name": "Spider-Man 3_ Music From And Inspired By"
+            }
+        },
+        {
+            "$": {
+                "id": "277",
+                "name": "Spirit Of The Beehive"
+            }
+        },
+        {
+            "$": {
+                "id": "318",
+                "name": "Squid"
+            }
+        },
+        {
+            "$": {
+                "id": "305",
+                "name": "St. Vincent"
+            }
+        },
+        {
+            "$": {
+                "id": "388",
+                "name": "Steely Dan"
+            }
+        },
+        {
+            "$": {
+                "id": "339",
+                "name": "The Strokes"
+            }
+        },
+        {
+            "$": {
+                "id": "418",
+                "name": "Sturgill Simpson"
+            }
+        },
+        {
+            "$": {
+                "id": "271",
+                "name": "Sufjan Stevens"
+            }
+        },
+        {
+            "$": {
+                "id": "128",
+                "name": "System Of A Down"
+            }
+        },
+        {
+            "$": {
+                "id": "293",
+                "name": "SZA"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "T"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "275",
+                "name": "T.I."
+            }
+        },
+        {
+            "$": {
+                "id": "231",
+                "name": "Teddy Pendergrass"
+            }
+        },
+        {
+            "$": {
+                "id": "224",
+                "name": "Tedeschi Trucks Band"
+            }
+        },
+        {
+            "$": {
+                "id": "440",
+                "name": "Theo Parrish"
+            }
+        },
+        {
+            "$": {
+                "id": "320",
+                "name": "Thomas Köner"
+            }
+        },
+        {
+            "$": {
+                "id": "167",
+                "name": "Titus Andronicus"
+            }
+        },
+        {
+            "$": {
+                "id": "426",
+                "name": "Tony Williams"
+            }
+        },
+        {
+            "$": {
+                "id": "184",
+                "name": "The Tony Williams Lifetime"
+            }
+        },
+        {
+            "$": {
+                "id": "284",
+                "name": "Tool"
+            }
+        },
+        {
+            "$": {
+                "id": "330",
+                "name": "Town Mountain"
+            }
+        },
+        {
+            "$": {
+                "id": "266",
+                "name": "Travis Scott"
+            }
+        },
+        {
+            "$": {
+                "id": "199",
+                "name": "Trent Reznor"
+            }
+        },
+        {
+            "$": {
+                "id": "350",
+                "name": "Trio Of Doom"
+            }
+        },
+        {
+            "$": {
+                "id": "381",
+                "name": "Twin Shadow"
+            }
+        },
+        {
+            "$": {
+                "id": "314",
+                "name": "Tyler, the Creator"
+            }
+        },
+        {
+            "$": {
+                "id": "208",
+                "name": "Tyler Childers"
+            }
+        },
+        {
+            "$": {
+                "id": "391",
+                "name": "Tyshawn Sorey"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "U"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "164",
+                "name": "Usher"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "V"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "226",
+                "name": "Van Morrison"
+            }
+        },
+        {
+            "$": {
+                "id": "311",
+                "name": "Various Artists"
+            }
+        },
+        {
+            "$": {
+                "id": "268",
+                "name": "Vijay Iyer"
+            }
+        },
+        {
+            "$": {
+                "id": "298",
+                "name": "Vijay Iyer & Wadada Leo Smith"
+            }
+        },
+        {
+            "$": {
+                "id": "218",
+                "name": "Vijay Iyer Trio"
+            }
+        },
+        {
+            "$": {
+                "id": "176",
+                "name": "Vincent Peirani & Emile Parisien"
+            }
+        },
+        {
+            "$": {
+                "id": "443",
+                "name": "Vince Staples"
+            }
+        },
+        {
+            "$": {
+                "id": "329",
+                "name": "Volcano Choir"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "W"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "165",
+                "name": "The Walkmen"
+            }
+        },
+        {
+            "$": {
+                "id": "433",
+                "name": "The War On Drugs"
+            }
+        },
+        {
+            "$": {
+                "id": "211",
+                "name": "Waxahatchee"
+            }
+        },
+        {
+            "$": {
+                "id": "321",
+                "name": "Weather Report"
+            }
+        },
+        {
+            "$": {
+                "id": "331",
+                "name": "The Weather Station"
+            }
+        },
+        {
+            "$": {
+                "id": "232",
+                "name": "The Weeknd"
+            }
+        },
+        {
+            "$": {
+                "id": "197",
+                "name": "Westside Gunn"
+            }
+        },
+        {
+            "$": {
+                "id": "236",
+                "name": "Weyes Blood"
+            }
+        },
+        {
+            "$": {
+                "id": "228",
+                "name": "Whitney"
+            }
+        },
+        {
+            "$": {
+                "id": "178",
+                "name": "Willie Nelson"
+            }
+        },
+        {
+            "$": {
+                "id": "202",
+                "name": "The World Is A Beautiful Place And I Am No Longer Afraid To Die"
+            }
+        },
+        {
+            "$": {
+                "id": "255",
+                "name": "The Wrens"
+            }
+        }
+    ]
+},
+{
+    "$": {
+        "name": "X-Z"
+    },
+    "artist": [
+        {
+            "$": {
+                "id": "317",
+                "name": "The xx"
+            }
+        },
+        {
+            "$": {
+                "id": "437",
+                "name": "Yaeji"
+            }
+        },
+        {
+            "$": {
+                "id": "157",
+                "name": "YG"
+            }
+        },
+        {
+            "$": {
+                "id": "367",
+                "name": "YOB"
+            }
+        },
+        {
+            "$": {
+                "id": "363",
+                "name": "Young Thug"
+            }
+        },
+        {
+            "$": {
+                "id": "270",
+                "name": "Yo-Yo Ma"
+            }
+        }
+    ]
+}
