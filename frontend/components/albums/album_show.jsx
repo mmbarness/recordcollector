@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import * as subsonic from '../../util/subsonic_api_utils';
 import { AddToCartModal } from '../cart/add_to_cart_modal';
 import TrackItem from '../tracks/track_item';
+
 
 export class AlbumShow extends React.Component {
     constructor(props){
@@ -32,6 +34,8 @@ export class AlbumShow extends React.Component {
         this.stateSetter(response);
     }
 
+    
+
     stateSetter(data) {
         this.setState({
             album: {
@@ -50,7 +54,7 @@ export class AlbumShow extends React.Component {
     }
 
     componentDidMount(){
-            
+
         (this.props.inProps) ? this.stateSetter({album: this.props.album, artist: this.props.artist, tracks: this.props.album.tracks}) : this.getAlbum();       
     }
 
@@ -100,7 +104,14 @@ export class AlbumShow extends React.Component {
         this.props.addCartItem(namedPrice, userId, albumId).then(this.toggleCartModal(e))
     }
 
+    searcher = async () => {
+        const search = await subsonic.searchPlex(this.state.album.title)
+        debugger
+    }
+
     render() {
+        // window.search = subsonic.searchPlex(this.state.album.title).then(resp => {debugger; return(resp)})
+        this.searcher();
         window.state = this.state;
         window.albShowProps = this.props;
         return(
