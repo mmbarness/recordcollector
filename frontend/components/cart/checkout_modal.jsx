@@ -1,13 +1,12 @@
 import React from 'react'
 import { EmailMe } from '../contact/email_form';
 import { GithubSVG } from '../svg/github';
-import { GmailSVG } from '../svg/gmail';
 import { LinkedInSVG } from '../svg/linkedIn';
 
-export const CheckoutModal = (props) => {
+export const HireMeModal = (props) => {
     const currentUser = props.currentUser
-    const toggleCheckoutModal = props.toggleCheckoutModal
-    let checkoutModalVisible = props.checkoutModalVisible 
+    const toggleCheckoutModal = props.toggleHireMeModal
+    let checkoutModalVisible = props.hireMeModalVisible 
 
     const gitLink = (id) => (
         <a href="https://github.com/mmbarness" id="github-checkout-link" target="_blank" rel="noopener noreferrer">
@@ -18,12 +17,6 @@ export const CheckoutModal = (props) => {
     const linkedLink = (id) => (
         <a href="https://www.linkedin.com/in/matthew-barnes-61162b64/" id="linkedIn-checkout-link" target="_blank" rel="noopener noreferrer">
             {<LinkedInSVG id="linkedin-checkout-svg"/>}
-        </a>
-    )
-
-    const gmailLink = () => (
-        <a href="https://www.linkedin.com/in/matthew-barnes-61162b64/" id="gmail-checkout-link" target="_blank" rel="noopener noreferrer">
-            {<GmailSVG id="gmail-checkout-svg"/>}
         </a>
     )
 

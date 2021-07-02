@@ -6,7 +6,8 @@ import {
   Switch,
   Link,
   HashRouter,
-  BrowserRouter as Router
+  BrowserRouter as Router,
+  useLocation
 } from 'react-router-dom';
 
 import TopBarContainer from './top_bar/top_bar_container';
@@ -24,10 +25,12 @@ const logo = 'https://previews.dropbox.com/p/thumb/ABJpyFxjjSw5vcEEePwI6vYJfm8Sd
 
 const App = () => {
 
+  const location = useLocation()
+
   return(
   <div>
     <header className="top-bar">
-      <TopBarContainer />
+      <TopBarContainer location={location}/>
     </header>
     <Switch>
       <Route path="/artists/:artistId/albums/:albumId" component={AlbumShowContainer} />

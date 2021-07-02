@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 import TopBar from './top_bar';
 
 const mapStateToProps = (state, ownProps) => {
+  const location = ownProps.location
   let cartInProps = false 
   let cart 
   if (state.entities.users[state.session.id] !== undefined){
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],
     cartInProps: cartInProps, 
-    cart: cart
+    cart: cart,
+    location
   };
 };
 

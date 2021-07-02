@@ -108,3 +108,22 @@
     width: 2vmax;
     padding: .5vmax;
 }
+
+#hire-me-btn{
+    font-family: 'Roboto Slab';
+    background-color: #738F9B;
+    color: white;
+    font-weight: 400;
+    border-radius: .5em;
+    border: none;
+    height: 2em;
+    align-self: flex-end;position: absolute;
+    top: 0;
+    right: 0;
+    margin: .5em;
+}
+
+#hire-me-btn:hover{
+  cursor: pointer;
+  background-color: #bad1db;
+}

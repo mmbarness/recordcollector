@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 const logo = 'https://record-collector-dev.s3.amazonaws.com/logo-garnish.png'
 import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
+import { HireMeModal } from '../cart/checkout_modal';
 import { SearchBar } from './search';
 import { SearchHook } from './search2hook';
 import { SearchBarModel } from './search_model';
@@ -16,12 +17,10 @@ export class TopBar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      cart: ""
+      cart: "",
+      hireMeModalVisible : false,
+      atCartPage: (this.props.location.pathname === "/cart")
     }
-  }
-
-  componentDidMount(){
-    
   }
 
   logoContainer (){
@@ -42,6 +41,10 @@ export class TopBar extends React.Component{
     </div>)
   }
   
+  toggleHireMeModal = (e) => {
+      e.preventDefault();
+      this.setState({hireMeModalVisible : !this.state.hireMeModalVisible })              
+  }
   
   searchBar (){
     return(<div className="searchbar-container"><SearchBar/></div>)
@@ -60,6 +63,7 @@ export class TopBar extends React.Component{
             <Link to="/login">login</Link>
           </nav>
         </div>
+        {this.hireMe()}
       </div>)
   };
 
@@ -71,12 +75,28 @@ export class TopBar extends React.Component{
     }
   }
 
+  toggleHireMeButtonRender = () => (
+    this.state.atCartPage ? 'none' : 'block'
+  )
+
+  hireMe = () => (
+    <button id="hire-me-btn" onClick={(e)=>this.toggleHireMeModal(e)}>
+      Hire Me!
+    </button>
+  )
+
   splashGreeting () {
     const currentUser = this.props.currentUser;
     const logout = this.props.logout 
+    const none = "none"
     let cart = (this.props.cartInProps === true) ? this.props.cart : []
     return (
       <div className="top-bar-container">
+        <HireMeModal 
+            currentUser = {this.props.currentUser}
+            hireMeModalVisible = {this.state.hireMeModalVisible}
+            toggleHireMeModal = {this.toggleHireMeModal}
+        />
         {this.logoContainer()}
         <div className="right-side-elements">
           {this.searchBar()}
@@ -89,6 +109,7 @@ export class TopBar extends React.Component{
           </Link>
           </hgroup>
         </div>
+        {this.hireMe()}
         {/* <CartIconContainer/> */}
       </div>
     )
@@ -99,6 +120,7 @@ export class TopBar extends React.Component{
     window.barProps = this.props 
     return(
       currentUser ? this.splashGreeting() : this.sessionLinks()
+      
     )
   }
   
