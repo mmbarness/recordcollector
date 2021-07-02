@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom';
 import {Link} from 'react-router-dom';
 import { ReactSVG } from 'react-svg'
+import { EmailMe } from '../contact/email_form';
 import { GithubSVG } from '../svg/github';
 import { GmailSVG } from '../svg/gmail';
 import { LinkedInSVG } from '../svg/linkedIn';
@@ -35,14 +36,15 @@ export const CheckoutModal = (props) => {
 
     return(
         <div className={`checkout-modal ${checkoutModalVisible ? "is-open" : "close"}`}>
-            <form className="checkout-modal-form">
+            <div className="checkout-modal-div">
                 <span className="checkout-modal-close js-checkout-modal-close" onClick={(e)=> toggleCheckoutModal(e)}>&times;</span>
                 <h3>Hire Me!</h3>
                 <div id="checkout-prof-links">
                     {gitLink('checkout')}
                     {linkedLink('checkout')}
                 </div>
-            </form>
+                <EmailMe toggleCheckoutModal={toggleCheckoutModal}/>
+            </div>
             <div className="modal-screen js-modal-close"></div>
         </div>    
     )

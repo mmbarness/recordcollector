@@ -5,6 +5,7 @@
     align-items: center;
     width: 100%;
     background-color: #222;
+    margin-top: clamp(-1em, -0.75em, 10px);
 }
 
 #feature-artist-img-link{

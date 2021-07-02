@@ -31,7 +31,6 @@
   background: #ffe9c9;
   z-index: 3;
   border-radius: 5px;
-  opacity: .95;
 }
 
 .cart-modal-close {
@@ -76,8 +75,10 @@
     font-weight: 400;
     border-radius: .5em;
     border: none;
+    width: max-content
 }
 
 #add-cart-modal-btn:hover{
   cursor: pointer;
+  background-color: #bad1db;
 }

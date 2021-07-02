@@ -16,7 +16,7 @@
   z-index: 2;
 }
 
-.checkout-modal-form {
+.checkout-modal-div {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -24,7 +24,7 @@
   top: 12vmax;
   left: 50%;
   margin-left: -220px;
-  width: 45vmin;
+  min-width: 20em;
   padding: 20px;
   background: #fff;
   z-index: 3;
@@ -45,19 +45,20 @@
   color: #f00;
 }
 
-.checkout-modal-form > h3 {
+.checkout-modal-div > h3 {
   font-size: 1.5em;
   line-height: 1;
   font-weight: 300;
   margin-bottom: 1em;
 }
 
-.checkout-modal-form > p {
+.checkout-modal-div > p {
   margin: 0 0 20px 0;
 }
 
 #checkout-btn:hover{
-    cursor:pointer
+  cursor:pointer;
+  background-color: #bad1db;
 }
 
 #checkout-btn {

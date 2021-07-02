@@ -1,0 +1,32 @@
+.contact-form{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    margin-top: 1em;
+}
+
+.contact-form-label{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+
+#contact-form-textarea{
+    margin-left: 1em;
+}
+
+#send-email-btn{
+    font-family: 'Roboto Slab';
+    background-color: #738F9B;
+    color: white;
+    font-weight: 400;
+    border-radius: .5em;
+    border: none;
+    width: max-content
+}
+
+#send-email-btn:hover{
+    cursor:pointer;
+    background-color: #bad1db;
+}
