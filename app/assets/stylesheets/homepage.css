@@ -44,8 +44,8 @@
 }
 
 .hp-album-img{
-    width: 14vmin;
-    height: 14vmin;
+    min-width: 8em;
+    max-width: 10em;
 }
 
 .hp-album-text{

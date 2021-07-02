@@ -1,15 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom';
-import {Link} from 'react-router-dom';
-import { ReactSVG } from 'react-svg'
 import { EmailMe } from '../contact/email_form';
 import { GithubSVG } from '../svg/github';
 import { GmailSVG } from '../svg/gmail';
 import { LinkedInSVG } from '../svg/linkedIn';
-const linkedIn = 'https://record-collector-dev.s3.amazonaws.com/iconmonstr-linkedin-3.svg'
-// import {linkedInSVG as linkedInSVG} from 'https://record-collector-dev.s3.amazonaws.com/iconmonstr-linkedin-3.svg';
-
-const github = 'https://record-collector-dev.s3.amazonaws.com/iconmonstr-github-1.svg'
 
 export const CheckoutModal = (props) => {
     const currentUser = props.currentUser
