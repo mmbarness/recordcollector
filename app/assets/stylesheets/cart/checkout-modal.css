@@ -17,6 +17,9 @@
 }
 
 .checkout-modal-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
   position: absolute;
   top: 12vmax;
   left: 50%;
@@ -42,10 +45,11 @@
   color: #f00;
 }
 
-.checkout-modal-form > h1 {
-  font-size: 36px;
+.checkout-modal-form > h3 {
+  font-size: 1.5em;
   line-height: 1;
   font-weight: 300;
+  margin-bottom: 1em;
 }
 
 .checkout-modal-form > p {
@@ -67,3 +71,23 @@
     border-radius: .5em;
     border: none;
 }
+
+#checkout-prof-links{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+}
+
+#github-checkout-link{
+  margin-right: 1em;
+}
+
+#linkedin-checkout-svg{
+  fill: #2867B2;
+}
+
+#gmail-checkout-link{
+  margin-left: 1em;
+}
+

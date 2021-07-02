@@ -7,7 +7,6 @@
     justify-content: center; 
     height: auto;
     width: 100%;
-    padding-bottom: 1vmax;
     z-index: 2;
     opacity: .975;
 }
@@ -38,18 +37,18 @@
 
 #logo-text{
     position: absolute;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 #logo-garnish{
-    width: 4em;
-    margin-left: -3.75em;
-    margin-top: .75em;
+    width: 3em;
+    margin-left: -3em;
+    margin-top: .5em;
 }
 
 .logo-sentence{
     font-family: 'Roboto Slab';
-    font-size: 1.2vmax;
+    font-size: 1em;
     font-weight: 300;
 }
 
@@ -58,7 +57,7 @@
     flex-flow: column;
     align-items: flex-end;
     width: 40%;
-    padding-top: 3vmax;
+    padding-top: 1em;
     justify-content: space-around;
 }
 
@@ -106,8 +105,4 @@
 .top-bar-cart-link >img{
     width: 2vmax;
     padding: .5vmax;
-}
-
-#cart-count{
-    // position: absolute;
 }

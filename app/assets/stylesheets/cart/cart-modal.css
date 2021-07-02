@@ -19,16 +19,19 @@
 }
 
 .cart-modal-form {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
   position: absolute;
   top: 14vmax;
   left: 50%;
   margin-left: -220px;
   width: 45vmin;
   padding: 20px;
-  background: #fff;
+  background: #ffe9c9;
   z-index: 3;
   border-radius: 5px;
-  border: 1px solid #000;
+  opacity: .95;
 }
 
 .cart-modal-close {
@@ -52,4 +55,29 @@
 
 .cart-modal-form > p {
   margin: 0 0 20px 0;
+}
+
+#name-album-price{
+  margin-left: .5em;
+  border: none;
+  width: 20%;
+  font-family: 'Robot Slab';
+  font-weight: 300;
+}
+
+.cart-modal-form > .submit{
+  margin-right: 2em;
+}
+
+#add-cart-modal-btn{
+    font-family: 'Roboto Slab';
+    background-color: #738F9B;
+    color: white;
+    font-weight: 400;
+    border-radius: .5em;
+    border: none;
+}
+
+#add-cart-modal-btn:hover{
+  cursor: pointer;
 }

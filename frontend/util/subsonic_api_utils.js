@@ -127,6 +127,7 @@ export const searchAll = async (query) => {
 
 export const searchPlexArtists = async (query) => {
     const results = await fetch('http://record-collector.subsonic.org/rest/search3?' + new URLSearchParams({
+        mode: "no-cors",
         query: query,
         albumCount: 0,
         songCount: 0,
