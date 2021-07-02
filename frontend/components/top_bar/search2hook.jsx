@@ -24,7 +24,6 @@ export const SearchHook = () => {
 		makeAndHandleRequest(query).then(resp => {
 			_cache[query] = { ...resp, page: 1 };
 			setisLoading(false);
-			console.log('resp:', resp)
 			setoptions(resp.options)
 		});
 	};
@@ -46,7 +45,6 @@ export const SearchHook = () => {
 
 	
 	const statePackage = {isLoading, options, query, cache}
-	console.log('state:', statePackage)
 
 	return (
 		<AsyncTypeahead

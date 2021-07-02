@@ -3,6 +3,8 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    width: 60%;
+    margin: auto;
 }
 
 .cart-container > h2{ 
@@ -14,8 +16,8 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    width: 60%;
-    /* border-top: 2px solid paleturquoise; */
+    width: 100%;
+    border-top: 2px solid paleturquoise;
     border-bottom: 2px solid paleturquoise;
 }
 

@@ -9,7 +9,6 @@ export const CartItem = (props) => {
     const albArtistId = album.artist_id;  
     const color = props.color 
     const bgColor = {backgroundColor : color};
-    console.log(color) 
     const albumUrl = `/artists/${albArtistId}/albums/${album.album_id}`
     const artistUrl = `/artists/${albArtistId}/`
     const albumLink = <Link to={albumUrl} className="cart-item-albumLink">{album.title}</Link>

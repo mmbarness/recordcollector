@@ -5,6 +5,8 @@ import MoneyCounter from './money_counter';
 import HPFeatures_container from './HPFeatures_container';
 import CartIcon from '../cart/cart_icon'
 import { newHPFetch } from '../../util/album_api_util';
+import { searchArtists } from '../../util/subsonic_api_utils';
+
 export class Home extends React.Component {
     constructor(props){
         super(props)
@@ -27,8 +29,21 @@ export class Home extends React.Component {
                 this.setState({
                     albums: fetchAlbums.response.albums, 
                     artists: fetchAlbums.response.artists,
-                    feature: fetchAlbums.response.feature_artist}) 
-                })
+                    feature: fetchAlbums.response.feature_artist
+                }) 
+                this.attachSubsonic(fetchAlbums.response.artists)
+            })
+    }
+    
+
+    attachSubsonic = (artists) => {
+        artists = Object.values(artists)
+        artists.forEach(async artist => {
+            let artistFetch = await searchArtists(artist.name)
+            let artistObj = artistFetch.searchResult3[0].artist[0].$
+            let id = parseInt(artistObj.id)
+            this.props.fetchSubsonicArtist(id)
+        })
     }
 
     buildAlbumElement(album){

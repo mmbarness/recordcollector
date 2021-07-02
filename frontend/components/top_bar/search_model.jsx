@@ -22,7 +22,6 @@ export class SearchBarModel extends React.Component {
     window.isLoading = this.state.isLoading;
     window.options = this.state.options
     window.query = this.state.query
-    console.log('state at render:', this.state)
     return (
       <AsyncTypeahead
         {...this.state}

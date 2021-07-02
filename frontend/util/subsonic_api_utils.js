@@ -9,9 +9,55 @@ const u = "admin"
 const t = md5(pw+salt)
 const s = salt 
 const c = "mbp"
-const v = 1.9
+const v = 1.14
 
 // example = "http://your-server/rest/ping.view?u=joe&t=26719a1196d2a940705a59634eb18eab&s=c19b2d&v=1.12.0&c=myapp"
+
+export const getArtist = async (id) => {
+    const indices = await fetch('http://record-collector.subsonic.org/rest/getArtist?' + new URLSearchParams({
+        id: id,
+        u: u,
+        t: t,
+        s: s,
+        c: c,
+        v: v
+    })
+    )
+    .then(response => {
+        return response.text();
+    })
+    .then(data => (data.replace("\n", "")))
+    return (indices)
+}
+
+export const parseGetArtist = async (id) => {
+    let artist = await getArtist(id).then(resp => parseStringPromise(resp))
+    artist = JSON.parse(JSON.stringify(artist))
+    return (artist["subsonic-response"])
+}
+
+export const getAlbum = async (id) => {
+    const indices = await fetch('http://record-collector.subsonic.org/rest/getAlbum?' + new URLSearchParams({
+        id: id,
+        u: u,
+        t: t,
+        s: s,
+        c: c,
+        v: v
+    })
+    )
+    .then(response => {
+        return response.text();
+    })
+    .then(data => (data.replace("\n", "")))
+    return (indices)
+}
+
+export const parseGetAlbum = async (id) => {
+    let album = await getAlbum(id).then(resp => parseStringPromise(resp))
+    album = JSON.parse(JSON.stringify(album))
+    return (album["subsonic-response"])
+}
 
 export const getMusicFolders = async () => {
     const folders = await fetch('http://record-collector.subsonic.org/rest/getMusicFolders?' + new URLSearchParams({
@@ -58,7 +104,7 @@ export const getIndices = async () => {
 }
 
 export const searchPlex = async (query) => {
-    const results = await fetch('http://record-collector.subsonic.org/rest/search2?' + new URLSearchParams({
+    const results = await fetch('http://record-collector.subsonic.org/rest/search3?' + new URLSearchParams({
         query: query,
         u: u,
         t: t,
@@ -76,11 +122,11 @@ export const searchPlex = async (query) => {
 export const searchAll = async (query) => {
     let search = await searchPlex(query).then(resp => parseStringPromise(resp))
     search = JSON.parse(JSON.stringify(search))
-    return (search["subsonic-response"]["searchResult2"][0])
+    return (search["subsonic-response"])
 }
 
 export const searchPlexArtists = async (query) => {
-    const results = await fetch('http://record-collector.subsonic.org/rest/search2?' + new URLSearchParams({
+    const results = await fetch('http://record-collector.subsonic.org/rest/search3?' + new URLSearchParams({
         query: query,
         albumCount: 0,
         songCount: 0,
@@ -100,11 +146,11 @@ export const searchPlexArtists = async (query) => {
 export const searchArtists = async (query) => {
     let search = await searchPlexArtists(query).then(resp => parseStringPromise(resp))
     search = JSON.parse(JSON.stringify(search))
-    return (search["subsonic-response"]["searchResult2"])
+    return (search["subsonic-response"])
 }
 
 export const searchPlexAlbums = async (query) => {
-    const results = await fetch('http://record-collector.subsonic.org/rest/search2?' + new URLSearchParams({
+    const results = await fetch('http://record-collector.subsonic.org/rest/search3?' + new URLSearchParams({
         query: query,
         artistCount: 0,
         songCount: 0,
@@ -124,11 +170,11 @@ export const searchPlexAlbums = async (query) => {
 export const searchAlbums = async (query) => {
     let search = await searchPlexAlbums(query).then(resp => parseStringPromise(resp))
     search = JSON.parse(JSON.stringify(search))
-    return (search["subsonic-response"]["searchResult2"])
+    return (search["subsonic-response"])
 }
 
 export const searchPlexSongs = async (query) => {
-    const results = await fetch('http://record-collector.subsonic.org/rest/search2?' + new URLSearchParams({
+    const results = await fetch('http://record-collector.subsonic.org/rest/search3?' + new URLSearchParams({
         query: query,
         artistCount: 0,
         songCount: 10,
@@ -149,7 +195,7 @@ export const searchPlexSongs = async (query) => {
 export const searchSongs = async (query) => {
     let search = await searchPlexSongs(query).then(resp => parseStringPromise(resp))
     search = JSON.parse(JSON.stringify(search))
-    return (search["subsonic-response"]["searchResult2"])
+    return (search["subsonic-response"])
 }
 
 export const streamSong = async(id) => {
