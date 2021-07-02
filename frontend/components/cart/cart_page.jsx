@@ -3,18 +3,23 @@ import {Link} from 'react-router-dom';
 import AlbumItem from '../albums/album_item';
 import CartItem from './cart_item';
 import _, { map } from 'underscore';
-
-
+import { CheckoutModal } from './checkout_modal';
 export class CartPage extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             cart: [],
-            price: ""
+            price: "",
+            checkoutModalVisible: false
         }
         this.albumGrid = this.albumGrid.bind(this);
         this.removeCartItem = this.removeCartItem.bind(this);
     } 
+
+    toggleCheckoutModal = (e) => {
+        e.preventDefault();
+        this.setState({checkoutModalVisible: !this.state.checkoutModalVisible})              
+    }
 
     removeCartItem(cartId){
         this.props.removeCartItem(this.props.currentUser.id, cartId)
@@ -79,7 +84,15 @@ export class CartPage extends React.Component {
                 <div className="cart-grid">
                     {this.albumGrid()}
                     {this.renderSum()}
+                    <CheckoutModal 
+                        currentUser = {this.props.currentUser}
+                        checkoutModalVisible = {this.state.checkoutModalVisible}
+                        toggleCheckoutModal = {this.toggleCheckoutModal}
+                    />
                 </div>
+                <button id="checkout-btn" onClick={
+                    (e)=>this.toggleCheckoutModal(e)}>Checkout!
+                </button>
             </div>
         )
     }

@@ -15,7 +15,8 @@ export class AlbumShow extends React.Component {
             album: {id: "", title: "", album_image_url: "", description: ""},
             tracks: [] ,
             currentUser: this.props.currentUser,
-            cartModalVisible: false 
+            cartModalVisible: false,
+            subsonicInfo: [] 
         }
         this.showInfo = this.showInfo.bind(this);
         this.trackGrid = this.trackGrid.bind(this);
@@ -31,10 +32,9 @@ export class AlbumShow extends React.Component {
         response.artist.artist_image_url = response.artist_image_url; 
         delete response.album_image_url;
         delete response.artist_image_url
+        this.getFromSubsonic(response.artist.name)
         this.stateSetter(response);
     }
-
-    
 
     stateSetter(data) {
         this.setState({
@@ -53,9 +53,24 @@ export class AlbumShow extends React.Component {
         })
     }
 
-    componentDidMount(){
+    getFromSubsonic = async (query) => {
+        let results = await subsonic.searchArtists(query)
+        results = results["searchResult3"][0]['artist']
+        let filtered = (results.filter(artist => artist.$.name === query))[0].$
+        let artistGet = await subsonic.parseGetArtist(filtered.id)
+        let artist = artistGet.artist[0].$
+        let albums = artistGet.artist[0].album
+        this.setState({subsonicInfo: {artist, albums}})
+    }
 
-        (this.props.inProps) ? this.stateSetter({album: this.props.album, artist: this.props.artist, tracks: this.props.album.tracks}) : this.getAlbum();       
+    componentDidMount(){
+        if (this.props.inProps) {
+            this.stateSetter({album: this.props.album, artist: this.props.artist, tracks: this.props.album.tracks})
+            this.getFromSubsonic(this.props.artist.name)
+        } else {
+            this.getAlbum()
+        };
+        
     }
 
     trackGrid(){
@@ -104,20 +119,10 @@ export class AlbumShow extends React.Component {
         this.props.addCartItem(namedPrice, userId, albumId).then(this.toggleCartModal(e))
     }
 
-    // searcher = async () => {
-    //     // console.log(subsonic.searchPlex(this.state.album.title))
-    //     let search = await subsonic.searchPlex(this.state.album.title).then(resp => parseStringPromise(resp))
-    //     search = JSON.parse(JSON.stringify(search))
-    //     return (search["subsonic-response"]["searchResult2"][0])
-    // }
-
     render() {
-        // window.search = subsonic.searchPlex(this.state.album.title).then(resp => {debugger; return(resp)})
         window.parseString = parseString
         window.parseStringPromise = parseStringPromise
-        // window.albums = subsonic.searchAlbums(this.state.album.title)
-        // window.search = this.searcher();
-        window.state = this.state;
+        window.albumState = this.state;
         window.albShowProps = this.props;
         return(
             <div>

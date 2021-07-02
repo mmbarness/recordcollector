@@ -74,17 +74,16 @@ export const TrackItem = (props) => {
         // audio.play(); //call this to play the song right away
     }
 
-    useEffect(async () => {
-        audioEle()
-    },[1])
+    // useEffect(async () => {
+    //     audioEle()
+    // },[1])
 
     return (
         <li className="album-show-track-item" onClick={audioEle}>
-            {track.track_number}. {track.title}
-            
-            <audio id={`${track.title}-audioSource`} controls onClick={audioEle}>
+            {track.track_number}. {track.title}      
+            {/* <audio id={`${track.title}-audioSource`} controls onClick={audioEle}>
                 <source src="nope" type="audio/mpeg"/>
-            </audio> 
+            </audio>  */}
         </li>
     )
 }

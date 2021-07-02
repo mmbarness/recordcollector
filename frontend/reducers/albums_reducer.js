@@ -1,4 +1,4 @@
-import {RECEIVE_ARTIST_ALBUMS, RECEIVE_ALBUM, RECEIVE_HP_ALBUMS} from '../actions/album_actions'
+import {RECEIVE_ARTIST_ALBUMS, RECEIVE_ALBUM, RECEIVE_HP_ALBUMS, RECEIVE_SUBSONIC_ALBUM_INFO} from '../actions/album_actions'
 
 // const hpAlbums = (allAlbums) => {
 //     for (let i = 0; i < allAlbums.length; i++){
