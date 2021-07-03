@@ -37,9 +37,9 @@ class SessionForm extends React.Component {
   renderErrors() {
     if (this.props.errors !== {}) {
       return(
-        <ul>
+        <ul id="error-messages-list">
           {[this.props.errors].map((error, i) => (
-            <li key={`error-${i}`}>
+            <li className="error-message" key={`error-${i}`}>
               {error}
             </li>
           ))}
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
   conditionalDisplay(){
     if (this.props.formType === 'signup') {
       return (
-      <label>Email:
+      <label id="email-form-field">Email:
         <input type="email"
               value={this.state.email}
               onChange={this.update('email')}
