@@ -42,6 +42,7 @@ export class TopBar extends React.Component{
   }
   
   toggleHireMeModal = (e) => {
+      console.log('before:', this.state)
       e.preventDefault();
       this.setState({hireMeModalVisible : !this.state.hireMeModalVisible })              
   }
@@ -54,6 +55,11 @@ export class TopBar extends React.Component{
   sessionLinks () {
     return (
       <div className="top-bar-container">
+        <HireMeModal 
+          currentUser = {this.props.currentUser}
+          hireMeModalVisible = {this.state.hireMeModalVisible}
+          toggleHireMeModal = {this.toggleHireMeModal}
+        />
         {this.logoContainer()}
         <div className="right-side-elements">
           {this.searchBar()}

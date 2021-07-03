@@ -4,7 +4,6 @@ import { GithubSVG } from '../svg/github';
 import { LinkedInSVG } from '../svg/linkedIn';
 
 export const HireMeModal = (props) => {
-    const currentUser = props.currentUser
     const toggleCheckoutModal = props.toggleHireMeModal
     let checkoutModalVisible = props.hireMeModalVisible 
 

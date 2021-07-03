@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
 
   renderButton = () => {
     let buttonStyle
-    this.props.formType === "Signup" ? buttonStyle = "none" : buttonStyle = "block"
+    this.props.formType === "signup" ? buttonStyle = "none" : buttonStyle = "block"
     return <button className="session-submit" onClick={this.demo} style={{display: `${buttonStyle}`}}>Demo</button>
   }
 
