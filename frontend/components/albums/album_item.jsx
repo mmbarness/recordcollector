@@ -11,12 +11,22 @@ export const AlbumItem = (props) => {
 
     window.albumItemProps = props 
 
-    const classname = moreThanOne ? "artist-show-album-item" : "single-album-artist-show"
+    const ulClassname = moreThanOne ? "artist-show-album-item" : "single-album-artist-show"
+
+    let attrs = {}
+
+    if (moreThanOne){
+        attrs['ul'] = "artist-show-album-item"
+        attrs['image'] = 'artist-show-album-img'
+    } else {
+        attrs['ul'] = "single-album-artist-show"
+        attrs['image'] = 'single-album-artist-show-img'
+    }
 
     return (
-        <ul className={classname}>
+        <ul className={attrs.ul}>
             <Link to={albumUrl} className="hp-album-link">
-                <img src={album.album_image_url} alt={album.title} className= "artist-show-album-img"/>
+                <img src={album.album_image_url} alt={album.title} className={attrs.image}/>
             </Link> 
             <li className="artist-show-album-text"> 
                 {albumLink}

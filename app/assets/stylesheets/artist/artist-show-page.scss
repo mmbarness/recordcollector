@@ -1,4 +1,4 @@
-.artist-show-container{
+#artist-show-columns{
     background-color: white;
     display: flex;
     flex-flow: column;
@@ -9,15 +9,31 @@
     height: 90vh;
     border: solid grey .1em;
 }
+#artist-show-rows{
+    background-color: white;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-around;
+    padding-top: 9.5vh;
+    width: 70%;
+    margin: auto;
+    height: 90vh;
+    border: solid grey .1em;
+}
 
 .artist-show-info{
     justify-self: flex-end; 
-    // flex-grow: 1;
     padding: 2vw
 }
 
-.artist-show-info > img {
+#artist-img-grid {
     width: 25em;
+    border-radius: .25em;
+}
+
+#artist-img-solo{
+    width: 20em;
+    border-radius: .25em;
 }
 
 .album-grid{
@@ -29,6 +45,8 @@
     grid-auto-rows: min-content;
     justify-items: center;
     column-gap: 1em;
+    row-gap: 1em;
+    width: 60%;
 }
 
 .single-album-artist-show{
@@ -48,6 +66,7 @@
     align-items: center;
 }
 
-.hp-album-link > img {
-    width: 15em;
+
+.single-album-artist-show-img{
+    width: 25em;
 }

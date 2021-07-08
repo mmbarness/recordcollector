@@ -24,7 +24,6 @@ export const HireMeModal = (props) => {
         const checkoutDiv= document.getElementById("checkout-modal-div")
         const openBtn = document.getElementById("hire-me-btn")
         const clickOutside = (!checkoutDiv.contains(e.target)) && (!openBtn.contains(e.target));
-        // debugger;
         if ((hireMeBox.className === "checkout-modal is-open") && (clickOutside)){ toggleCheckoutModal(e)}
     })
 
