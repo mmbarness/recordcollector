@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
+
 
 export const AddToCartModal = (props) => {
     const album = props.album
@@ -8,6 +9,7 @@ export const AddToCartModal = (props) => {
     const addCartItem = props.addCartItem
     const toggleCartModal = props.toggleCartModal
     let cartModalVisible = props.cartModalVisible 
+    const location = useLocation();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -17,10 +19,14 @@ export const AddToCartModal = (props) => {
 
     document.addEventListener("click", e => {
         const cartModal = document.getElementById("add-to-cart-modal")
-        const cartModalForm = document.getElementsByClassName('cart-modal-form')[0]
-        const addBtn = document.getElementById("add-cart-album-btn")
-        const clickOutside = (!cartModalForm.contains(e.target)) && (!addBtn.contains(e.target));
-        if ((cartModal.className === "cart-modal is-open") && (clickOutside)) {toggleCartModal(e)}
+        if (cartModal){
+            const cartModalForm = document.getElementsByClassName('cart-modal-form')[0]
+            const addBtn = document.getElementById("add-cart-album-btn")
+            if (cartModal.className === "cart-modal is-open"){
+                const clickOutside = (!cartModalForm.contains(e.target)) && (!addBtn.contains(e.target));
+                if ((cartModal.className === "cart-modal is-open") && (clickOutside)) {toggleCartModal(e)}
+            }
+        }
     })
 
     return(

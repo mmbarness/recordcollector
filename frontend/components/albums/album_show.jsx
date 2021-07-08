@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Redirect} from 'react-router-dom';
+import {Link, Redirect, useLocation} from 'react-router-dom';
 import * as subsonic from '../../util/subsonic_api_utils';
 import { AddToCartModal } from '../cart/add_to_cart_modal';
 import TrackItem from '../tracks/track_item';
@@ -85,8 +85,14 @@ export class AlbumShow extends React.Component {
 
     toggleCartModal(e){
         e.preventDefault();
+        const location = this.props.location
         if (this.state.currentUser === undefined){
-            this.props.history.push('/login');
+            // return(<Redirect push to="/login"/>)
+            return (this.props.history.push({
+                pathname: '/login',
+                state: { location }
+            }))
+            // return (this.props.history.push('/login'));
         } else {
             this.setState({cartModalVisible: !this.state.cartModalVisible})                
         }

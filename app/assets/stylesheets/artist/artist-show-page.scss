@@ -41,8 +41,8 @@
     justify-self: center;
     flex-grow: 2;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-auto-rows: min-content;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: auto;
     justify-items: center;
     column-gap: 1em;
     row-gap: 1em;
@@ -60,7 +60,7 @@
 }
 
 .artist-show-album-item{
-    width: -webkit-fill-available;
+    width: 80%;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -69,4 +69,12 @@
 
 .single-album-artist-show-img{
     width: 25em;
+}
+
+.artist-show-album-img {
+    width: inherit;
+}
+
+.hp-album-link {
+    width: inherit;
 }

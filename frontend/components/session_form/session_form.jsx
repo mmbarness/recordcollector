@@ -1,12 +1,14 @@
 import React from 'react';
 
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       username: '',
-      password: ''
+      password: '',
+      origin: props.origin
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.conditionalDisplay = this.conditionalDisplay.bind(this);
@@ -54,7 +56,15 @@ class SessionForm extends React.Component {
         username: "demo", 
         password: "demodemo"
       }
-      this.props.processForm(user).then(() => this.props.history.push('/'))
+      this.props.processForm(user).then(() => this.handleRedirect())
+  }
+
+  handleRedirect = () => {
+    if (this.state.origin){
+      this.props.history.push(this.state.origin.pathname)
+    } else {
+      this.props.history.push('/')
+    }
   }
 
   conditionalDisplay(){
