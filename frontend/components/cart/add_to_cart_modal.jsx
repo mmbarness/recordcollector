@@ -15,6 +15,10 @@ export const AddToCartModal = (props) => {
         addCartItem(e, namedPrice, currentUser.id, album.id)
     }
 
+    document.addEventListener('click', () => {
+        
+    })
+
     return(
         <div className={`cart-modal ${cartModalVisible ? "is-open" : "close"}`}>
             <form className="cart-modal-form">

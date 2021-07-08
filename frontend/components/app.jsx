@@ -28,7 +28,7 @@ const App = () => {
   const location = useLocation()
 
   return(
-  <div>
+  <div className="top-div">
     <header className="top-bar">
       <TopBarContainer location={location}/>
     </header>

@@ -59,6 +59,20 @@ export const parseGetAlbum = async (id) => {
     return (album["subsonic-response"])
 }
 
+export const getCoverArt = async(id) => {
+    const picture = await fetch('http://record-collector.subsonic.org/rest/getCoverArt?' + new URLSearchParams({
+        id: id,
+        u: u,
+        t: t,
+        s: s,
+        c: c,
+        v: v,
+    }))
+    // const contentType = picture.headers.get('Content-Type');
+    const raw = await picture.blob();
+    return raw
+}
+
 export const getMusicFolders = async () => {
     const folders = await fetch('http://record-collector.subsonic.org/rest/getMusicFolders?' + new URLSearchParams({
         u: u,

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import * as subsonic from '../../util/subsonic_api_utils';
 import { AddToCartModal } from '../cart/add_to_cart_modal';
 import TrackItem from '../tracks/track_item';
@@ -85,9 +85,12 @@ export class AlbumShow extends React.Component {
 
     toggleCartModal(e){
         e.preventDefault();
-        this.setState({cartModalVisible: !this.state.cartModalVisible})                
+        if (this.state.currentUser === undefined){
+            this.props.history.push('/login');
+        } else {
+            this.setState({cartModalVisible: !this.state.cartModalVisible})                
+        }
     }
-
 
     showInfo() {
         const artistLink = `/artists/${this.artistId}`
@@ -125,7 +128,7 @@ export class AlbumShow extends React.Component {
         window.albumState = this.state;
         window.albShowProps = this.props;
         return(
-            <div>
+            <div id="album-show-pg">
                 {this.showInfo()}
                 <AddToCartModal 
                     album={this.state.album} 

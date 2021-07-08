@@ -22,3 +22,8 @@ body{
     font-family: 'Roboto Slab';
     background-color: #FFFAFA;
 }
+
+.top-div{
+  background-color: #FFFFF0;
+  height: 100vh;
+}

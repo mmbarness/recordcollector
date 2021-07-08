@@ -1,8 +1,13 @@
 .artist-show-container{
+    background-color: white;
     display: flex;
-    flex-direction: row;
-    padding-top: 12vmax;
-    width: 80vmax;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 9.5vh;
+    width: 70%;
+    margin: auto;
+    height: 90vh;
+    border: solid grey .1em;
 }
 
 .artist-show-info{
@@ -12,20 +17,37 @@
 }
 
 .artist-show-info > img {
-    width: 30vmax;
+    width: 25em;
 }
 
 .album-grid{
-    padding: 2vw; 
+    padding: 2vw;
     justify-self: center;
     flex-grow: 2;
-    display: grid; 
+    display: grid;
     grid-template-columns: repeat(2, 50%);
+    grid-auto-rows: min-content;
     justify-items: center;
-    column-gap: 2vmax;
-    padding-left: 10vmax;
+    column-gap: 1em;
+}
+
+.single-album-artist-show{
+    padding: 2vw;
+    justify-self: center;
+    flex-grow: 2;
+    display: grid;
+    grid-auto-rows: min-content;
+    justify-items: center;
+    column-gap: 1em;
+}
+
+.artist-show-album-item{
+    width: -webkit-fill-available;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .hp-album-link > img {
-    width: 20vmax;
+    width: 15em;
 }

@@ -1,3 +1,11 @@
+#album-show-pg{
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    margin: auto;
+    border: solid grey .1em;
+}
+
 .album-show-container{
     display: flex;
     flex-flow: row;
@@ -7,9 +15,9 @@
 
 .album-show-page{
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-auto-columns: 40% 60%;
     grid-auto-rows: max-content min-content;
-    width: 60%;
+    margin-left: 2.5em;
 }
 
 .album-show-info{

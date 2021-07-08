@@ -42,7 +42,6 @@ export class TopBar extends React.Component{
   }
   
   toggleHireMeModal = (e) => {
-      console.log('before:', this.state)
       e.preventDefault();
       this.setState({hireMeModalVisible : !this.state.hireMeModalVisible })              
   }
