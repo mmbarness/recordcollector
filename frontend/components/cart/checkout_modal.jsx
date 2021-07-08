@@ -19,9 +19,18 @@ export const HireMeModal = (props) => {
         </a>
     )
 
+    document.addEventListener("click", e => {
+        const hireMeBox = document.getElementById('hire-me-box')
+        const checkoutDiv= document.getElementById("checkout-modal-div")
+        const openBtn = document.getElementById("hire-me-btn")
+        const clickOutside = (!checkoutDiv.contains(e.target)) && (!openBtn.contains(e.target));
+        // debugger;
+        if ((hireMeBox.className === "checkout-modal is-open") && (clickOutside)){ toggleCheckoutModal(e)}
+    })
+
     return(
-        <div className={`checkout-modal ${checkoutModalVisible ? "is-open" : "close"}`}>
-            <div className="checkout-modal-div">
+        <div id="hire-me-box" className={`checkout-modal ${checkoutModalVisible ? "is-open" : "close"}`}>
+            <div id="checkout-modal-div" className="checkout-modal-div">
                 <span className="checkout-modal-close js-checkout-modal-close" onClick={(e)=> toggleCheckoutModal(e)}>&times;</span>
                 <h3>Hire Me!</h3>
                 <div id="checkout-prof-links">

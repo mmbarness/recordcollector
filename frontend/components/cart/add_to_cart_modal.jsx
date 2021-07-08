@@ -15,12 +15,16 @@ export const AddToCartModal = (props) => {
         addCartItem(e, namedPrice, currentUser.id, album.id)
     }
 
-    document.addEventListener('click', () => {
-        
+    document.addEventListener("click", e => {
+        const cartModal = document.getElementById("add-to-cart-modal")
+        const cartModalForm = document.getElementsByClassName('cart-modal-form')[0]
+        const addBtn = document.getElementById("add-cart-album-btn")
+        const clickOutside = (!cartModalForm.contains(e.target)) && (!addBtn.contains(e.target));
+        if ((cartModal.className === "cart-modal is-open") && (clickOutside)) {toggleCartModal(e)}
     })
 
     return(
-        <div className={`cart-modal ${cartModalVisible ? "is-open" : "close"}`}>
+        <div id="add-to-cart-modal" className={`cart-modal ${cartModalVisible ? "is-open" : "close"}`}>
             <form className="cart-modal-form">
                 <span className="cart-modal-close js-cart-modal-close" onClick={(e)=> toggleCartModal(e)}>&times;</span>
                 <div className="name-album-price">
@@ -31,7 +35,7 @@ export const AddToCartModal = (props) => {
                     <button id="add-cart-modal-btn" onClick={handleSubmit}>Add to Cart</button>
                 </div>
             </form>
-            <div className="modal-screen js-modal-close"></div>
+            <div className="cart-modal-screen js-modal-close"></div>
         </div>    
     )
 }

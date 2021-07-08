@@ -6,7 +6,7 @@
   display: block;
 }
 
-.checkout-modal-screen {
+.modal-screen {
   position: fixed;
   background: rgba(0, 0, 0, 0.7);
   top: 0;
