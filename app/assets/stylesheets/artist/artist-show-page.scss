@@ -1,56 +1,70 @@
 #artist-show-columns{
     background-color: white;
     display: flex;
-    flex-flow: column;
-    align-items: center;
-    padding-top: 9.5vh;
+    flex-flow: row-reverse;
+    padding-top: 12vh;
     width: 70%;
     margin: auto;
-    height: 90vh;
-    border: solid grey .1em;
+    border-color: grey;
+    border-style: solid;
+    border-width: 0px .1em 0em .1em;
+    height: 88vh;
 }
 #artist-show-rows{
     background-color: white;
     display: flex;
     flex-flow: row-reverse;
     justify-content: space-around;
-    padding-top: 9.5vh;
+    padding-top: 12vh;
     width: 70%;
     margin: auto;
-    height: 90vh;
-    border: solid grey .1em;
+    height: 88vh;
+    border-color: grey;
+    border-style: solid;
+    border-width: 0px .1em 0em .1em;
 }
 
-.artist-show-info{
+#artist-show-info-album{
     justify-self: flex-end; 
-    padding: 2vw
+    padding-right: 1em;
+    padding-top: 1.5em;
+    min-width: 10em;
+    max-width: 15em;
+}
+
+#artist-show-info-albums{
+    justify-self: flex-end; 
+    padding-right: 3em;
+    padding-top: 1.5em;
+    width: 30%
 }
 
 #artist-img-grid {
-    width: 25em;
+    max-width: 100%;
     border-radius: .25em;
 }
 
 #artist-img-solo{
-    width: 20em;
     border-radius: .25em;
+    max-width: 100%;
 }
 
 .album-grid{
-    padding: 2vw;
+    padding: 1.5em;
     justify-self: center;
     flex-grow: 2;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     justify-items: center;
     column-gap: 1em;
     row-gap: 1em;
-    width: 60%;
+    width: 50%;
+    height: fit-content;
 }
 
 .single-album-artist-show{
-    padding: 2vw;
+    padding:1.5em;
     justify-self: center;
     flex-grow: 2;
     display: grid;
@@ -60,21 +74,17 @@
 }
 
 .artist-show-album-item{
-    width: 80%;
+    width: 95%;
     display: flex;
     flex-flow: column;
     align-items: center;
 }
-
 
 .single-album-artist-show-img{
     width: 25em;
 }
 
 .artist-show-album-img {
-    width: inherit;
-}
-
-.hp-album-link {
-    width: inherit;
+    max-width: 100%;
+    width: 20em;
 }

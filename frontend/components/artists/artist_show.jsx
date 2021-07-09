@@ -91,8 +91,9 @@ export const ArtistShow = props => {
     const showInfo = () => {
         const containerID = (numAlbums > 1) ? "artist-show-columns" : "artist-show-rows" 
         const artistImgId = (numAlbums > 1) ? "artist-img-grid" : "artist-img-solo" 
+        const artistInfoID = (numAlbums > 1) ? "artist-show-info-albums" : "artist-show-info-album" 
         return (<div className="artist-show-container" id={containerID}>
-            <div className="artist-show-info">
+            <div className="artist-show-info" id={artistInfoID}>
                 <img src={artist.artist_image_url} alt={`${artist.name} show image`} id={artistImgId}/>
                 <h2 id="artist-show-info-name">{artist.name}</h2>
                 <h2 id="artist-show-info-location">{artist.location}</h2>    
