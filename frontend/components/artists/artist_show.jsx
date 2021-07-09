@@ -13,10 +13,12 @@ export const ArtistShow = props => {
     const dispatch = useDispatch()
 
     const subsonicFromState = useSelector(state => {
-        if ((!_.isEmpty(state.entities.hp.artists)) && (state.entities.hp.artists[props.match.params.artistId].subsonic !== undefined)){
-            return {
-                artist: state.entities.hp.artists[props.match.params.artistId].subsonic,
-                albums: state.entities.hp.artists[props.match.params.artistId].subsonic.albums
+        if (!_.isEmpty(state.entities.hp.artists) && (state.entities.hp.artists[props.match.params.artistId] !== undefined)){
+            if ((state.entities.hp.artists[props.match.params.artistId].subsonic !== undefined)){
+                return {
+                    artist: state.entities.hp.artists[props.match.params.artistId].subsonic,
+                    albums: state.entities.hp.artists[props.match.params.artistId].subsonic.albums
+                }
             }
         } else {
             return false 
