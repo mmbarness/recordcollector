@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react'
+import React,{ useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchArtist } from '../../actions/artist_actions'
 import { getCoverArt, getFolders, getIndices, getMusicFolders, parseGetAlbum, parseGetArtist, searchAlbums, searchArtists, searchSongs } from '../../util/subsonic_api_utils'
@@ -10,7 +10,13 @@ export const ArtistShow = props => {
     const [albums, setalbums] = useState({})
     const [subsonic, setsubsonic] = useState({})
     const [numAlbums, setnumAlbums] = useState(0)
+    const [counter, setcounter] = useState(0)
     const dispatch = useDispatch()
+
+
+    // setlocation(useLocation()
+
+    // parseInt(props.match.params.artistId) === artist.artistId ? null : forceUpdate();
 
     const subsonicFromState = useSelector(state => {
         if (!_.isEmpty(state.entities.hp.artists) && (state.entities.hp.artists[props.match.params.artistId] !== undefined)){
@@ -40,6 +46,16 @@ export const ArtistShow = props => {
         setnumAlbums((Object.values(albums)).length)
     }
 
+    const reRender = () => {
+        getArtist().then(resp => stateSetter(resp))
+    }
+
+    useEffect(()=> { //tied to change in artistId inside params
+        const curId = parseInt(props.match.params.artistId)
+        const bool = (artist.id !== undefined) ? (curId !== artist.id) : false //true if rerender necessary, ie mismatch between artist in local state and params
+        if (bool) {reRender()}
+    [props.match.params.artistId]})
+
     useEffect(async () => {
         if (subsonicFromState) {
             const {artist, albums} = await getArtist()
@@ -50,7 +66,7 @@ export const ArtistShow = props => {
             const artist = await getArtist()
             stateSetter(artist)
         }
-    },[1])
+    },[])
     
     const albumHandler = () => {
         if (Object.values(albums).length > 1) {
@@ -91,6 +107,7 @@ export const ArtistShow = props => {
     }
     
     const showInfo = () => {
+        // debugger;
         const containerID = (numAlbums > 1) ? "artist-show-columns" : "artist-show-rows" 
         const artistImgId = (numAlbums > 1) ? "artist-img-grid" : "artist-img-solo" 
         const artistInfoID = (numAlbums > 1) ? "artist-show-info-albums" : "artist-show-info-album" 
@@ -101,6 +118,7 @@ export const ArtistShow = props => {
                 <h2 id="artist-show-info-location">{artist.location}</h2>    
             </div>
             {albumHandler()}
+            {/* <div>{location.pathname}</div> */}
         </div>)
     }
 

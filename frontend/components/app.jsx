@@ -30,11 +30,11 @@ const App = () => {
   return(
   <div className="top-div">
     <header className="top-bar">
-      <TopBarContainer location={location}/>
+      <Route path ="/" component={TopBarContainer} location={location}/>
     </header>
     <Switch>
       <Route path="/artists/:artistId/albums/:albumId" component={AlbumShowContainer} />
-      <Route exact path="/artists/:artistId" component={ArtistShow} />
+      <Route exact path="/artists/:artistId" component={ArtistShow} key={window.location.pathname}/>
       <Route exact path = "/" component ={Home}/>
       <ProtectedRoute exact path="/cart" component={CartPageContainer}/>
       <Route exact path="/artists/" component={ArtistIndexContainer} />

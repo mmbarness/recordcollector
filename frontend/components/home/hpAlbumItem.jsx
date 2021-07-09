@@ -7,8 +7,8 @@ export const HPAlbumItem = (props) => {
     let album = props.album   
     const albumUrl = `/artists/${albArtist.id}/albums/${album.id}`;
     const artistUrl = `/artists/${albArtist.id}`;
-    const albumLink = <Link to={albumUrl} className="hp-album-title">{album.title}</Link>  
-    const artistLink = <Link to={artistUrl} className="hp-album-artist">{albArtist.name}</Link>
+    const albumLink = <Link to={albumUrl} className="hp-album-title" key={albumUrl}>{album.title}</Link>  
+    const artistLink = <Link to={artistUrl} className="hp-album-artist" key={artistUrl}>{albArtist.name}</Link>
     
     window.props = props 
     

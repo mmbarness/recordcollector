@@ -11,6 +11,21 @@
     width: 100%
 }
 
+.rbt-close {
+    border: none;
+    background-color: white;
+    font-size: 1em;
+}
+
+.rbt-close:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.sr-only{
+    display: none;
+}
+
 .rbt{
     height:100%
 }
@@ -26,3 +41,15 @@
     margin-right: 10px;
     border-radius: .25vw;
 }
+
+.rbt-aux{
+    align-items: center;
+    display: flex;
+    bottom: 0;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+}
+

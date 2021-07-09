@@ -6,6 +6,7 @@ import CartIcon from '../cart/cart_icon'
 import CartIconContainer from '../cart/cart_icon_container';
 import { HireMeModal } from '../cart/checkout_modal';
 import { SearchBar } from './search';
+import SearchBarContainer from './search_container'
 import { SearchHook } from './search2hook';
 import { SearchBarModel } from './search_model';
 // require('svg-url-loader!./shopping-cart.svg')
@@ -47,7 +48,7 @@ export class TopBar extends React.Component{
   }
   
   searchBar (){
-    return(<div className="searchbar-container"><SearchBar/></div>)
+    return(<div className="searchbar-container"><SearchBarContainer history ={this.props.history}/></div>)
     // return (<input type="text" className="search-bar" placeholder="Search and discover music"></input>)
   }
 
