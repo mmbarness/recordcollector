@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 13vmax;
     width: 100%;
+    height: 100vh;
 }
 
 .login-form-box{
     display: flex;
-    flex-flow:column;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     font-size: 1.25em;
@@ -54,4 +54,8 @@
 .session-submit:hover{
     cursor: pointer;
     background-color: #bad1db;
+}
+
+.error-message{
+    margin-right: 1em;
 }
