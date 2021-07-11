@@ -1,9 +1,6 @@
 require 'ransack'
 class Api::SearchController < ApplicationController
 
-    include Elasticsearch::Model
-    include Elasticsearch::Model::Callbacks
-
     def index
         artistLower = "%#{params[:query].downcase}%"
         artistAsIs= "%#{params[:query]}%"
@@ -20,7 +17,6 @@ class Api::SearchController < ApplicationController
                 matches.length > 0
             end
         end 
-        # @results.each{|artist| artist[:artist_image_url] = url_for(artist.photo)}
         render "api/search/index"
     end
 
@@ -33,4 +29,3 @@ class Api::SearchController < ApplicationController
 
 end
 
-# Artist.find_by_sql ["SELECT * FROM artists WHERE lower(name) LIKE ? OR name LIKE ?", "%#{params[:query]}%", "%#{params[:query].downcase}%"]

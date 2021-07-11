@@ -15,7 +15,8 @@
 
 #feature-img {
     max-width: 65%;
-    height: auto
+    height: auto;
+    width: 0px;
 }
 
 .hp-album > img {
