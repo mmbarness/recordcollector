@@ -16,7 +16,6 @@
 #feature-img {
     max-width: 65%;
     height: auto;
-    width: 0px;
 }
 
 .hp-album > img {
@@ -27,5 +26,4 @@
 #feature-text{
     position: absolute;
     color: white;
-    /* margin-top: 30em; */
 }
