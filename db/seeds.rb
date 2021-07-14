@@ -84,8 +84,11 @@
 #   })
 # bon_iverJSON = bon_iver.as_json
 
+# bon_iver = Artist.find_by(name: "Bon Iver")
+# bon_iver.photo.destroy
+
 # bon_iver.photo.attach(
-#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/heroku-dev/artists/bon-iver-band-photo.jpeg"), 
+#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/bon-iver-band-photo.jpeg"), 
 #     filename: "bon-iver-band-photo.jpeg")
 
 # chris_stapleton = Artist.create({
@@ -175,11 +178,11 @@
 #   })
 # frank_oceanJSON = frank_ocean.as_json
 
-frank_ocean = Artist.find_by(name: 'Frank Ocean');
+# frank_ocean = Artist.find_by(name: 'Frank Ocean');
 
-frank_ocean.photo.attach(
-    io: URI.open("https://record-collector-dev.s3.amazonaws.com/frank-ocean-band-photo.jpeg"), 
-    filename: "frank-ocean-band-photo.jpeg")
+# frank_ocean.photo.attach(
+#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/frank-ocean-band-photo.jpeg"), 
+#     filename: "frank-ocean-band-photo.jpeg")
 
 # grimes = Artist.create({
 #     name: 'Grimes',
@@ -197,8 +200,11 @@ frank_ocean.photo.attach(
 #   })
 # hardyJSON = hardy.as_json
 
+# hardy = Artist.find_by(name: 'HARDY')
+# hardy.photo.destroy
+
 # hardy.photo.attach(
-#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/heroku-dev/artists/hardy-band-photo.jpeg"), 
+#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/hardy-band-photo.jpeg"), 
 #     filename: "hardy-band-photo.jpeg")
 
 # jason_isbell = Artist.create({
@@ -457,9 +463,12 @@ frank_ocean.photo.attach(
 #   })
 # yobJSON = yob.as_json
 
-# yob.photo.attach(
-#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/heroku-dev/artists/yob-band-photo.jpeg"), 
-#     filename: "yob-band-photo.jpeg")
+yob= Artist.find_by(name: 'YOB')
+yob.photo.destroy
+
+yob.photo.attach(
+    io: URI.open("https://record-collector-dev.s3.amazonaws.com/yob-band-photo.jpeg"), 
+    filename: "yob-band-photo.jpeg")
 
 # young_thug = Artist.create({
 #     name: 'Young Thug',
