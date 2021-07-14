@@ -84,12 +84,12 @@
 #   })
 # bon_iverJSON = bon_iver.as_json
 
-bon_iver = Artist.find_by(name: "Bon Iver")
-bon_iver.photo.destroy
+# bon_iver = Artist.find_by(name: "Bon Iver")
+# bon_iver.photo.destroy
 
-bon_iver.photo.attach(
-    io: URI.open("https://record-collector-dev.s3.amazonaws.com/bon-iver-band-photo.jpeg"), 
-    filename: "bon-iver-band-photo.jpeg")
+# bon_iver.photo.attach(
+#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/bon-iver-band-photo.jpeg"), 
+#     filename: "bon-iver-band-photo.jpeg")
 
 # chris_stapleton = Artist.create({
 #     name: 'Chris Stapleton',
@@ -200,12 +200,12 @@ bon_iver.photo.attach(
 #   })
 # hardyJSON = hardy.as_json
 
-hardy = Artist.find_by(name: 'HARDY')
-hardy.photo.destroy
+# hardy = Artist.find_by(name: 'HARDY')
+# hardy.photo.destroy
 
-hardy.photo.attach(
-    io: URI.open("https://record-collector-dev.s3.amazonaws.com/hardy-band-photo.jpeg"), 
-    filename: "hardy-band-photo.jpeg")
+# hardy.photo.attach(
+#     io: URI.open("https://record-collector-dev.s3.amazonaws.com/hardy-band-photo.jpeg"), 
+#     filename: "hardy-band-photo.jpeg")
 
 # jason_isbell = Artist.create({
 #     name: 'Jason Isbell',

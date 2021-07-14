@@ -1,6 +1,6 @@
 class Album < ApplicationRecord
     belongs_to :artist
-    has_many :tracks
+    has_many :tracks, dependent: :destroy
     has_one_attached :photo 
 
     has_many :cart_items

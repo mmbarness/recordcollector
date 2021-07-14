@@ -113,5 +113,4 @@ export const ArtistShow = props => {
         showInfo()
     )
 
-
 }

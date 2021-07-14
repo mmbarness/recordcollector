@@ -14,7 +14,9 @@ export const HPAlbumItem = (props) => {
     
     return (
         <ul className="hp-album">
-            <img src={album.album_image_url} alt={album.title} className= "hp-album-img"/>
+            <Link to={albumUrl} className="hp-album-title" key={albumUrl}>
+                <img src={album.album_image_url} alt={album.title} className= "hp-album-img"/>
+            </Link>
             <li> 
                 <ul className="hp-album-text">
                     <li className="hp-album-title">
