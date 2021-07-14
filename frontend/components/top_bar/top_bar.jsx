@@ -64,12 +64,12 @@ export class TopBar extends React.Component{
         <div className="right-side-elements">
           {this.searchBar()}
           <nav className={["login-signup", "top-bar-text", "session-text"].join(" ")}>
+            {this.hireMe()}
             <Link to="/signup">sign up</Link>
             &nbsp; &nbsp;
             <Link to="/login">login</Link>
           </nav>
         </div>
-        {this.hireMe()}
       </div>)
   };
 
