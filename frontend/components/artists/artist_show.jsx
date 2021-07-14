@@ -13,11 +13,6 @@ export const ArtistShow = props => {
     const [counter, setcounter] = useState(0)
     const dispatch = useDispatch()
 
-
-    // setlocation(useLocation()
-
-    // parseInt(props.match.params.artistId) === artist.artistId ? null : forceUpdate();
-
     const subsonicFromState = useSelector(state => {
         if (!_.isEmpty(state.entities.hp.artists) && (state.entities.hp.artists[props.match.params.artistId] !== undefined)){
             if ((state.entities.hp.artists[props.match.params.artistId].subsonic !== undefined)){
@@ -99,16 +94,9 @@ export const ArtistShow = props => {
             return image;
         }
     }
-
-    const addPicture = () => {
-        let image = document.createElement("image")
-        const artistPhoto = artistPhotoPicker()
-        image.srcObject = artistPhoto
-    }
     
     const showInfo = () => {
-        // debugger;
-        const containerID = (numAlbums > 1) ? "artist-show-columns" : "artist-show-rows" 
+        const containerID = (numAlbums > 1) ? "artist-show-albums" : "artist-show-single-album" 
         const artistImgId = (numAlbums > 1) ? "artist-img-grid" : "artist-img-solo" 
         const artistInfoID = (numAlbums > 1) ? "artist-show-info-albums" : "artist-show-info-album" 
         return (<div className="artist-show-container" id={containerID}>
@@ -118,11 +106,8 @@ export const ArtistShow = props => {
                 <h2 id="artist-show-info-location">{artist.location}</h2>    
             </div>
             {albumHandler()}
-            {/* <div>{location.pathname}</div> */}
         </div>)
     }
-
-    window.numAlbums = numAlbums
 
     return(
         showInfo()

@@ -30,8 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem "aws-sdk-s3", require: false
 gem 'ransack'
-gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
-gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
