@@ -29,8 +29,6 @@ const cartReducer = (state = {}, action) => {
             nextState[item.cart_id] = item
             return nextState; 
         case REMOVE_CART_ITEM:
-            // stateItem = nextState.filter(item => item.id === action.deleted_item)
-            
             delete nextState[action.deleted_item]
             return nextState;
         default:

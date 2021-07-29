@@ -31,7 +31,7 @@ export class Home extends React.Component {
                     artists: fetchAlbums.response.artists,
                     feature: fetchAlbums.response.feature_artist
                 }) 
-                this.attachSubsonic(fetchAlbums.response.artists)
+                // this.attachSubsonic(fetchAlbums.response.artists)
             })
     }
     
@@ -66,13 +66,12 @@ export class Home extends React.Component {
             }
             return albumArr.map(
                 album => { 
-                return<HPAlbumItem album ={album} artist={this.state.artists[album["artist_id"]]}/>
+                return<HPAlbumItem key = {album.id} album ={album} artist={this.state.artists[album["artist_id"]]}/>
             })
         }
     }
 
     render(){
-        window.newHPFetch = newHPFetch
         return(
             <div className="hp-container">
                 <HPFeatures_container feature={this.state.feature}/>

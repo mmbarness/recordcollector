@@ -4,7 +4,7 @@ import { AsyncTypeahead, ClearButton } from 'react-bootstrap-typeahead';
 import { render } from 'react-dom';
 import { makeAndHandleRequest } from '../../util/search_api_util';
 import {Link} from 'react-router-dom'
-import 'react-bootstrap-typeahead/css/Typeahead.css';
+// import 'react-bootstrap-typeahead/css/Typeahead.css';
 const PER_PAGE = 50;
 export class SearchBar extends React.Component {
 
@@ -53,10 +53,6 @@ export class SearchBar extends React.Component {
 	_cache = {};
 
 	render() {
-		console.log('ref',this.ref)
-		window.isLoading = this.state.isLoading;
-		window.options = this.state.options
-		window.query = this.state.query
 		return (
 		<AsyncTypeahead
 			{...this.state}

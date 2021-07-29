@@ -10,7 +10,6 @@ export const ArtistShow = props => {
     const [albums, setalbums] = useState({})
     const [subsonic, setsubsonic] = useState({})
     const [numAlbums, setnumAlbums] = useState(0)
-    const [counter, setcounter] = useState(0)
     const dispatch = useDispatch()
 
     const subsonicFromState = useSelector(state => {
@@ -30,9 +29,6 @@ export const ArtistShow = props => {
         const {artist, albums} = await dispatch(fetchArtist(parseInt(props.match.params.artistId)));
         return {artist: artist, albums: albums};
     }
-
-    window.artist = artist;
-    window.albums = albums; 
 
     const stateSetter = ({artist, albums, subsonic = {}}) => {
         setartist(artist)
@@ -79,7 +75,7 @@ export const ArtistShow = props => {
             {albumArr.map(albumEle => {
                 const albumId = albumEle.id
                 return(
-                    <AlbumItem album={albumEle} moreThanOne={moreThanOne}/> 
+                    <AlbumItem key = {albumId} album={albumEle} moreThanOne={moreThanOne}/> 
                 )
             })}
         </ul>

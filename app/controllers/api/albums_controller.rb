@@ -42,7 +42,6 @@ class Api::AlbumsController < ApplicationController
         @response = {artists: {}, albums: {}};
         artistIds.each do |id| 
             artist = Artist.find_by(id: id)
-            p `id:#{id} artist: #{artist}`
             artist_image_url ={:artist_image_url => url_for(artist.photo)}
             artistJSON = artist_image_url.merge(artist.as_json)
             @response[:artists][id] = []

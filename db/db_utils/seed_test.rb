@@ -1,3 +1,5 @@
+require 'open-uri'
+
 data = [
     {
         artist: "Andy Stott",
@@ -60,15 +62,20 @@ data.each do |artist_object|
     album_object = artist_object[:album]
     tracksObjArr = artist_object[:tracks]
     album_object[:artist_id] = artist.id
-    Album.find_by(name: album_object[:title]).destroy
+    # Album.find_by(title: album_object[:title]).photo.destroy
+    Album.find_by(title: album_object[:title]).destroy
     album = Album.create(album_object)
     tracksObjArr.each do |track|
         track[:artist_id] = artist.id
         track[:album_id] = album.id
         Track.create(track);
     end
+    artist_name = (artist.name).gsub!(" ","-").downcase
+    album_title = (album.title).gsub!(" ","-").downcase
+    album_url = "https://record-collector-dev.s3.amazonaws.com/albums/#{artist_name}-#{album_title}-album-photo.jpeg"
+    photo_file_name = `#{artist_name}-#{album_title}-album-photo.jpeg`
     album.photo.attach(
-        io: URI.open("https://record-collector-dev.s3.amazonaws.com/NCD39xeGmHVKCuT2NsUyzzuz"), 
-        filename: `#{artist.name}-#{album.title}-album-photo.jpeg`
+        io: URI.open(album_url), 
+        filename: photo_file_name
     )
 end
