@@ -4,6 +4,10 @@
     <%= favicon_link_tag asset_path('https://record-collector-dev.s3.amazonaws.com/logo-garnish.png')%>
     <title>record collector</title>
     <%= csrf_meta_tags %>
+    <meta property="og:title" content="Record Collector">
+    <meta property="og:description" content="uhhhhhh">
+    <meta property="og:image" content="https://record-collector-dev.s3.amazonaws.com/Screen+Shot+2021-08-10+at+13.13.13.png">
+    <meta property="og:url" content="http://record-collector.matthewbarnes.tech/#/">
     <%if current_user%>
       <script>
         window.currentUser = {
