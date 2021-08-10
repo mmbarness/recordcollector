@@ -38,4 +38,6 @@ A [website](https://record-collector-aa.herokuapp.com/#/) to facilitate the inde
         }))
     }  
 ```
+
+![Image of Record Collector](https://record-collector-dev.s3.amazonaws.com/rC-SS-1.png)
  
